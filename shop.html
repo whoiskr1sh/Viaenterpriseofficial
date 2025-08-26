@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Viaenterpriseofficial</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/shop.css">
+</head>
+<body>
+    <!-- Navbar Component -->
+<!-- Navbar Component -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo">Viaenterpriseofficial</a>
+        
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main Navigation -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            
+            <!-- Shop Dropdown -->
+            <li class="dropdown">
+                <a href="shop.html" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-column">
+                        <h4>Ethnic Wear</h4>
+                        <a href="shop.html?category=sarees">Sarees</a>
+                        <a href="shop.html?category=lehengas">Lehengas</a>
+                        <a href="shop.html?category=kurtis">Kurtis</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Jewelry</h4>
+                        <a href="shop.html?category=necklaces">Necklaces</a>
+                        <a href="shop.html?category=earrings">Earrings</a>
+                        <a href="shop.html?category=bangles">Bangles</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Accessories</h4>
+                        <a href="shop.html?category=bags">Bags</a>
+                        <a href="shop.html?category=footwear">Footwear</a>
+                        <a href="shop.html?category=watches">Watches</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Hampers & Gifts</h4>
+                        <a href="shop.html?category=optimized_hampers">Optimized Hamper</a>
+                        <a href="shop.html?category=gift_hampers">Gift Hamper</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Lifestyle & Essentials</h4>
+                        <a href="shop.html?category=stationery">Stationery</a>
+                        <a href="shop.html?category=cosmetics">Cosmetics</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sale</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <!-- Right Icons -->
+        <div class="nav-icons">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search products...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <a href="#" class="icon-link"><i class="far fa-user"></i></a>
+            <a href="#" class="icon-link"><i class="far fa-heart"></i></a>
+            <a href="#" class="icon-link cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <main class="shop-page">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Our Products</h1>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Shop</span>
+            </nav>
+        </div>
+
+        <div class="shop-container">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="ethnic" checked>
+                            <span>Ethnic Wear</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="jewelry" checked>
+                            <span>Jewelry</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="accessories" checked>
+                            <span>Accessories</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="hampers" checked>
+                            <span>Hampers & Gifts</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="lifestyle" checked>
+                            <span>Lifestyle & Essentials</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-range">
+                        <div class="range-inputs">
+                            <input type="number" id="minPrice" placeholder="Min" min="0">
+                            <span>to</span>
+                            <input type="number" id="maxPrice" placeholder="Max">
+                        </div>
+                        <button id="applyPriceFilter" class="btn btn-primary">Apply</button>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Sort By</h3>
+                    <select id="sortBy" class="sort-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest Arrivals</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+
+                <button id="resetFilters" class="btn btn-primary reset-btn">Reset Filters</button>
+            </aside>
+
+            <!-- Products Grid -->
+            <div class="products-grid">
+                <!-- Ethnic Wear Section -->
+                <section class="category-section" data-category="ethnic">
+                    <h2 class="category-title">Ethnic Wear</h2>
+                    
+                    <!-- Sarees Subcategory -->
+                    <div class="subcategory-section" data-subcategory="sarees">
+                        <h3 class="subcategory-title">Sarees</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Lehengas Subcategory -->
+                    <div class="subcategory-section" data-subcategory="lehengas">
+                        <h3 class="subcategory-title">Lehengas</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Kurtis Subcategory -->
+                    <div class="subcategory-section" data-subcategory="kurtis">
+                        <h3 class="subcategory-title">Kurtis</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Jewelry Section -->
+                <section class="category-section" data-category="jewelry">
+                    <h2 class="category-title">Jewelry</h2>
+                    
+                    <!-- Necklaces Subcategory -->
+                    <div class="subcategory-section" data-subcategory="necklaces">
+                        <h3 class="subcategory-title">Necklaces</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Earrings Subcategory -->
+                    <div class="subcategory-section" data-subcategory="earrings">
+                        <h3 class="subcategory-title">Earrings</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Bangles Subcategory -->
+                    <div class="subcategory-section" data-subcategory="bangles">
+                        <h3 class="subcategory-title">Bangles</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Accessories Section -->
+                <section class="category-section" data-category="accessories">
+                    <h2 class="category-title">Accessories</h2>
+                    
+                    <!-- Bags Subcategory -->
+                    <div class="subcategory-section" data-subcategory="bags">
+                        <h3 class="subcategory-title">Bags</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Footwear Subcategory -->
+                    <div class="subcategory-section" data-subcategory="footwear">
+                        <h3 class="subcategory-title">Footwear</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Watches Subcategory -->
+                    <div class="subcategory-section" data-subcategory="watches">
+                        <h3 class="subcategory-title">Watches</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hampers & Gifts Section -->
+                <section class="category-section" data-category="hampers">
+                    <h2 class="category-title">Hampers & Gifts</h2>
+                    
+                    <!-- Optimized Hamper Subcategory -->
+                    <div class="subcategory-section" data-subcategory="optimized_hampers">
+                        <h3 class="subcategory-title">Optimized Hamper</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Gift Hamper Subcategory -->
+                    <div class="subcategory-section" data-subcategory="gift_hampers">
+                        <h3 class="subcategory-title">Gift Hamper</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lifestyle & Essentials Section -->
+                <section class="category-section" data-category="lifestyle">
+                    <h2 class="category-title">Lifestyle & Essentials</h2>
+                    
+                    <!-- Stationery Subcategory -->
+                    <div class="subcategory-section" data-subcategory="stationery">
+                        <h3 class="subcategory-title">Stationery</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Cosmetics Subcategory -->
+                    <div class="subcategory-section" data-subcategory="cosmetics">
+                        <h3 class="subcategory-title">Cosmetics</h3>
+                        <div class="products-row">
+                            <!-- Product cards will be generated here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-about">
+                <h3>Viaenterpriseofficial</h3>
+                <p>Your one-stop destination for authentic ethnic wear, jewelry, and accessories. We bring traditional craftsmanship to your wardrobe with modern elegance.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Sale Items</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new arrivals and special offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2025 Viaenterpriseofficial. All rights reserved.
+            </div>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="#">Terms of Service</a>
+                <span>|</span>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- JavaScript -->
+    <script src="assets/js/shop.js"></script>
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/wishlist.js"></script>
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+    <script>
+        // Load navbar component
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+                // Re-initialize navbar JS after loading
+                const script = document.createElement('script');
+                script.src = 'assets/js/components/navbar.js';
+                document.body.appendChild(script);
+            });
+    </script>
+</body>
+</html>

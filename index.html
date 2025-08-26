@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaenterpriseofficial - Your Fashion Destination</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+<body>
+<!-- Navbar Component -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo">Viaenterpriseofficial</a>
+        
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Main Navigation -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            
+            <!-- Shop Dropdown -->
+            <li class="dropdown">
+                <a href="shop.html" class="dropdown-toggle">Shop <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-column">
+                        <h4>Ethnic Wear</h4>
+                        <a href="shop.html?category=sarees">Sarees</a>
+                        <a href="shop.html?category=lehengas">Lehengas</a>
+                        <a href="shop.html?category=kurtis">Kurtis</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Jewelry</h4>
+                        <a href="shop.html?category=necklaces">Necklaces</a>
+                        <a href="shop.html?category=earrings">Earrings</a>
+                        <a href="shop.html?category=bangles">Bangles</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Accessories</h4>
+                        <a href="shop.html?category=bags">Bags</a>
+                        <a href="shop.html?category=footwear">Footwear</a>
+                        <a href="shop.html?category=watches">Watches</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Hampers & Gifts</h4>
+                        <a href="shop.html?category=optimized_hampers">Optimized Hamper</a>
+                        <a href="shop.html?category=gift_hampers">Gift Hamper</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <h4>Lifestyle & Essentials</h4>
+                        <a href="shop.html?category=stationery">Stationery</a>
+                        <a href="shop.html?category=cosmetics">Cosmetics</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sale</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <!-- Right Icons -->
+        <div class="nav-icons">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search products...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <a href="#" class="icon-link"><i class="far fa-user"></i></a>
+            <a href="#" class="icon-link"><i class="far fa-heart"></i></a>
+            <a href="#" class="icon-link cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Slider Section -->
+        <section class="slider">
+            <div class="slider-container">
+                <div class="slide active" style="background-image: url('assets/images/banner\ 1.jpeg');">
+                    <div class="slide-content">
+                        <h2>Summer Collection 2025</h2>
+                        <p>Get up to 50% off on selected items</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('assets/images/banner\ 2.webp');">
+                    <div class="slide-content">
+                        <h2>New Arrivals</h2>
+                        <p>Discover our latest collection</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('assets/images/20250825_0949_image.png');">
+                    <div class="slide-content">
+                        <h2>Festival Special</h2>
+                        <p>Traditional wear for your celebrations</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+            </div>
+        </section>
+
+        <!-- Featured Categories -->
+        <section id="featured" class="section featured-categories">
+    <h2 class="section-title">Shop by Category</h2>
+
+    <!-- Swiper container -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide category-card">
+                <img src="assets/images/ethnic1.jpg" alt="Ethnic Wear">
+                <div class="category-info">
+                    <h3>Ethnic Wear</h3>
+                    <a href="#" class="btn btn-outline">Explore</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide category-card">
+                <img src="assets/images/jwelery.webp" alt="Jewelry">
+                <div class="category-info">
+                    <h3>Jewelry</h3>
+                    <a href="#" class="btn btn-outline">Explore</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide category-card">
+                <img src="assets/images/accesories.webp" alt="Accessories">
+                <div class="category-info">
+                    <h3>Accessories</h3>
+                    <a href="#" class="btn btn-outline">Explore</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide category-card">
+                <img src="assets/images/hammpers.webp" alt="Hampers & Gifts">
+                <div class="category-info">
+                    <h3>Hampers & Gifts</h3>
+                    <a href="#" class="btn btn-outline">Explore</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide category-card">
+                <img src="assets/images/cosmetic.jpg" alt="Lifestyle & Essentials">
+                <div class="category-info">
+                    <h3>Lifestyle & Essentials</h3>
+                    <a href="#" class="btn btn-outline">Explore</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
+
+        <!-- Best Sellers -->
+        <section class="section best-sellers">
+            <div class="section-header">
+                <h2 class="section-title">Best Sellers</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <table class="product-table" cellspacing="20" cellpadding="0" border="0" width="100%" style="max-width: 1400px; margin: 0 auto;">
+                <tr>
+                    <!-- Row 1 -->
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/kurta.webp" alt="Printed Kurta" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Ethnic Printed Kurta</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/saree.webp" alt="Silk Saree" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Silk Banarasi Saree</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/lehenga.jpg" alt="Designer Lehenga" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Designer Lehenga</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/kurti.webp" alt="Cotton Kurti" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Cotton Printed Kurti</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- Row 2 -->
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/suit.jpg" alt="Chikankari Suit" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Chikankari Suit Set</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/silk.jpg" alt="Silk Blouse" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Silk Embroidered Blouse</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/anarkali.webp" alt="Anarkali Dress" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Anarkali Gown</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" width="25%">
+                        <div class="product-card">
+                            <div class="product-badge discount-badge">50% OFF</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <img src="assets/images/kanjivaram.webp" alt="Kanjivaram Silk" style="width: 100%; height: 400px; object-fit: cover;">
+                            <div class="product-info">
+                                <h3>Kanjivaram Silk Saree</h3>
+                                <div class="rating-price-container">
+                                    <div class="price">
+                                        <span class="current-price">₹1,499</span>
+                                        <span class="original-price">₹2,999</span>
+                                    </div>
+                                    <div class="rating">
+                                        <span class="rating-number">4.8</span>
+                                        <span class="stars">★</span>
+                                        <span class="review-count">(248)</span>
+                                    </div>
+                                    
+                                </div>
+                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Discount Banners -->
+        <section class="discount-banners">
+            <div class="banner-grid">
+                <div class="banner-card" style="background-image: url('assets/images/ethnic2.webp');">
+                    <div class="banner-content">
+                        <h3>Women's Ethnic Wear</h3>
+                        <p>Starting at ₹999</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                <div class="banner-card" style="background-image: url('assets/images/traditional.webp');">
+                    <div class="banner-content">
+                        <h3>Traditional Jewelry</h3>
+                        <p>Upto 40% off</p>
+                        <a href="#" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Festive Collection -->
+        <section class="festive-collection">
+            <div class="festive-content">
+                <h2>Festive Collection</h2>
+                <p>Celebrate the season with our exclusive festive wear collection</p>
+                <a href="#" class="btn btn-primary">Shop the Collection</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-about">
+                <h3>Viaenterpriseofficial</h3>
+                <p>Your one-stop destination for authentic ethnic wear, jewelry, and accessories. We bring traditional craftsmanship to your wardrobe with modern elegance.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Sale Items</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new arrivals and special offers.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2025 Viaenterpriseofficial. All rights reserved.
+            </div>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="#">Terms of Service</a>
+                <span>|</span>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/slider.js"></script>
+    <script src="assets/js/components/wishlist.js"></script>
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+    <script>
+        // Load navbar component
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+                // Re-initialize navbar JS after loading
+                const script = document.createElement('script');
+                script.src = 'assets/js/components/navbar.js';
+                document.body.appendChild(script);
+            });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,   // hamesha 4 cards ek saath dikhe
+    spaceBetween: 20,   // cards ke beech gap
+    loop: true,         // infinite loop
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+      delay: 2500,      // auto slide 2.5s
+      disableOnInteraction: false,
+    },
+  });
+</script>
+</body>
+</html>
