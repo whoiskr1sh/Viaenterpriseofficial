@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - Viaenterpriseofficial</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/new-arrivals.css">
+</head>
+<body>
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="new-arrivals-page">
+        <!-- 1. Hero Section -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1>New Arrivals</h1>
+                <p class="tagline">Be the first to style the latest trends</p>
+                <a href="#featured-products" class="shop-now-btn">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- 2. Category Navigation -->
+        <div class="category-nav">
+            <div class="container">
+                <ul class="category-tabs">
+                    <li><a href="new-arrivals.html?category=ethnic" data-category="ethnic">Ethnic Wear</a></li>
+                    <li><a href="new-arrivals.html?category=jewelry" data-category="jewelry">Jewelry</a></li>
+                    <li><a href="new-arrivals.html?category=accessories" data-category="accessories">Accessories</a></li>
+                    <li><a href="new-arrivals.html?category=hampers" data-category="hampers">Hampers & Gifts</a></li>
+                    <li><a href="new-arrivals.html?category=lifestyle" data-category="lifestyle">Lifestyle & Essentials</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container main-content">
+            <!-- 3. Main Product Grid -->
+            <section class="main-product-grid">
+                <div class="section-header">
+                    <h2 class="section-title">All New Arrivals</h2>
+                </div>
+                <div class="products-grid" id="new-arrivals-grid">
+                    <!-- Products will be loaded via JavaScript -->
+                </div>
+            </section>
+
+            <!-- 5. Category Highlights -->
+            <section class="category-highlights">
+                <div class="category-section" id="ethnic-wear">
+                    <div class="section-header">
+                        <h2>New in Ethnic Wear</h2>
+                        <a href="shop.html?category=ethnic" class="view-all">View All Ethnic Wear</a>
+                    </div>
+                    <div class="products-container" id="ethnic-wear-products">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="category-section" id="jewelry">
+                    <div class="section-header">
+                        <h2>New in Jewelry</h2>
+                        <a href="shop.html?category=jewelry" class="view-all">View All Jewelry</a>
+                    </div>
+                    <div class="products-container" id="jewelry-products">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="category-section" id="accessories">
+                    <div class="section-header">
+                        <h2>New in Accessories</h2>
+                        <a href="shop.html?category=accessories" class="view-all">View All Accessories</a>
+                    </div>
+                    <div class="products-container" id="accessories-products">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="category-section" id="hampers">
+                    <div class="section-header">
+                        <h2>New in Hampers & Gifts</h2>
+                        <a href="shop.html?category=gift_hampers" class="view-all">View All Hampers</a>
+                    </div>
+                    <div class="products-container" id="hampers-products">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="category-section" id="lifestyle">
+                    <div class="section-header">
+                        <h2>New in Lifestyle & Essentials</h2>
+                        <a href="shop.html?category=lifestyle" class="view-all">View All Lifestyle</a>
+                    </div>
+                    <div class="products-container" id="lifestyle-products">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- More category sections can be added here -->
+            </section>
+
+        
+            <!-- 7. Newsletter -->
+            <section class="newsletter-section">
+                <div class="newsletter-content">
+                    <h3>Stay Updated on Latest Arrivals</h3>
+                    <p>Subscribe to our newsletter and be the first to know about new products and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Join Now</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="site-footer" id="site-footer">
+        <!-- Footer content will be loaded from components/footer.html -->
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/new-arrivals.js"></script>
+    <script src="assets/js/components/wishlist.js"></script>
+    <!-- Include the navbar and footer components -->
+    <script>
+        // Load navbar
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+                // Re-initialize navbar JS after loading
+                const script = document.createElement('script');
+                script.src = 'assets/js/components/navbar.js';
+                document.body.appendChild(script);
+            });
+
+        // Load footer
+        fetch('components/footer.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load footer');
+                }
+                return response.text();
+            })
+            .then(html => {
+                const footer = document.getElementById('site-footer');
+                if (footer) {
+                    footer.innerHTML = html;
+                } else {
+                    console.error('Footer container not found');
+                }
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+            });
+    </script>
+
+
+</body>
+</html>

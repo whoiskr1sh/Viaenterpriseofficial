@@ -1,4 +1,4 @@
-// Shop Page JavaScript
+    // Shop Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Sample product data with subcategories
     const products = {
