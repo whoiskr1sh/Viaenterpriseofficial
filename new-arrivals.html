@@ -137,7 +137,6 @@
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar-container').innerHTML = html;
-                // Re-initialize navbar JS after loading
                 const script = document.createElement('script');
                 script.src = 'assets/js/components/navbar.js';
                 document.body.appendChild(script);
