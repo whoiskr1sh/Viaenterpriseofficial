@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist - Viaenterpriseofficial</title>
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Components CSS -->
+  <link rel="stylesheet" href="assets/css/components/navbar.css">
+  <link rel="stylesheet" href="assets/css/components/footer.css">
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="assets/css/pages/wishlist.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+
+  <main class="wishlist-page">
+    <section class="wishlist-header">
+      <h1>My Wishlist</h1>
+      <p class="subtitle">Products you loved across the store</p>
+    </section>
+
+    <section class="wishlist-content">
+      <div id="wishlist-grid" class="products-grid"></div>
+      <div id="wishlist-empty" class="empty-state" style="display: none;">
+        <i class="far fa-heart"></i>
+        <h3>Your wishlist is empty</h3>
+        <p>Explore our collections and add items you love.</p>
+        <a href="shop.html" class="btn btn-primary">Go to Shop</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/components/navbar.js"></script>
+  <script src="assets/js/components/wishlist.js"></script>
+  <script>
+    // Load navbar
+    fetch('components/navbar.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+        const s = document.createElement('script');
+        s.src = 'assets/js/components/navbar.js';
+        document.body.appendChild(s);
+      });
+
+    // Load footer
+    fetch('components/footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('site-footer').innerHTML = html; });
+  </script>
+  <script src="assets/js/pages/wishlist.js"></script>
+</body>
+</html>
