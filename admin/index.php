@@ -52,13 +52,17 @@
       <div class="grid__item">
         <div class="panel">
           <div class="panel__header">Sales Trend</div>
-          <canvas id="salesTrend"></canvas>
+          <div class="panel__body">
+            <canvas id="salesTrend"></canvas>
+          </div>
         </div>
       </div>
       <div class="grid__item">
         <div class="panel">
           <div class="panel__header">Top Categories</div>
-          <canvas id="topCategories"></canvas>
+          <div class="panel__body">
+            <canvas id="topCategories"></canvas>
+          </div>
         </div>
       </div>
     </section>

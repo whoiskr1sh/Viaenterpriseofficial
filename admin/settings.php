@@ -14,8 +14,8 @@
   <main class="main">
     <h1>Settings</h1>
     <div class="panel">
-      <form class="form" style="display:grid;gap:12px;max-width:600px;">
-        <fieldset style="border:1px solid var(--border);padding:12px;border-radius:12px;">
+      <form class="form max-w-600">
+        <fieldset>
           <legend>Profile</legend>
           <label> Name
             <input type="text" placeholder="Admin Name" />
@@ -24,7 +24,7 @@
             <input type="email" placeholder="admin@example.com" />
           </label>
         </fieldset>
-        <fieldset style="border:1px solid var(--border);padding:12px;border-radius:12px;">
+        <fieldset>
           <legend>Change Password</legend>
           <label> Current Password
             <input type="password" />
@@ -36,7 +36,7 @@
             <input type="password" />
           </label>
         </fieldset>
-        <fieldset style="border:1px solid var(--border);padding:12px;border-radius:12px;">
+        <fieldset>
           <legend>Website</legend>
           <label> Logo
             <input type="file" accept="image/*" />

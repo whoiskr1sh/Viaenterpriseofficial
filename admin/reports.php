@@ -18,13 +18,17 @@
       <div class="grid__item">
         <div class="panel">
           <div class="panel__header">Monthly Sales</div>
-          <canvas id="monthlySales"></canvas>
+          <div class="panel__body">
+            <canvas id="monthlySales"></canvas>
+          </div>
         </div>
       </div>
       <div class="grid__item">
         <div class="panel">
           <div class="panel__header">Best Sellers</div>
-          <canvas id="bestSellers"></canvas>
+          <div class="panel__body">
+            <canvas id="bestSellers"></canvas>
+          </div>
         </div>
       </div>
     </section>

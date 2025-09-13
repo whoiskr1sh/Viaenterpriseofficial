@@ -14,26 +14,26 @@
   <main class="main">
     <h1>Customers</h1>
     <div class="panel">
-      <div style="overflow:auto;">
-        <table style="width:100%;border-collapse:collapse;">
+      <div class="table-container">
+        <table class="table">
           <thead>
-            <tr style="text-align:left;border-bottom:1px solid var(--border);">
-              <th style="padding:10px;">ID</th>
-              <th style="padding:10px;">Name</th>
-              <th style="padding:10px;">Email</th>
-              <th style="padding:10px;">Status</th>
-              <th style="padding:10px;">Actions</th>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:10px;">101</td>
-              <td style="padding:10px;">R. Patel</td>
-              <td style="padding:10px;">r.patel@example.com</td>
-              <td style="padding:10px;">Active</td>
-              <td style="padding:10px;">
+              <td>101</td>
+              <td>R. Patel</td>
+              <td>r.patel@example.com</td>
+              <td><span class="badge badge--success">Active</span></td>
+              <td>
                 <button class="btn">View Orders</button>
-                <button class="btn" style="border-color:#fecaca;color:#b91c1c;">Block</button>
+                <button class="btn btn--danger">Block</button>
               </td>
             </tr>
           </tbody>

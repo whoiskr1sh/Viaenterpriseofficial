@@ -15,7 +15,7 @@
     <h1>Add Category</h1>
     <div class="panel">
       <form class="form">
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+        <div class="grid-2">
           <label> Category Name
             <input type="text" placeholder="e.g., Ethnic Wear" required />
           </label>
@@ -23,7 +23,7 @@
             <input type="text" placeholder="Optional" />
           </label>
         </div>
-        <div style="margin-top:12px;">
+        <div class="mt-12">
           <button class="btn btn--primary" type="submit">Save Category</button>
         </div>
       </form>

@@ -14,24 +14,24 @@
   <main class="main">
     <h1>Manage Categories</h1>
     <div class="panel">
-      <div style="overflow:auto;">
-        <table style="width:100%;border-collapse:collapse;">
+      <div class="table-container">
+        <table class="table">
           <thead>
-            <tr style="text-align:left;border-bottom:1px solid var(--border);">
-              <th style="padding:10px;">ID</th>
-              <th style="padding:10px;">Name</th>
-              <th style="padding:10px;">Parent</th>
-              <th style="padding:10px;">Actions</th>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Parent</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:10px;">1</td>
-              <td style="padding:10px;">Sarees</td>
-              <td style="padding:10px;">Ethnic Wear</td>
-              <td style="padding:10px;">
+              <td>1</td>
+              <td>Sarees</td>
+              <td>Ethnic Wear</td>
+              <td>
                 <button class="btn">Edit</button>
-                <button class="btn" style="border-color:#fecaca;color:#b91c1c;">Delete</button>
+                <button class="btn btn--danger">Delete</button>
               </td>
             </tr>
           </tbody>

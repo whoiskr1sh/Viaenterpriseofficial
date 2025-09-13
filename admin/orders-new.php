@@ -14,24 +14,24 @@
   <main class="main">
     <h1>New Orders</h1>
     <div class="panel">
-      <div style="overflow:auto;">
-        <table style="width:100%;border-collapse:collapse;">
+      <div class="table-container">
+        <table class="table">
           <thead>
-            <tr style="text-align:left;border-bottom:1px solid var(--border);">
-              <th style="padding:10px;">Order #</th>
-              <th style="padding:10px;">Customer</th>
-              <th style="padding:10px;">Total</th>
-              <th style="padding:10px;">Status</th>
-              <th style="padding:10px;">Actions</th>
+            <tr>
+              <th>Order #</th>
+              <th>Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:10px;">INV-1001</td>
-              <td style="padding:10px;">A. Sharma</td>
-              <td style="padding:10px;">₹3,999</td>
-              <td style="padding:10px;">Pending</td>
-              <td style="padding:10px;">
+              <td>INV-1001</td>
+              <td>A. Sharma</td>
+              <td>₹3,999</td>
+              <td><span class="badge badge--warning">Pending</span></td>
+              <td>
                 <button class="btn btn--primary">Mark Shipped</button>
                 <button class="btn">View</button>
               </td>

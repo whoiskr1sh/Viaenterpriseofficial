@@ -15,7 +15,7 @@
     <h1>Add Product</h1>
     <div class="panel">
       <form class="form" enctype="multipart/form-data">
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+        <div class="grid-2">
           <label> Name
             <input type="text" placeholder="Product name" required />
           </label>
@@ -34,11 +34,11 @@
           <label> Stock
             <input type="number" placeholder="0" />
           </label>
-          <label style="grid-column:1/-1;"> Images
+          <label class="col-span-2"> Images
             <input type="file" multiple accept="image/*" />
           </label>
         </div>
-        <div style="margin-top:12px;">
+        <div class="mt-12">
           <button class="btn btn--primary" type="submit">Save Product</button>
         </div>
       </form>
