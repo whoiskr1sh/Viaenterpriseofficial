@@ -101,10 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentlyActive) {
                 icon.className = 'far fa-heart';
                 removeFromWishlist(id);
+                showToast('Removed from wishlist', 'info');
             } else {
                 icon.className = 'fas fa-heart';
                 const data = extractProductData(this);
                 addToWishlist(data);
+                showToast('Added to wishlist!', 'success');
                 // Small animation
                 this.style.transform = 'scale(1.2)';
                 setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
@@ -112,3 +114,91 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Toast notification system
+function showToast(message, type = 'info') {
+    // Remove existing toast
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+        <div class="toast-content">
+            <i class="fas fa-${getToastIcon(type)}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+
+    // Style the toast
+    Object.assign(toast.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        background: getToastColor(type),
+        color: 'white',
+        padding: '15px 20px',
+        borderRadius: '5px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+        zIndex: '10000',
+        animation: 'slideInRight 0.3s ease-out',
+        maxWidth: '300px'
+    });
+
+    // Add CSS animation
+    if (!document.querySelector('#toast-styles')) {
+        const style = document.createElement('style');
+        style.id = 'toast-styles';
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            .toast-content {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    document.body.appendChild(toast);
+
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        toast.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.remove();
+            }
+        }, 300);
+    }, 3000);
+}
+
+function getToastIcon(type) {
+    const icons = {
+        success: 'check-circle',
+        error: 'exclamation-circle',
+        warning: 'exclamation-triangle',
+        info: 'info-circle'
+    };
+    return icons[type] || icons.info;
+}
+
+function getToastColor(type) {
+    const colors = {
+        success: '#28a745',
+        error: '#dc3545',
+        warning: '#ffc107',
+        info: '#17a2b8'
+    };
+    return colors[type] || colors.info;
+}
