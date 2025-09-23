@@ -1,49 +1,81 @@
 <?php
 // admin/products-add.php - Add Product
+$page_title = 'Add Product';
+$page_subtitle = 'Create a new product for your store';
+$breadcrumb_items = [
+    ['title' => 'Admin'],
+    ['title' => 'Products'],
+    ['title' => 'Add Product', 'active' => true]
+];
+$page_actions = '<button class="btn btn--secondary"><i class="fas fa-list"></i> View Products</button>';
+
+include __DIR__ . '/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Product</title>
-  <link rel="stylesheet" href="/assets/css/admin.css" />
-</head>
-<body>
-  <?php include __DIR__ . '/sidebar.php'; ?>
-  <main class="main">
-    <h1>Add Product</h1>
-    <div class="panel">
-      <form class="form" enctype="multipart/form-data">
-        <div class="grid-2">
-          <label> Name
-            <input type="text" placeholder="Product name" required />
-          </label>
-          <label> Category
-            <input type="text" placeholder="Category" required />
-          </label>
-          <label> Subcategory
-            <input type="text" placeholder="Subcategory" />
-          </label>
-          <label> Price (₹)
-            <input type="number" placeholder="0" required />
-          </label>
-          <label> Discount (%)
-            <input type="number" placeholder="0" />
-          </label>
-          <label> Stock
-            <input type="number" placeholder="0" />
-          </label>
-          <label class="col-span-2"> Images
-            <input type="file" multiple accept="image/*" />
-          </label>
+      <div class="data-panel">
+        <div class="panel-header">
+          <h3>Product Information</h3>
         </div>
-        <div class="mt-12">
-          <button class="btn btn--primary" type="submit">Save Product</button>
+        <div class="panel-body" style="padding: 2rem;">
+          <form class="form" enctype="multipart/form-data">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label">Product Name *</label>
+                <input type="text" class="form-input" placeholder="Enter product name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Category *</label>
+                <div class="select-wrapper">
+                  <select class="form-input" required>
+                    <option value="">Select Category</option>
+                    <option value="sarees">Sarees</option>
+                    <option value="lehengas">Lehengas</option>
+                    <option value="jewelry">Jewelry</option>
+                    <option value="kurtis">Kurtis</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subcategory</label>
+                <input type="text" class="form-input" placeholder="Enter subcategory" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Price (₹) *</label>
+                <input type="number" class="form-input" placeholder="0" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Discount (%)</label>
+                <input type="number" class="form-input" placeholder="0" min="0" max="100" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Stock Quantity</label>
+                <input type="number" class="form-input" placeholder="0" min="0" />
+              </div>
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label class="form-label">Description</label>
+                <textarea class="form-input" rows="4" placeholder="Enter product description"></textarea>
+              </div>
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label class="form-label">Product Images</label>
+                <input type="file" class="form-input" multiple accept="image/*" />
+                <small class="form-help">Upload multiple images. First image will be the main image.</small>
+              </div>
+            </div>
+            <div class="form-actions" style="margin-top: 2rem; display: flex; gap: 1rem;">
+              <button class="btn btn--primary" type="submit">
+                <i class="fas fa-save"></i>
+                Save Product
+              </button>
+              <button class="btn btn--secondary" type="button">
+                <i class="fas fa-eye"></i>
+                Preview
+              </button>
+              <button class="btn btn--ghost" type="reset">
+                <i class="fas fa-undo"></i>
+                Reset
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-  </main>
-  <script src="/assets/js/admin.js"></script>
-</body>
-</html>
+      </div>
+
+<?php include __DIR__ . '/footer.php'; ?>

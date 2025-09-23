@@ -1,40 +1,37 @@
 <?php
-// admin/settings.php - Settings (Profile, Change Password, Website settings)
+// admin/settings.php - Settings
+$page_title = 'Settings';
+$page_subtitle = 'Configure your website and store settings';
+$breadcrumb_items = [
+    ['title' => 'Admin'],
+    ['title' => 'Settings', 'active' => true]
+];
+$page_actions = '<button class="btn btn--success"><i class="fas fa-save"></i> Save All Changes</button>';
+
+include __DIR__ . '/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Settings</title>
-  <link rel="stylesheet" href="/assets/css/admin.css" />
-</head>
-<body>
-  <?php include __DIR__ . '/sidebar.php'; ?>
-  <main class="main">
-    <h1>Settings</h1>
-    <div class="panel">
-      <form class="form max-w-600">
-        <fieldset>
-          <legend>Profile</legend>
-          <label> Name
-            <input type="text" placeholder="Admin Name" />
-          </label>
-          <label> Email
-            <input type="email" placeholder="admin@example.com" />
-          </label>
-        </fieldset>
-        <fieldset>
-          <legend>Change Password</legend>
-          <label> Current Password
-            <input type="password" />
-          </label>
-          <label> New Password
-            <input type="password" />
-          </label>
-          <label> Confirm New Password
-            <input type="password" />
-          </label>
+
+<div class="settings-section">
+  <div class="data-panel">
+    <div class="tabs-container">
+      <div class="tabs">
+        <button class="tab active" data-tab="general">
+          <i class="fas fa-cog"></i>
+          General
+        </button>
+        <button class="tab" data-tab="payment">
+          <i class="fas fa-credit-card"></i>
+          Payment
+        </button>
+        <button class="tab" data-tab="shipping">
+          <i class="fas fa-shipping-fast"></i>
+          Shipping
+        </button>
+        <button class="tab" data-tab="notifications">
+          <i class="fas fa-bell"></i>
+          Notifications
+        </button>
+      </div>
         </fieldset>
         <fieldset>
           <legend>Website</legend>

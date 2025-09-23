@@ -1,18 +1,25 @@
 <?php
-// admin/index.php - Modern Dashboard
+// admin/header.php - Reusable header for all admin pages
+$page_title = $page_title ?? 'Admin Panel';
+$page_subtitle = $page_subtitle ?? '';
+$breadcrumb_items = $breadcrumb_items ?? [['title' => 'Admin'], ['title' => 'Dashboard', 'active' => true]];
 ?>
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard - Viaenterprise</title>
+  <title><?php echo htmlspecialchars($page_title); ?> - Viaenterprise Admin</title>
   <link rel="stylesheet" href="/assets/css/admin.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <?php if (isset($additional_css)): ?>
+    <?php foreach ($additional_css as $css): ?>
+      <link rel="stylesheet" href="<?php echo htmlspecialchars($css); ?>" />
+    <?php endforeach; ?>
+  <?php endif; ?>
 </head>
 <body class="admin-body">
   <?php include __DIR__ . '/sidebar.php'; ?>
@@ -24,9 +31,14 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="breadcrumb">
-        <span class="breadcrumb-item">Admin</span>
-        <i class="fas fa-chevron-right breadcrumb-separator"></i>
-        <span class="breadcrumb-item active">Dashboard</span>
+        <?php foreach ($breadcrumb_items as $index => $item): ?>
+          <?php if ($index > 0): ?>
+            <i class="fas fa-chevron-right breadcrumb-separator"></i>
+          <?php endif; ?>
+          <span class="breadcrumb-item <?php echo isset($item['active']) && $item['active'] ? 'active' : ''; ?>">
+            <?php echo htmlspecialchars($item['title']); ?>
+          </span>
+        <?php endforeach; ?>
       </div>
     </div>
     
@@ -72,15 +84,6 @@
                 <span class="notification-time">1 hour ago</span>
               </div>
             </div>
-            <div class="notification-item">
-              <div class="notification-icon">
-                <i class="fas fa-user"></i>
-              </div>
-              <div class="notification-content">
-                <p>New customer registered</p>
-                <span class="notification-time">3 hours ago</span>
-              </div>
-            </div>
           </div>
           <div class="notification-footer">
             <a href="/admin/notifications.php">View all notifications</a>
@@ -111,10 +114,6 @@
             <i class="fas fa-cog"></i>
             <span>Settings</span>
           </a>
-          <a href="/admin/help.php" class="profile-menu-item">
-            <i class="fas fa-question-circle"></i>
-            <span>Help & Support</span>
-          </a>
           <div class="profile-menu-divider"></div>
           <a href="/login.php" class="profile-menu-item logout">
             <i class="fas fa-sign-out-alt"></i>
@@ -127,98 +126,18 @@
 
   <main class="main" id="main">
     <div class="main-content">
+      <?php if (!empty($page_title) || !empty($page_actions)): ?>
       <div class="page-header">
         <div class="page-title">
-          <h1>Dashboard</h1>
-          <p class="page-subtitle">Welcome back! Here's what's happening with your store today.</p>
+          <h1><?php echo htmlspecialchars($page_title); ?></h1>
+          <?php if (!empty($page_subtitle)): ?>
+            <p class="page-subtitle"><?php echo htmlspecialchars($page_subtitle); ?></p>
+          <?php endif; ?>
         </div>
+        <?php if (!empty($page_actions)): ?>
         <div class="page-actions">
-          <button class="btn btn--secondary">
-            <i class="fas fa-download"></i>
-            Export Data
-          </button>
-          <button class="btn btn--primary">
-            <i class="fas fa-plus"></i>
-            Add Product
-          </button>
+          <?php echo $page_actions; ?>
         </div>
+        <?php endif; ?>
       </div>
-
-    <section class="cards">
-      <div class="card">
-        <div class="card__title">Total Orders</div>
-        <div class="card__value">1,248</div>
-        <div class="card__meta">+12% vs last week</div>
-      </div>
-      <div class="card">
-        <div class="card__title">Total Sales (₹)</div>
-        <div class="card__value">₹ 8,42,500</div>
-        <div class="card__meta">+7% MoM</div>
-      </div>
-      <div class="card">
-        <div class="card__title">Active Customers</div>
-        <div class="card__value">3,215</div>
-        <div class="card__meta">+5 new today</div>
-      </div>
-      <div class="card">
-        <div class="card__title">Total Products</div>
-        <div class="card__value">684</div>
-        <div class="card__meta">12 low-stock</div>
-      </div>
-    </section>
-
-    <section class="grids">
-      <div class="grid__item">
-        <div class="panel">
-          <div class="panel__header">Sales Trend</div>
-          <div class="panel__body">
-            <canvas id="salesTrend"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="grid__item">
-        <div class="panel">
-          <div class="panel__header">Top Categories</div>
-          <div class="panel__body">
-            <canvas id="topCategories"></canvas>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    // Charts demo data
-    const salesCtx = document.getElementById('salesTrend');
-    const salesChart = new Chart(salesCtx, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-        datasets: [{
-          label: 'Sales (₹)',
-          data: [120000, 150000, 130000, 170000, 210000, 190000, 240000],
-          borderColor: '#4f46e5',
-          backgroundColor: 'rgba(79, 70, 229, 0.15)',
-          tension: 0.35,
-          fill: true,
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    const catCtx = document.getElementById('topCategories');
-    const catChart = new Chart(catCtx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Sarees', 'Lehengas', 'Jewelry', 'Kurtis'],
-        datasets: [{
-          data: [45, 25, 20, 10],
-          backgroundColor: ['#4f46e5', '#22c55e', '#f59e0b', '#ef4444']
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-  </script>
-  <script src="/assets/js/admin.js"></script>
-</body>
-</html>
+      <?php endif; ?>

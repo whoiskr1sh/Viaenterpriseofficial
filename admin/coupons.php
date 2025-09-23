@@ -1,13 +1,13 @@
 <?php
-// admin/offers.php - Offers & Discounts
-$page_title = 'Offers & Discounts';
-$page_subtitle = 'Create and manage promotional offers';
+// admin/coupons.php - Coupon Management
+$page_title = 'Coupons';
+$page_subtitle = 'Create and manage discount coupons';
 $breadcrumb_items = [
     ['title' => 'Admin'],
     ['title' => 'Marketing'],
-    ['title' => 'Offers & Discounts', 'active' => true]
+    ['title' => 'Coupons', 'active' => true]
 ];
-$page_actions = '<button class="btn btn--primary"><i class="fas fa-plus"></i> Create Offer</button>';
+$page_actions = '<button class="btn btn--primary"><i class="fas fa-plus"></i> Create Coupon</button>';
 
 include __DIR__ . '/header.php';
 ?>
@@ -15,17 +15,17 @@ include __DIR__ . '/header.php';
 <div class="data-section">
   <div class="data-panel">
     <div class="panel-header">
-      <h3>Active Offers</h3>
+      <h3>Coupon Codes</h3>
       <div class="panel-actions">
         <div class="search-box">
           <i class="fas fa-search"></i>
-          <input type="search" placeholder="Search offers..." id="offerSearch">
+          <input type="search" placeholder="Search coupons..." id="couponSearch">
         </div>
         <select class="status-filter">
           <option value="">All Status</option>
           <option value="active">Active</option>
-          <option value="scheduled">Scheduled</option>
           <option value="expired">Expired</option>
+          <option value="used">Used</option>
         </select>
       </div>
     </div>
@@ -34,10 +34,11 @@ include __DIR__ . '/header.php';
         <thead>
           <tr>
             <th><input type="checkbox" id="selectAll"></th>
-            <th>Offer</th>
+            <th>Coupon Code</th>
             <th>Type</th>
             <th>Discount</th>
-            <th>Valid Until</th>
+            <th>Usage</th>
+            <th>Expires</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -46,15 +47,15 @@ include __DIR__ . '/header.php';
           <tr>
             <td><input type="checkbox" class="row-select"></td>
             <td>
-              <div class="offer-info">
+              <div class="coupon-info">
                 <div>
-                  <span class="offer-title">New Year Sale 2024</span>
-                  <span class="offer-desc">Flat 50% off on all ethnic wear</span>
+                  <span class="coupon-code">WELCOME50</span>
+                  <span class="coupon-desc">Welcome discount for new customers</span>
                 </div>
               </div>
             </td>
             <td>
-              <span class="offer-type">
+              <span class="coupon-type">
                 <i class="fas fa-percentage"></i>
                 Percentage
               </span>
@@ -64,18 +65,24 @@ include __DIR__ . '/header.php';
             </td>
             <td>
               <div>
-                <div>Jan 31, 2024</div>
-                <small class="text-muted">15 days left</small>
+                <div>25 / 100</div>
+                <small class="text-muted">uses</small>
+              </div>
+            </td>
+            <td>
+              <div>
+                <div>Mar 31, 2024</div>
+                <small class="text-muted">2 months left</small>
               </div>
             </td>
             <td><span class="status-badge status-completed">Active</span></td>
             <td>
               <div class="action-buttons">
-                <button class="btn-icon" title="Edit Offer">
+                <button class="btn-icon" title="Edit Coupon">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn-icon" title="View Analytics">
-                  <i class="fas fa-chart-bar"></i>
+                <button class="btn-icon" title="Copy Code">
+                  <i class="fas fa-copy"></i>
                 </button>
                 <button class="btn-icon btn-icon--danger" title="Deactivate">
                   <i class="fas fa-pause"></i>
@@ -86,39 +93,45 @@ include __DIR__ . '/header.php';
           <tr>
             <td><input type="checkbox" class="row-select"></td>
             <td>
-              <div class="offer-info">
+              <div class="coupon-info">
                 <div>
-                  <span class="offer-title">Valentine's Special</span>
-                  <span class="offer-desc">Buy 2 Get 1 Free on jewelry</span>
+                  <span class="coupon-code">SAVE200</span>
+                  <span class="coupon-desc">Flat ₹200 off on orders above ₹2000</span>
                 </div>
               </div>
             </td>
             <td>
-              <span class="offer-type">
-                <i class="fas fa-gift"></i>
-                BOGO
+              <span class="coupon-type">
+                <i class="fas fa-rupee-sign"></i>
+                Fixed Amount
               </span>
             </td>
             <td>
-              <span class="discount-value">Buy 2 Get 1</span>
+              <span class="discount-value">₹200</span>
             </td>
             <td>
               <div>
-                <div>Feb 14, 2024</div>
-                <small class="text-muted">Scheduled</small>
+                <div>12 / 50</div>
+                <small class="text-muted">uses</small>
               </div>
             </td>
-            <td><span class="status-badge status-pending">Scheduled</span></td>
+            <td>
+              <div>
+                <div>Feb 28, 2024</div>
+                <small class="text-muted">1 month left</small>
+              </div>
+            </td>
+            <td><span class="status-badge status-completed">Active</span></td>
             <td>
               <div class="action-buttons">
-                <button class="btn-icon" title="Edit Offer">
+                <button class="btn-icon" title="Edit Coupon">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn-icon btn-icon--success" title="Activate Now">
-                  <i class="fas fa-play"></i>
+                <button class="btn-icon" title="Copy Code">
+                  <i class="fas fa-copy"></i>
                 </button>
-                <button class="btn-icon btn-icon--danger" title="Delete">
-                  <i class="fas fa-trash"></i>
+                <button class="btn-icon btn-icon--danger" title="Deactivate">
+                  <i class="fas fa-pause"></i>
                 </button>
               </div>
             </td>
@@ -128,7 +141,7 @@ include __DIR__ . '/header.php';
     </div>
     <div class="table-footer">
       <div class="table-info">
-        Showing 1-2 of 8 offers
+        Showing 1-2 of 12 coupons
       </div>
       <div class="pagination">
         <button class="pagination-btn" disabled>
@@ -136,6 +149,7 @@ include __DIR__ . '/header.php';
         </button>
         <button class="pagination-btn active">1</button>
         <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
         <button class="pagination-btn">
           <i class="fas fa-chevron-right"></i>
         </button>
