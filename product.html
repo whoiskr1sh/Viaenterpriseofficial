@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/product.css">
+</head>
+
+<body>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+
+    <!-- Main Content -->
+    <main class="product-page">
+        <div class="product-container">
+            <!-- Product Gallery -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="assets/images/saree.webp" alt="Silk Banarasi Saree" id="mainImage">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" data-image="assets/images/saree.webp">
+                        <img src="assets/images/saree.webp" alt="Silk Banarasi Saree">
+                    </div>
+                    <div class="thumbnail" data-image="assets/images/kanjivaram.webp">
+                        <img src="assets/images/kanjivaram.webp" alt="Silk Banarasi Saree Detail">
+                    </div>
+                    <div class="thumbnail" data-image="assets/images/Georgette Embroidered Saree.jpg">
+                        <img src="assets/images/Georgette Embroidered Saree.jpg" alt="Silk Banarasi Saree Back">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> /
+                    <a href="shop.html">Shop</a> /
+                    <a href="shop.html?category=sarees">Sarees</a> /
+                    <span>Silk Banarasi Saree</span>
+                </nav>
+
+                <h1 class="product-title">Silk Banarasi Saree</h1>
+
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="rating-text">4.9 (312 reviews)</span>
+                    </div>
+                </div>
+
+                <div class="product-price">
+                    <span class="current-price">₹3,499</span>
+                    <span class="original-price">₹5,999</span>
+                    <span class="discount">42% OFF</span>
+                </div>
+
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>This exquisite Silk Banarasi Saree is handwoven by skilled artisans from Varanasi. Made with pure
+                        silk and zari work, this saree features intricate floral and buta designs that reflect the rich
+                        heritage of Banarasi weaving. The golden zari borders and pallu add a royal touch, making it
+                        perfect for weddings, festivals, and special occasions.</p>
+
+                    <div class="product-features">
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Fabric: Pure Banarasi Silk</li>
+                            <li>Blouse: Included (Unstitched)</li>
+                            <li>Length: 5.5 meters</li>
+                            <li>Blouse Length: 0.8 meters</li>
+                            <li>Work: Zari & Resham Embroidery</li>
+                            <li>Occasion: Wedding, Party, Festive</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-actions" data-product-id="saree123">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decreaseQty">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <button class="quantity-btn" id="increaseQty">+</button>
+                    </div>
+
+                    <button class="btn btn-primary add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+
+                    <button class="btn btn-outline wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Delivery</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-undo"></i>
+                        <span>7 Days Return</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Payment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="details">Product Details</button>
+                <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+                <button class="tab-btn" data-tab="reviews">Reviews</button>
+            </div>
+
+            <div class="tabs-content">
+                <div class="tab-pane active" id="description">
+                    <h3>Product Description</h3>
+                    <p>Experience the royal elegance of our Silk Banarasi Saree, a perfect blend of traditional
+                        craftsmanship and contemporary design. Each saree is a masterpiece, taking skilled artisans
+                        several days to complete. The intricate zari work and detailed motifs make this saree a
+                        treasured addition to any ethnic wardrobe.</p>
+
+                    <h4>Design & Pattern</h4>
+                    <p>Features traditional Banarasi motifs including floral butis, intricate jaal work, and elegant
+                        borders. The pallu showcases an elaborate design that's characteristic of authentic Banarasi
+                        weaves.</p>
+                </div>
+
+                <div class="tab-pane" id="details">
+                    <h3>Product Details</h3>
+                    <table class="details-table">
+                        <tr>
+                            <th>Fabric</th>
+                            <td>Pure Banarasi Silk</td>
+                        </tr>
+                        <tr>
+                            <th>Work</th>
+                            <td>Zari & Resham Embroidery</td>
+                        </tr>
+                        <tr>
+                            <th>Occasion</th>
+                            <td>Wedding, Party, Festive</td>
+                        </tr>
+                        <tr>
+                            <th>Saree Length</th>
+                            <td>5.5 meters</td>
+                        </tr>
+                        <tr>
+                            <th>Blouse Piece</th>
+                            <td>0.8 meters (Unstitched)</td>
+                        </tr>
+                        <tr>
+                            <th>Wash Care</th>
+                            <td>Dry Clean Only</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane" id="shipping">
+                    <h3>Shipping & Returns</h3>
+                    <h4>Shipping</h4>
+                    <p>We offer free standard shipping on all orders. Orders are typically processed within 1-2 business
+                        days and delivered within 5-7 business days.</p>
+
+                    <h4>Returns</h4>
+                    <p>We offer a 7-day return policy. Items must be in their original condition with all tags attached.
+                        Customized or personalized items cannot be returned.</p>
+                </div>
+
+                <div class="tab-pane" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer">Priya Sharma</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">August 15, 2023</div>
+                        <p class="review-text">Absolutely stunning saree! The zari work is beautiful and the fabric is
+                            pure silk. Got so many compliments at the wedding I attended.</p>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer">Ananya Patel</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">July 28, 2023</div>
+                        <p class="review-text">Beautiful saree, perfect for special occasions. The color is exactly as
+                            shown in the pictures. The only reason I'm giving 4 stars is because the blouse piece was
+                            slightly smaller than expected.</p>
+                    </div>
+
+                    <button class="btn btn-outline write-review-btn">
+                        <i class="fas fa-pen"></i> Write a Review
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <h2>You May Also Like</h2>
+            <div class="products-grid">
+                <!-- Related product cards will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="site-footer" id="site-footer">
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/wishlist.js"></script>
+
+    <script>
+        // Load navbar and footer components
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load navbar
+            fetch('components/navbar.html')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('navbar-container').innerHTML = html;
+                    const s = document.createElement('script');
+                    s.src = 'assets/js/components/navbar.js';
+                    document.body.appendChild(s);
+                });
+
+            // Load footer
+            fetch('components/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    const footerEl = document.querySelector('.site-footer');
+                    if (footerEl) {
+                        footerEl.innerHTML = html;
+                    }
+                });
+
+            // Product gallery functionality
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImage');
+
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function () {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    // Update main image
+                    mainImage.src = this.dataset.image;
+                });
+            });
+
+            // Quantity selector
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            const quantityInput = document.getElementById('quantity');
+
+            decreaseBtn.addEventListener('click', () => {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                let value = parseInt(quantityInput.value);
+                if (value < 10) {
+                    quantityInput.value = value + 1;
+                }
+            });
+
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const tabId = this.dataset.tab;
+
+                    // Remove active class from all buttons and panes
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding pane
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

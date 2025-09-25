@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Sale - Up to 70% Off | Viaenterpriseofficial</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/sale.css">
+</head>
+<body>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="sale-page">
+        <!-- Hero Section -->
+        <section class="sale-hero">
+            <div class="hero-content">
+                <div class="sale-badge">MEGA SALE</div>
+                <h1>Up to 70% Off!</h1>
+                <p>Grab your favorites before they're gone</p>
+                <div class="countdown-timer" id="saleCountdown">
+                    <div class="time-unit">
+                        <span class="time-number" id="days">05</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="hours">12</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="minutes">30</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="seconds">45</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary hero-cta" onclick="scrollToProducts()">Shop Sale Now</button>
+            </div>
+        </section>
+
+        <!-- Filters & Sorting -->
+        <section class="filters-section" id="filtersSection">
+            <div class="container">
+                <div class="filters-wrapper">
+                    <!-- Category Tabs -->
+                    <div class="category-tabs">
+                        <button class="tab-btn active" data-category="all">All Items</button>
+                        <button class="tab-btn" data-category="ethnic">Ethnic Wear</button>
+                        <button class="tab-btn" data-category="jewelry">Jewelry</button>
+                        <button class="tab-btn" data-category="accessories">Accessories</button>
+                        <button class="tab-btn" data-category="hampers">Hampers & Gifts</button>
+                        <button class="tab-btn" data-category="lifestyle">Lifestyle & Essentials</button>
+                    </div>
+
+                    <!-- Filter Controls -->
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label>Sort by:</label>
+                            <select id="sortBy">
+                                <option value="discount">Biggest Discount</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="bestselling">Bestselling</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Deals Spotlight -->
+        <section class="hot-deals">
+            <div class="container">
+                <h2 class="section-title">🔥 Hot Deals of the Day</h2>
+                <div class="deals-carousel">
+                    <!-- Hot deals will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Category-Specific Sale Sections -->
+        <!-- Ethnic Wear Section -->
+        <section class="category-sale-section" data-category="ethnic">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ethnic Wear - Hot Deals 🌟</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid" id="ethnicProducts">
+                    <!-- Ethnic products will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Jewelry Section -->
+        <section class="category-sale-section" data-category="jewelry">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Jewelry - Sparkle on Sale ✨</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid" id="jewelryProducts">
+                    <!-- Jewelry products will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessories Section -->
+        <section class="category-sale-section" data-category="accessories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Accessories - Must-Have Deals 👜</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid" id="accessoriesProducts">
+                    <!-- Accessories products will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Don't Miss Future Sales!</h2>
+                    <p>Subscribe to get exclusive deals and early access to our biggest sales</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <div class="newsletter-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-percentage"></i>
+                            <span>Exclusive Discounts</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-bell"></i>
+                            <span>Early Sale Access</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-gift"></i>
+                            <span>Special Offers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA Banner -->
+        <section class="footer-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h3>🚚 Free Shipping on Orders Above ₹999 - Today Only!</h3>
+                        <p>Limited time offer. Don't miss out on free delivery.</p>
+                    </div>
+                    <button class="btn btn-light">Shop Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/wishlist.js"></script>
+    <script src="assets/js/sale.js"></script>
+
+    <script>
+        // Load navbar and footer components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('components/navbar.html')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('navbar-container').innerHTML = html;
+                    const s = document.createElement('script');
+                    s.src = 'assets/js/components/navbar.js';
+                    document.body.appendChild(s);
+                });
+
+            // Load footer
+            fetch('components/footer.html')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('site-footer').innerHTML = html;
+                });
+        });
+
+        // Scroll to products function
+        function scrollToProducts() {
+            document.getElementById('filtersSection').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
