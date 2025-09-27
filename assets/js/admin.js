@@ -12,6 +12,7 @@
     initializeSearch();
     initializeTables();
     initializeCharts();
+    initializeSettings();
     setActiveNavigation();
   });
 
@@ -523,6 +524,310 @@
     hideLoading,
     debounce
   };
+
+  // ===== SETTINGS PAGE FUNCTIONALITY =====
+  function initializeSettings() {
+    // Only run on settings page
+    if (!document.querySelector('.settings-container')) return;
+
+    initializeSettingsTabs();
+    initializeSettingsForms();
+    initializeFileUploads();
+    initializeToggleSwitches();
+    initializeSettingsValidation();
+  }
+
+  function initializeSettingsTabs() {
+    const tabs = document.querySelectorAll('.settings-tab');
+    const panels = document.querySelectorAll('.settings-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-tab');
+        
+        // Remove active class from all tabs and panels
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding panel
+        tab.classList.add('active');
+        const targetPanel = document.getElementById(`${targetTab}-panel`);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+        }
+
+        // Store active tab in localStorage
+        localStorage.setItem('activeSettingsTab', targetTab);
+      });
+    });
+
+    // Restore last active tab
+    const lastActiveTab = localStorage.getItem('activeSettingsTab');
+    if (lastActiveTab) {
+      const tab = document.querySelector(`[data-tab="${lastActiveTab}"]`);
+      if (tab) {
+        tab.click();
+      }
+    }
+  }
+
+  function initializeSettingsForms() {
+    const forms = document.querySelectorAll('.settings-form');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        handleSettingsFormSubmit(form);
+      });
+    });
+
+    // Save all settings button
+    const saveAllBtn = document.getElementById('save-all-settings');
+    if (saveAllBtn) {
+      saveAllBtn.addEventListener('click', () => {
+        handleSaveAllSettings();
+      });
+    }
+
+    // Test email button
+    const testEmailBtn = document.getElementById('test-email');
+    if (testEmailBtn) {
+      testEmailBtn.addEventListener('click', () => {
+        handleTestEmail();
+      });
+    }
+  }
+
+  function initializeFileUploads() {
+    const fileInputs = document.querySelectorAll('.file-input');
+    
+    fileInputs.forEach(input => {
+      input.addEventListener('change', (e) => {
+        handleFileUpload(e.target);
+      });
+    });
+  }
+
+  function initializeToggleSwitches() {
+    const toggles = document.querySelectorAll('.toggle-switch input');
+    
+    toggles.forEach(toggle => {
+      toggle.addEventListener('change', (e) => {
+        const isEnabled = e.target.checked;
+        const card = e.target.closest('.payment-method-card, .shipping-zone-card');
+        
+        if (card) {
+          const fields = card.querySelector('.payment-method-fields, .zone-content');
+          if (fields) {
+            fields.style.opacity = isEnabled ? '1' : '0.5';
+            const inputs = fields.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+              input.disabled = !isEnabled;
+            });
+          }
+        }
+      });
+
+      // Trigger initial state
+      toggle.dispatchEvent(new Event('change'));
+    });
+  }
+
+  function initializeSettingsValidation() {
+    const inputs = document.querySelectorAll('.settings-form input, .settings-form select, .settings-form textarea');
+    
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => {
+        validateSettingsField(input);
+      });
+
+      input.addEventListener('input', () => {
+        clearFieldError(input);
+      });
+    });
+  }
+
+  function handleSettingsFormSubmit(form) {
+    const formData = new FormData(form);
+    const formId = form.id;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
+    // Show loading state
+    if (submitBtn) {
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+      submitBtn.disabled = true;
+      
+      // Simulate API call
+      setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        showToast(`${getFormDisplayName(formId)} saved successfully!`, 'success');
+      }, 1500);
+    }
+  }
+
+  function handleSaveAllSettings() {
+    const forms = document.querySelectorAll('.settings-form');
+    const saveAllBtn = document.getElementById('save-all-settings');
+    
+    if (saveAllBtn) {
+      const originalText = saveAllBtn.innerHTML;
+      saveAllBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving All...';
+      saveAllBtn.disabled = true;
+      
+      // Simulate saving all forms
+      setTimeout(() => {
+        saveAllBtn.innerHTML = originalText;
+        saveAllBtn.disabled = false;
+        showToast('All settings saved successfully!', 'success');
+      }, 2500);
+    }
+  }
+
+  function handleTestEmail() {
+    const testBtn = document.getElementById('test-email');
+    
+    if (testBtn) {
+      const originalText = testBtn.innerHTML;
+      testBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      testBtn.disabled = true;
+      
+      // Simulate sending test email
+      setTimeout(() => {
+        testBtn.innerHTML = originalText;
+        testBtn.disabled = false;
+        showToast('Test email sent successfully!', 'success');
+      }, 2000);
+    }
+  }
+
+  function handleFileUpload(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+      showToast('Please select a valid image file (JPEG, PNG, GIF, WebP)', 'error');
+      input.value = '';
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    const maxSize = 5 * 1024 * 1024;
+    if (file.size > maxSize) {
+      showToast('File size must be less than 5MB', 'error');
+      input.value = '';
+      return;
+    }
+
+    // Show preview
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const preview = input.closest('.file-upload-container').querySelector('img');
+      if (preview) {
+        preview.src = e.target.result;
+        showToast('Image uploaded successfully!', 'success');
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function validateSettingsField(field) {
+    const value = field.value.trim();
+    const fieldType = field.type;
+    const isRequired = field.hasAttribute('required');
+    
+    clearFieldError(field);
+
+    if (isRequired && !value) {
+      showFieldError(field, 'This field is required');
+      return false;
+    }
+
+    if (fieldType === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        showFieldError(field, 'Please enter a valid email address');
+        return false;
+      }
+    }
+
+    if (fieldType === 'url' && value) {
+      try {
+        new URL(value);
+      } catch {
+        showFieldError(field, 'Please enter a valid URL');
+        return false;
+      }
+    }
+
+    if (fieldType === 'tel' && value) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+        showFieldError(field, 'Please enter a valid phone number');
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function showFieldError(field, message) {
+    const formGroup = field.closest('.form-group');
+    if (!formGroup) return;
+
+    // Remove existing error
+    const existingError = formGroup.querySelector('.field-error');
+    if (existingError) {
+      existingError.remove();
+    }
+
+    // Add error styling
+    field.style.borderColor = 'var(--danger)';
+    field.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+
+    // Add error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.style.cssText = `
+      color: var(--danger);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    `;
+    errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+    
+    formGroup.appendChild(errorDiv);
+  }
+
+  function clearFieldError(field) {
+    const formGroup = field.closest('.form-group');
+    if (!formGroup) return;
+
+    // Remove error styling
+    field.style.borderColor = '';
+    field.style.boxShadow = '';
+
+    // Remove error message
+    const errorDiv = formGroup.querySelector('.field-error');
+    if (errorDiv) {
+      errorDiv.remove();
+    }
+  }
+
+  function getFormDisplayName(formId) {
+    const names = {
+      'general-form': 'General Settings',
+      'payment-form': 'Payment Settings',
+      'shipping-form': 'Shipping Settings',
+      'notifications-form': 'Notification Settings'
+    };
+    return names[formId] || 'Settings';
+  }
 
   // ===== DEMO INTERACTIONS =====
   // Add click handlers for demo purposes
