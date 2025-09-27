@@ -10,7 +10,7 @@ $breadcrumb_items = $breadcrumb_items ?? [['title' => 'Admin'], ['title' => 'Das
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo htmlspecialchars($page_title); ?> - Viaenterprise Admin</title>
-  <link rel="stylesheet" href="/assets/css/admin.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -93,13 +93,13 @@ $breadcrumb_items = $breadcrumb_items ?? [['title' => 'Admin'], ['title' => 'Das
       
       <div class="profile-dropdown">
         <button class="profile-btn" id="profileBtn">
-          <img src="/assets/images/admin-avatar.jpg" alt="Admin" class="profile-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM0RjQ2RTUiLz4KPHBhdGggZD0iTTE2IDhDMTMuNzkgOCAxMiA5Ljc5IDEyIDEyQzEyIDE0LjIxIDEzLjc5IDE2IDE2IDE2QzE4LjIxIDE2IDIwIDE0LjIxIDIwIDEyQzIwIDkuNzkgMTguMjEgOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTggMjRDOCAyMC42OSAxMC42OSAxOCAxNCAxOEgxOEMyMS4zMSAxOCAyNCAyMC42OSAyNCAyNFYyNkg4VjI0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+'">
+          <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="profile-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM0RjQ2RTUiLz4KPHBhdGggZD0iTTE2IDhDMTMuNzkgOCAxMiA5Ljc5IDEyIDEyQzEyIDE0LjIxIDEzLjc5IDE2IDE2IDE2QzE4LjIxIDE2IDIwIDE0LjIxIDIwIDEyQzIwIDkuNzkgMTguMjEgOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTggMjRDOCAyMC42OSAxMC42OSAxOCAxNCAxOEgxOEMyMS4zMSAxOCAyNCAyMC42OSAyNCAyNFYyNkg4VjI0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+'">
           <span class="profile-name">Admin</span>
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="profile-menu" id="profileMenu">
           <div class="profile-info">
-            <img src="/assets/images/admin-avatar.jpg" alt="Admin" class="profile-menu-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM0RjQ2RTUiLz4KPHBhdGggZD0iTTIwIDEwQzE3LjI0IDEwIDE1IDE0LjI0IDE1IDE1QzE1IDE3Ljc2IDE3LjI0IDIwIDIwIDIwQzIyLjc2IDIwIDI1IDE3Ljc2IDI1IDE1QzI1IDEyLjI0IDIyLjc2IDEwIDIwIDEwWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTEwIDMwQzEwIDI1Ljg2IDEzLjg2IDIyLjUgMTguNSAyMi41SDIxLjVDMjYuMTQgMjIuNSAzMCAyNS44NiAzMCAzMFYzMkgxMFYzMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPg=='">
+            <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="profile-menu-avatar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM0RjQ2RTUiLz4KPHBhdGggZD0iTTIwIDEwQzE3LjI0IDEwIDE1IDE0LjI0IDE1IDE1QzE1IDE3Ljc2IDE3LjI0IDIwIDIwIDIwQzIyLjc2IDIwIDI1IDE3Ljc2IDI1IDE1QzI1IDEyLjI0IDIyLjc2IDEwIDIwIDEwWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTEwIDMwQzEwIDI1Ljg2IDEzLjg2IDIyLjUgMTguNSAyMi41SDIxLjVDMjYuMTQgMjIuNSAzMCAyNS44NiAzMCAzMFYzMkgxMFYzMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPg=='">
             <div>
               <h4>Administrator</h4>
               <p>admin@viaenterprise.com</p>
