@@ -19,7 +19,7 @@
     <ul class="nav__list">
       <!-- Main Section -->
       <li class="nav__item">
-        <a href="/admin/index.php" class="nav__link" data-page="dashboard">
+        <a href="../admin/index.php" class="nav__link" data-page="dashboard">
           <i class="fas fa-tachometer-alt nav__icon"></i>
           <span class="nav__text">Dashboard</span>
         </a>
@@ -33,19 +33,19 @@
           <i class="fas fa-chevron-down nav__arrow"></i>
         </button>
         <ul class="nav__submenu" id="products-menu">
-          <li><a href="/admin/products-add.php" class="nav__sublink">
+          <li><a href="../admin/products-add.php" class="nav__sublink">
             <i class="fas fa-plus nav__subicon"></i>
             <span class="nav__subtext">Add Product</span>
           </a></li>
-          <li><a href="/admin/products-manage.php" class="nav__sublink">
+          <li><a href="../admin/products-manage.php" class="nav__sublink">
             <i class="fas fa-list nav__subicon"></i>
             <span class="nav__subtext">Manage Products</span>
           </a></li>
-          <li><a href="/admin/categories-add.php" class="nav__sublink">
+          <li><a href="../admin/categories-add.php" class="nav__sublink">
             <i class="fas fa-folder-plus nav__subicon"></i>
             <span class="nav__subtext">Add Category</span>
           </a></li>
-          <li><a href="/admin/categories-manage.php" class="nav__sublink">
+          <li><a href="../admin/categories-manage.php" class="nav__sublink">
             <i class="fas fa-folder-open nav__subicon"></i>
             <span class="nav__subtext">Manage Categories</span>
           </a></li>
@@ -61,16 +61,16 @@
           <i class="fas fa-chevron-down nav__arrow"></i>
         </button>
         <ul class="nav__submenu" id="orders-menu">
-          <li><a href="/admin/orders-new.php" class="nav__sublink">
+          <li><a href="../admin/orders-new.php" class="nav__sublink">
             <i class="fas fa-clock nav__subicon"></i>
             <span class="nav__subtext">New Orders</span>
             <span class="nav__subbadge">5</span>
           </a></li>
-          <li><a href="/admin/orders-completed.php" class="nav__sublink">
+          <li><a href="../admin/orders-completed.php" class="nav__sublink">
             <i class="fas fa-check-circle nav__subicon"></i>
             <span class="nav__subtext">Completed</span>
           </a></li>
-          <li><a href="/admin/orders-cancelled.php" class="nav__sublink">
+          <li><a href="../admin/orders-cancelled.php" class="nav__sublink">
             <i class="fas fa-times-circle nav__subicon"></i>
             <span class="nav__subtext">Cancelled</span>
           </a></li>
@@ -79,7 +79,7 @@
 
       <!-- Customers Section -->
       <li class="nav__item">
-        <a href="/admin/customers.php" class="nav__link" data-page="customers">
+        <a href="../admin/customers.php" class="nav__link" data-page="customers">
           <i class="fas fa-users nav__icon"></i>
           <span class="nav__text">Customers</span>
         </a>
@@ -93,15 +93,15 @@
           <i class="fas fa-chevron-down nav__arrow"></i>
         </button>
         <ul class="nav__submenu" id="marketing-menu">
-          <li><a href="/admin/offers.php" class="nav__sublink">
+          <li><a href="../admin/offers.php" class="nav__sublink">
             <i class="fas fa-gift nav__subicon"></i>
             <span class="nav__subtext">Offers & Discounts</span>
           </a></li>
-          <li><a href="/admin/coupons.php" class="nav__sublink">
+          <li><a href="../admin/coupons.php" class="nav__sublink">
             <i class="fas fa-ticket-alt nav__subicon"></i>
             <span class="nav__subtext">Coupons</span>
           </a></li>
-          <li><a href="/admin/newsletters.php" class="nav__sublink">
+          <li><a href="../admin/newsletters.php" class="nav__sublink">
             <i class="fas fa-envelope nav__subicon"></i>
             <span class="nav__subtext">Newsletters</span>
           </a></li>
@@ -110,7 +110,7 @@
 
       <!-- Content Section -->
       <li class="nav__item">
-        <a href="/admin/content.php" class="nav__link" data-page="content">
+        <a href="../admin/content.php" class="nav__link" data-page="content">
           <i class="fas fa-edit nav__icon"></i>
           <span class="nav__text">Content</span>
         </a>
@@ -118,7 +118,7 @@
 
       <!-- Reports Section -->
       <li class="nav__item">
-        <a href="/admin/reports.php" class="nav__link" data-page="reports">
+        <a href="../admin/reports.php" class="nav__link" data-page="reports">
           <i class="fas fa-chart-line nav__icon"></i>
           <span class="nav__text">Analytics</span>
         </a>
@@ -129,7 +129,7 @@
 
       <!-- Settings Section -->
       <li class="nav__item">
-        <a href="/admin/settings.php" class="nav__link" data-page="settings">
+        <a href="../admin/settings.php" class="nav__link" data-page="settings">
           <i class="fas fa-cog nav__icon"></i>
           <span class="nav__text">Settings</span>
         </a>

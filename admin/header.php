@@ -86,7 +86,7 @@ $breadcrumb_items = $breadcrumb_items ?? [['title' => 'Admin'], ['title' => 'Das
             </div>
           </div>
           <div class="notification-footer">
-            <a href="/admin/notifications.php">View all notifications</a>
+            <a href="../admin/notifications.php">View all notifications</a>
           </div>
         </div>
       </div>
@@ -106,16 +106,16 @@ $breadcrumb_items = $breadcrumb_items ?? [['title' => 'Admin'], ['title' => 'Das
             </div>
           </div>
           <div class="profile-menu-divider"></div>
-          <a href="/admin/profile.php" class="profile-menu-item">
+          <a href="../admin/profile.php" class="profile-menu-item">
             <i class="fas fa-user"></i>
             <span>My Profile</span>
           </a>
-          <a href="/admin/settings.php" class="profile-menu-item">
+          <a href="../admin/settings.php" class="profile-menu-item">
             <i class="fas fa-cog"></i>
             <span>Settings</span>
           </a>
           <div class="profile-menu-divider"></div>
-          <a href="/login.php" class="profile-menu-item logout">
+          <a href="../login.php" class="profile-menu-item logout">
             <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span>
           </a>

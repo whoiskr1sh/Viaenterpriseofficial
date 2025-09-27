@@ -172,7 +172,7 @@ include __DIR__ . '/header.php';
 
 <script>
 // Initialize charts when page loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function()) {
   // Revenue Chart
   const revenueCtx = document.getElementById('revenueChart');
   if (revenueCtx) {
@@ -197,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
           y: { beginAtZero: true }
         }
       }
+    })
   <script>
     new Chart(document.getElementById('monthlySales'), {
       type: 'bar',
@@ -208,7 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
       data: { labels: ['Sarees','Lehengas','Jewelry','Kurtis'], datasets: [{ data:[40,30,20,10], backgroundColor:['#22c55e','#f59e0b','#ef4444','#3b82f6']} ]},
       options: { responsive: true, maintainAspectRatio: false }
     });
+    }
   </script>
+  }
+</script>
   <script src="../assets/js/admin.js"></script>
 </body>
 </html>
