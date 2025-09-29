@@ -7,7 +7,7 @@ $breadcrumb_items = [
     ['title' => 'Marketing'],
     ['title' => 'Offers & Discounts', 'active' => true]
 ];
-$page_actions = '<button class="btn btn--primary"><i class="fas fa-plus"></i> Create Offer</button>';
+$page_actions = '<button class="btn btn--primary" data-modal-target="#create-offer-modal"><i class="fas fa-plus"></i> Create Offer</button>';
 
 include __DIR__ . '/header.php';
 ?>
@@ -140,6 +140,50 @@ include __DIR__ . '/header.php';
           <i class="fas fa-chevron-right"></i>
         </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Offer Modal -->
+<div class="modal" id="create-offer-modal">
+  <div class="modal__panel">
+    <div class="modal__header">
+      <h3>Create New Offer</h3>
+      <button class="modal__close-btn" data-modal-close>&times;</button>
+    </div>
+    <div class="modal__body">
+      <form class="form" id="create-offer-form">
+        <div class="form-grid">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Offer Title *</label>
+            <input type="text" class="form-input" placeholder="e.g., Diwali Sale" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Offer Type</label>
+            <select class="form-input">
+              <option value="percentage">Percentage Discount</option>
+              <option value="fixed">Fixed Amount Discount</option>
+              <option value="bogo">Buy X Get Y</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Discount Value</label>
+            <input type="text" class="form-input" placeholder="e.g., 50 or BOGO" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Valid From</label>
+            <input type="date" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Valid Until</label>
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--secondary" data-modal-close>Cancel</button>
+      <button class="btn btn--primary" type="submit" form="create-offer-form">Save Offer</button>
     </div>
   </div>
 </div>

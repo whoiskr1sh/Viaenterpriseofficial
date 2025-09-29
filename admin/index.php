@@ -133,37 +133,49 @@
           <p class="page-subtitle">Welcome back! Here's what's happening with your store today.</p>
         </div>
         <div class="page-actions">
-          <button class="btn btn--secondary">
+          <a class="btn btn--secondary" href="../admin/reports.php">
             <i class="fas fa-download"></i>
             Export Data
-          </button>
-          <button class="btn btn--primary">
+          </a>
+          <a class="btn btn--primary" href="../admin/products-add.php">
             <i class="fas fa-plus"></i>
             Add Product
-          </button>
+          </a>
         </div>
       </div>
 
     <section class="cards">
       <div class="card">
         <div class="card__title">Total Orders</div>
-        <div class="card__value">1,248</div>
-        <div class="card__meta">+12% vs last week</div>
+        <div class="card__value">1,247</div>
+        <div class="card__meta status-positive">
+          <i class="fas fa-arrow-up"></i>
+          +12% vs last week
+        </div>
       </div>
       <div class="card">
-        <div class="card__title">Total Sales (₹)</div>
-        <div class="card__value">₹ 8,42,500</div>
-        <div class="card__meta">+7% MoM</div>
+        <div class="card__title">Total Sales</div>
+        <div class="card__value">₹8,42,500</div>
+        <div class="card__meta status-positive">
+          <i class="fas fa-arrow-up"></i>
+          +7% MoM
+        </div>
       </div>
       <div class="card">
         <div class="card__title">Active Customers</div>
         <div class="card__value">3,215</div>
-        <div class="card__meta">+5 new today</div>
+        <div class="card__meta status-positive">
+          <i class="fas fa-arrow-up"></i>
+          +5 new today
+        </div>
       </div>
       <div class="card">
         <div class="card__title">Total Products</div>
         <div class="card__value">684</div>
-        <div class="card__meta">12 low-stock</div>
+        <div class="card__meta status-warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          12 low-stock
+        </div>
       </div>
     </section>
 
@@ -188,9 +200,16 @@
   </main>
 
   <script>
-    // Charts demo data
-    const salesCtx = document.getElementById('salesTrend');
-    const salesChart = new Chart(salesCtx, {
+    // Enhanced Charts with Professional Styling
+    function initializeCharts() {
+      const salesCtx = document.getElementById('salesTrend');
+      
+      // Destroy existing chart if it exists
+      if (Chart.getChart('salesTrend')) {
+        Chart.getChart('salesTrend').destroy();
+      }
+      
+      const salesChart = new Chart(salesCtx, {
       type: 'line',
       data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
@@ -198,26 +217,201 @@
           label: 'Sales (₹)',
           data: [120000, 150000, 130000, 170000, 210000, 190000, 240000],
           borderColor: '#4f46e5',
-          backgroundColor: 'rgba(79, 70, 229, 0.15)',
-          tension: 0.35,
+          backgroundColor: 'rgba(79, 70, 229, 0.08)',
+          borderWidth: 4,
+          tension: 0.4,
           fill: true,
+          pointBackgroundColor: '#4f46e5',
+          pointBorderColor: '#ffffff',
+          pointBorderWidth: 3,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          pointHoverBackgroundColor: '#4f46e5',
+          pointHoverBorderColor: '#ffffff',
+          pointHoverBorderWidth: 3,
         }]
       },
-      options: { responsive: true, maintainAspectRatio: false }
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          intersect: false,
+          mode: 'index'
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+            titleColor: '#f8fafc',
+            bodyColor: '#e2e8f0',
+            borderColor: '#4f46e5',
+            borderWidth: 2,
+            cornerRadius: 12,
+            displayColors: false,
+            titleFont: {
+              size: 14,
+              weight: '600'
+            },
+            bodyFont: {
+              size: 13,
+              weight: '500'
+            },
+            padding: 12,
+            callbacks: {
+              title: function(context) {
+                return context[0].label + ' 2024';
+              },
+              label: function(context) {
+                return 'Revenue: ₹' + context.parsed.y.toLocaleString('en-IN');
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              color: '#64748b',
+              font: {
+                size: 12,
+                weight: '500'
+              }
+            },
+            border: {
+              display: false
+            }
+          },
+          y: {
+            grid: {
+              color: 'rgba(148, 163, 184, 0.1)',
+              drawBorder: false
+            },
+            ticks: {
+              color: '#64748b',
+              font: {
+                size: 12,
+                weight: '500'
+              },
+              callback: function(value) {
+                return '₹' + (value / 1000) + 'K';
+              },
+              padding: 8
+            },
+            border: {
+              display: false
+            }
+          }
+        },
+        animation: {
+          duration: 2000,
+          easing: 'easeInOutQuart'
+        },
+        elements: {
+          line: {
+            borderJoinStyle: 'round'
+          }
+        }
+      }
     });
 
     const catCtx = document.getElementById('topCategories');
+    
+    // Destroy existing chart if it exists
+    if (Chart.getChart('topCategories')) {
+      Chart.getChart('topCategories').destroy();
+    }
+    
     const catChart = new Chart(catCtx, {
       type: 'doughnut',
       data: {
         labels: ['Sarees', 'Lehengas', 'Jewelry', 'Kurtis'],
         datasets: [{
           data: [45, 25, 20, 10],
-          backgroundColor: ['#4f46e5', '#22c55e', '#f59e0b', '#ef4444']
+          backgroundColor: [
+            '#4f46e5',
+            '#22c55e', 
+            '#f59e0b',
+            '#ef4444'
+          ],
+          borderWidth: 0,
+          hoverBorderWidth: 4,
+          hoverBorderColor: '#ffffff',
+          hoverOffset: 8
         }]
       },
-      options: { responsive: true, maintainAspectRatio: false }
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '65%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              padding: 25,
+              usePointStyle: true,
+              pointStyle: 'circle',
+              color: '#64748b',
+              font: {
+                size: 13,
+                weight: '600'
+              }
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+            titleColor: '#f8fafc',
+            bodyColor: '#e2e8f0',
+            borderColor: '#4f46e5',
+            borderWidth: 2,
+            cornerRadius: 12,
+            titleFont: {
+              size: 14,
+              weight: '600'
+            },
+            bodyFont: {
+              size: 13,
+              weight: '500'
+            },
+            padding: 12,
+            callbacks: {
+              label: function(context) {
+                return context.label + ': ' + context.parsed + '%';
+              }
+            }
+          }
+        },
+        animation: {
+          duration: 1800,
+          easing: 'easeInOutQuart'
+        }
+      }
     });
+
+      // Add chart loading animation
+      function showChartLoading(chartId) {
+        const container = document.getElementById(chartId).parentElement;
+        container.classList.add('loading');
+        
+        setTimeout(() => {
+          container.classList.remove('loading');
+        }, 1000);
+      }
+
+      // Initialize loading animations
+      showChartLoading('salesTrend');
+      showChartLoading('topCategories');
+    }
+
+    // Initialize charts when DOM is loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeCharts);
+    } else {
+      initializeCharts();
+    }
   </script>
   <script src="../assets/js/admin.js"></script>
 </body>

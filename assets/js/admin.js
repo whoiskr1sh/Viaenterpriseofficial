@@ -36,7 +36,7 @@
         e.preventDefault();
         e.stopPropagation();
         
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           const isOpen = sidebar.classList.toggle('sidebar--open');
           mobileOverlay.classList.toggle('active', isOpen);
         }
@@ -47,7 +47,7 @@
     // Close sidebar when clicking overlay
     if (mobileOverlay) {
       mobileOverlay.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
           sidebar.classList.remove('sidebar--open');
           mobileOverlay.classList.remove('active');
         }
@@ -56,7 +56,7 @@
 
     // Handle window resize
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 1024) {
         // Desktop: ensure sidebar is visible and remove mobile classes
         sidebar.classList.remove('sidebar--open');
         mobileOverlay.classList.remove('active');
@@ -65,7 +65,7 @@
 
     // Close sidebar when clicking outside on mobile
     document.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768 && 
+      if (window.innerWidth <= 1024 && 
           sidebar && sidebar.classList.contains('sidebar--open') && 
           !sidebar.contains(e.target) && 
           !toggleBtn.contains(e.target)) {
@@ -850,3 +850,53 @@
   });
 
 })();
+
+// =============================================================================
+// MODAL DIALOGS
+// =============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Use event delegation for dynamically added modals
+    document.body.addEventListener('click', function(e) {
+        // Open modal
+        const openBtn = e.target.closest('[data-modal-target]');
+        if (openBtn) {
+            const modal = document.querySelector(openBtn.dataset.modalTarget);
+            if (modal) openModal(modal);
+            return;
+        }
+
+        // Close modal via close button
+        const closeBtn = e.target.closest('[data-modal-close]');
+        if (closeBtn) {
+            const modal = closeBtn.closest('.modal');
+            if (modal) closeModal(modal);
+            return;
+        }
+
+        // Close modal via overlay click
+        if (e.target.classList.contains('modal')) {
+            closeModal(e.target);
+        }
+    });
+
+    function openModal(modal) {
+        if (modal == null) return;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal(modal) {
+        if (modal == null) return;
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Close modal on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModal = document.querySelector('.modal.active');
+            if (openModal) closeModal(openModal);
+        }
+    });
+});
+

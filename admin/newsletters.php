@@ -7,7 +7,7 @@ $breadcrumb_items = [
     ['title' => 'Marketing'],
     ['title' => 'Newsletters', 'active' => true]
 ];
-$page_actions = '<button class="btn btn--primary"><i class="fas fa-plus"></i> Create Campaign</button>';
+$page_actions = '<button class="btn btn--primary" data-modal-target="#create-campaign-modal"><i class="fas fa-plus"></i> Create Campaign</button>';
 
 include __DIR__ . '/header.php';
 ?>
@@ -298,6 +298,46 @@ include __DIR__ . '/header.php';
           <i class="fas fa-chevron-right"></i>
         </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Campaign Modal -->
+<div class="modal" id="create-campaign-modal">
+  <div class="modal__panel">
+    <div class="modal__header">
+      <h3>Create New Campaign</h3>
+      <button class="modal__close-btn" data-modal-close>&times;</button>
+    </div>
+    <div class="modal__body">
+      <form class="form" id="create-campaign-form">
+        <div class="form-grid">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Campaign Name *</label>
+            <input type="text" class="form-input" placeholder="e.g., January Newsletter" required />
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Email Subject *</label>
+            <input type="text" class="form-input" placeholder="e.g., Our Latest Winter Collection" required />
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Recipients</label>
+            <select class="form-input">
+              <option value="all">All Subscribers</option>
+              <option value="new">New Subscribers (Last 30 Days)</option>
+              <option value="frequent">Frequent Buyers</option>
+            </select>
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Email Content</label>
+            <textarea class="form-input" rows="6" placeholder="Compose your email here..."></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--secondary" data-modal-close>Cancel</button>
+      <button class="btn btn--primary" type="submit" form="create-campaign-form">Save Campaign</button>
     </div>
   </div>
 </div>

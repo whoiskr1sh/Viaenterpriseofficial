@@ -7,7 +7,7 @@ $breadcrumb_items = [
     ['title' => 'Marketing'],
     ['title' => 'Coupons', 'active' => true]
 ];
-$page_actions = '<button class="btn btn--primary"><i class="fas fa-plus"></i> Create Coupon</button>';
+$page_actions = '<button class="btn btn--primary" data-modal-target="#create-coupon-modal"><i class="fas fa-plus"></i> Create Coupon</button>';
 
 include __DIR__ . '/header.php';
 ?>
@@ -154,6 +154,49 @@ include __DIR__ . '/header.php';
           <i class="fas fa-chevron-right"></i>
         </button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Coupon Modal -->
+<div class="modal" id="create-coupon-modal">
+  <div class="modal__panel">
+    <div class="modal__header">
+      <h3>Create New Coupon</h3>
+      <button class="modal__close-btn" data-modal-close>&times;</button>
+    </div>
+    <div class="modal__body">
+      <form class="form" id="create-coupon-form">
+        <div class="form-grid">
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Coupon Code *</label>
+            <input type="text" class="form-input" placeholder="e.g., SUMMER25" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Discount Type</label>
+            <select class="form-input">
+              <option value="percentage">Percentage</option>
+              <option value="fixed">Fixed Amount</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Discount Value *</label>
+            <input type="number" class="form-input" placeholder="e.g., 25 or 500" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Usage Limit</label>
+            <input type="number" class="form-input" placeholder="e.g., 100" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Expiry Date</label>
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--secondary" data-modal-close>Cancel</button>
+      <button class="btn btn--primary" type="submit" form="create-coupon-form">Save Coupon</button>
     </div>
   </div>
 </div>

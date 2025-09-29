@@ -7,7 +7,7 @@ $breadcrumb_items = [
     ['title' => 'Products'],
     ['title' => 'Manage Products', 'active' => true]
 ];
-$page_actions = '<button class="btn btn--primary"><i class="fas fa-plus"></i> Add Product</button>';
+$page_actions = '<a class="btn btn--primary" href="../admin/products-add.php"><i class="fas fa-plus"></i> Add Product</a>';
 
 include __DIR__ . '/header.php';
 ?>
