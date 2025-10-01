@@ -18,6 +18,7 @@
     <!-- Components CSS -->
     <link rel="stylesheet" href="assets/css/components/navbar.css">
     <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
     <!-- Page CSS -->
     <link rel="stylesheet" href="assets/css/pages/about.css">
 
@@ -227,6 +228,7 @@
 
     <!-- JS -->
     <script src="assets/js/about.js"></script>
+    <script src="assets/js/components/cart.js"></script>
     <script>
         // Load navbar component
         fetch('components/navbar.html')
@@ -236,6 +238,16 @@
                 const s = document.createElement('script');
                 s.src = 'assets/js/components/navbar.js';
                 document.body.appendChild(s);
+                
+                // Initialize cart after navbar is loaded
+                setTimeout(() => {
+                    if (typeof CartManager !== 'undefined') {
+                        cartManager = new CartManager();
+                        console.log('Cart initialized after navbar load');
+                    } else {
+                        console.error('CartManager not found');
+                    }
+                }, 200);
             });
 
         // Load footer component

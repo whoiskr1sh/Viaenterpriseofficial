@@ -1,0 +1,481 @@
+/* Master Responsive CSS - Import this in all pages */
+
+/* Import all responsive components */
+@import url('./utils/responsive.css');
+@import url('./components/product-card.css');
+@import url('./components/banner.css');
+
+/* Global Responsive Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Videos */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Tables */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+    min-width: 600px;
+}
+
+/* Global Button Responsive Styles */
+.btn, button, input[type="submit"], input[type="button"] {
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    line-height: 1.4;
+}
+
+/* Form Elements Responsive */
+input, select, textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #8b5a2b;
+    box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.1);
+}
+
+/* Responsive Typography */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+h5 { font-size: clamp(1rem, 2vw, 1.25rem); }
+h6 { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
+
+p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Spacing */
+.section {
+    padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(15px, 3vw, 40px);
+}
+
+/* Navigation Responsive Helpers */
+.nav-mobile-only {
+    display: none;
+}
+
+.nav-desktop-only {
+    display: block;
+}
+
+/* Responsive Grid System */
+.grid {
+    display: grid;
+    gap: clamp(15px, 3vw, 30px);
+}
+
+.grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Flexbox Utilities */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* Responsive Visibility */
+.hide-mobile {
+    display: block;
+}
+
+.show-mobile {
+    display: none;
+}
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .grid-xl-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .grid-xl-6 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* Desktop (1200px - 1399px) */
+@media (max-width: 1399px) {
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large Tablet (992px - 1199px) */
+@media (max-width: 1199px) {
+    .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nav-desktop-only {
+        display: none;
+    }
+    
+    .nav-mobile-only {
+        display: block;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+    .section {
+        padding: clamp(30px, 6vw, 60px) 0;
+    }
+    
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .flex-tablet-column {
+        flex-direction: column;
+    }
+    
+    .text-tablet-center {
+        text-align: center;
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+    
+    .show-mobile {
+        display: block !important;
+    }
+    
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-mobile-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .flex-mobile-column {
+        flex-direction: column;
+    }
+    
+    .text-mobile-center {
+        text-align: center;
+    }
+    
+    /* Touch-friendly buttons */
+    .btn, button, input[type="submit"], input[type="button"] {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+    
+    /* Larger form elements */
+    input, select, textarea {
+        min-height: 44px;
+        font-size: 16px;
+        padding: 14px 16px;
+    }
+    
+    /* Mobile navigation helpers */
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .section {
+        padding: clamp(25px, 5vw, 40px) 0;
+    }
+    
+    .grid {
+        gap: 15px;
+    }
+    
+    .grid-mobile-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stack everything on very small screens */
+    .flex-mobile-column {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Smaller text on very small screens */
+    h1 { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+    h2 { font-size: clamp(1.3rem, 5vw, 2rem); }
+    h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .hover-lift:hover {
+        transform: none;
+    }
+    
+    .hover-scale:hover {
+        transform: none;
+    }
+    
+    /* Ensure touch targets are large enough */
+    a, button, input, select, textarea, .clickable {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve touch scrolling */
+    .scroll-container {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimize images for retina displays */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .btn, button {
+        border: 2px solid currentColor;
+    }
+    
+    input, select, textarea {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --border-color: #404040;
+    }
+    
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+    }
+    
+    input, select, textarea {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        border-color: var(--border-color);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-only {
+        display: block !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black;
+        background: white;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    .section {
+        padding: 20pt 0;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    
+    .grid {
+        display: block;
+    }
+    
+    .grid > * {
+        margin-bottom: 20pt;
+        page-break-inside: avoid;
+    }
+}
+
+/* Animation Classes for Responsive Interactions */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+.slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Loading States */
+.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

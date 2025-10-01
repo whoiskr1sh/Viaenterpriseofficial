@@ -406,6 +406,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(handleUrlParameters, 30);
         // Initialize wishlist functionality
         initWishlistFunctionality();
+        // Initialize mobile filter functionality
+        initMobileFilters();
     });
 });
 
@@ -521,3 +523,77 @@ function getToastColor(type) {
     };
     return colors[type] || colors.info;
 }
+
+// Mobile filter functionality
+function initMobileFilters() {
+    console.log('Initializing mobile filters...');
+    
+    const mobileFilterToggle = document.querySelector('.mobile-filter-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mobileSortBy = document.getElementById('mobileSortBy');
+    const mainSortBy = document.getElementById('sortBy');
+    
+    console.log('Mobile filter toggle:', mobileFilterToggle);
+    console.log('Sidebar:', sidebar);
+    console.log('Mobile sort:', mobileSortBy);
+    console.log('Main sort:', mainSortBy);
+    
+    // Mobile filter toggle functionality
+    if (mobileFilterToggle && sidebar) {
+        mobileFilterToggle.addEventListener('click', function(e) {
+            console.log('🔄 Mobile filter toggle clicked');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            sidebar.classList.toggle('active');
+            mobileFilterToggle.classList.toggle('active');
+            
+            const isActive = sidebar.classList.contains('active');
+            console.log('✅ Sidebar is now:', isActive ? 'OPEN' : 'CLOSED');
+            console.log('📋 Sidebar classes:', sidebar.className);
+            
+            // Debug computed styles
+            const computedStyles = window.getComputedStyle(sidebar);
+            console.log('🎨 Computed styles:', {
+                display: computedStyles.display,
+                visibility: computedStyles.visibility,
+                opacity: computedStyles.opacity,
+                maxHeight: computedStyles.maxHeight,
+                transform: computedStyles.transform,
+                zIndex: computedStyles.zIndex
+            });
+            
+            // Check if sidebar is visible in viewport
+            const rect = sidebar.getBoundingClientRect();
+            console.log('📐 Sidebar position:', {
+                top: rect.top,
+                left: rect.left,
+                width: rect.width,
+                height: rect.height,
+                visible: rect.height > 0 && rect.width > 0
+            });
+        });
+    } else {
+        console.error('❌ Mobile filter toggle or sidebar not found');
+    }
+    
+    // Sync mobile sort with main sort
+    if (mobileSortBy && mainSortBy) {
+        mobileSortBy.addEventListener('change', function() {
+            console.log('Mobile sort changed to:', this.value);
+            mainSortBy.value = this.value;
+            // Trigger change event on main sort to apply sorting
+            const event = new Event('change');
+            mainSortBy.dispatchEvent(event);
+        });
+        
+        mainSortBy.addEventListener('change', function() {
+            console.log('Main sort changed to:', this.value);
+            mobileSortBy.value = this.value;
+        });
+    } else {
+        console.error('Mobile sort or main sort not found');
+    }
+}
+
+// Note: Mobile filter toggle is handled by the event listener in initMobileFilters()

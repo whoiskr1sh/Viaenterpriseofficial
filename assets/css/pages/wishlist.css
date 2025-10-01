@@ -206,3 +206,58 @@ body{
     opacity: 0;
     transition: opacity .2s
 }
+
+/* Actions buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.actions .btn-primary {
+    background: #8b5a2b;
+    color: white;
+}
+
+.actions .btn-primary:hover {
+    background: #6d4422;
+    transform: translateY(-1px);
+}
+
+.actions .btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.actions .btn-outline {
+    background: transparent;
+    color: #8b5a2b;
+    border: 1px solid #8b5a2b;
+}
+
+.actions .btn-outline:hover {
+    background: #8b5a2b;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

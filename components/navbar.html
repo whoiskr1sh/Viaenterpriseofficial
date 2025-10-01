@@ -3,14 +3,18 @@
     <div class="nav-container">
         <!-- Logo -->
         <a href="index.html" class="logo">Viaenterpriseofficial</a>
-        
-        <!-- Mobile Menu Button -->
-        <div class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
 
         <!-- Main Navigation -->
         <ul class="nav-links">
+            <!-- Mobile Search (will be shown in mobile menu) -->
+            <li class="mobile-search" style="display: none;">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search products...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </li>
             <li><a href="index.html">Home</a></li>
             
             <!-- Shop Dropdown -->
@@ -65,10 +69,101 @@
             </div>
             <a href="login.html" class="icon-link"><i class="far fa-user"></i></a>
             <a href="wishlist.html" class="icon-link"><i class="far fa-heart"></i></a>
-            <a href="#" class="icon-link cart-icon">
+            <a href="#" class="icon-link cart-icon" id="cart-toggle">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
             </a>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </nav>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cart-drawer">
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-content">
+        <!-- Cart Header -->
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span class="cart-item-count">0 items</span>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items -->
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <!-- Empty Cart State -->
+        <div class="empty-cart" id="empty-cart" style="display: none;">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h4>Your cart is empty 🛒</h4>
+            <p>Looks like you haven't added anything to your cart yet</p>
+            <button class="btn btn-shop" onclick="closeCart()">Shop Now</button>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-footer" id="cart-footer">
+            <!-- Promo Code Section -->
+            <div class="promo-section">
+                <div class="promo-input-group">
+                    <input type="text" class="promo-input" placeholder="Enter promo code" id="promo-code">
+                    <button class="promo-btn" id="apply-promo">Apply</button>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span class="subtotal">₹0</span>
+                </div>
+                <div class="summary-row discount-row" style="display: none;">
+                    <span>Discount:</span>
+                    <span class="discount">-₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span class="shipping">Free</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span class="total">₹0</span>
+                </div>
+            </div>
+
+            <!-- Delivery Info -->
+            <div class="delivery-info">
+                <i class="fas fa-truck"></i>
+                <span>Estimated delivery: 3-5 business days</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="cart-actions">
+                <button class="checkout-btn" id="checkout-btn">
+                    <i class="fas fa-lock"></i>
+                    Secure Checkout
+                </button>
+                <button class="continue-shopping" onclick="closeCart()">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast-notification" id="toast-notification">
+    <div class="toast-content">
+        <i class="toast-icon"></i>
+        <span class="toast-message"></span>
+    </div>
+</div>

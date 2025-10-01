@@ -11,6 +11,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/components/navbar.css">
     <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
     <link rel="stylesheet" href="assets/css/pages/shop.css">
 </head>
 <body>
@@ -28,6 +29,24 @@
         </div>
 
         <div class="shop-container">
+            <!-- Mobile Filter Toggle Button -->
+            <button class="mobile-filter-toggle">
+                <i class="fas fa-filter"></i>
+                Filters & Sort
+            </button>
+            
+            <!-- Mobile Sort Section -->
+            <div class="mobile-sort-section">
+                <h3>Quick Sort</h3>
+                <select id="mobileSortBy" class="sort-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest Arrivals</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
+            
             <!-- Sidebar Filters -->
             <aside class="sidebar">
                 <div class="filter-section">
@@ -225,6 +244,7 @@
     <script src="assets/js/shop.js"></script>
     <script src="assets/js/components/navbar.js"></script>
     <script src="assets/js/components/wishlist.js"></script>
+    <script src="assets/js/components/cart.js"></script>
     <script>
         // Load footer component
         fetch('components/footer.html')
@@ -256,6 +276,16 @@
                 const script = document.createElement('script');
                 script.src = 'assets/js/components/navbar.js';
                 document.body.appendChild(script);
+                
+                // Initialize cart after navbar is loaded
+                setTimeout(() => {
+                    if (typeof CartManager !== 'undefined') {
+                        cartManager = new CartManager();
+                        console.log('Cart initialized after navbar load');
+                    } else {
+                        console.error('CartManager not found');
+                    }
+                }, 200);
             });
     </script>
 </body>

@@ -20,7 +20,6 @@
 
   function createCard(item){
     const card = document.createElement('div');
-    console.log(item);
     card.className = 'product-card';
     card.setAttribute('data-product-id', item.id);
 
@@ -49,6 +48,7 @@
           ${ratingHtml}
         </div>
         <div class="actions">
+          <button class="btn btn-primary add-to-cart-btn" data-product-id="${item.id}">Add to Cart</button>
           <a href="${item.link || 'product.html'}" class="btn btn-outline">View Product</a>
         </div>
       </div>`;
@@ -64,6 +64,42 @@
       // Remove card with animation
       card.classList.add('fade-out');
       setTimeout(()=>{ card.remove(); toggleEmptyState(); }, 200);
+    });
+
+    // Hook add to cart functionality
+    const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    addToCartBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Convert wishlist item to cart format
+      const cartItem = {
+        id: item.id,
+        name: item.title,
+        image: item.image || 'assets/images/placeholder.jpg',
+        currentPrice: item.price || parseInt(item.priceText?.replace(/[₹,]/g, '')) || 0,
+        originalPrice: item.originalPrice || parseInt(item.originalPriceText?.replace(/[₹,]/g, '')) || 0,
+        discount: item.originalPriceText ? `${Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}% OFF` : '',
+        quantity: 1,
+        inStock: true,
+        maxStock: 10
+      };
+      
+      // Add to cart using global cart manager
+      if (typeof cartManager !== 'undefined' && cartManager) {
+        cartManager.addToCart(cartItem);
+        
+        // Update button state temporarily
+        addToCartBtn.textContent = 'Added!';
+        addToCartBtn.disabled = true;
+        setTimeout(() => {
+          addToCartBtn.textContent = 'Add to Cart';
+          addToCartBtn.disabled = false;
+        }, 2000);
+      } else {
+        // Fallback: show message to user
+        showToast('Please refresh the page and try again', 'error');
+      }
     });
 
     return card;
@@ -90,6 +126,30 @@
     }
     empty.style.display = 'none';
     items.forEach(item => grid.appendChild(createCard(item)));
+  }
+
+  // Toast notification function
+  function showToast(message, type = 'info') {
+    // Use the global showToast from wishlist.js if available
+    if (typeof window.showToast === 'function') {
+      window.showToast(message, type);
+      return;
+    }
+    
+    // Fallback toast implementation
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.style.cssText = `
+      position: fixed; top: 20px; right: 20px; z-index: 10000;
+      background: ${type === 'error' ? '#dc3545' : '#28a745'};
+      color: white; padding: 15px 20px; border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      animation: slideInRight 0.3s ease-out;
+    `;
+    toast.textContent = message;
+    
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
   }
 
   document.addEventListener('DOMContentLoaded', render);

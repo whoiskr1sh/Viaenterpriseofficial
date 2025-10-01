@@ -14,6 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/components/navbar.css">
     <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
     <link rel="stylesheet" href="assets/css/pages/home.css">
 </head>
 <body>
@@ -359,19 +360,33 @@
 <footer class="site-footer" id="site-footer"></footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/components/navbar.js"></script>
     <script src="assets/js/components/slider.js"></script>
     <script src="assets/js/components/wishlist.js"></script>
+    <script src="assets/js/components/cart.js"></script>
     <script>
-        
         // Load navbar component
         fetch('components/navbar.html')
         .then(r => r.text())
         .then(html => {
             document.getElementById('navbar-container').innerHTML = html;
-            const s = document.createElement('script');
-            s.src = 'assets/js/components/navbar.js';
-            document.body.appendChild(s);
+            
+            // Load navbar JavaScript after HTML is inserted
+            const navScript = document.createElement('script');
+            navScript.src = 'assets/js/components/navbar.js';
+            navScript.onload = function() {
+                console.log('Navbar JavaScript loaded successfully');
+                
+                // Initialize cart after navbar is loaded
+                setTimeout(() => {
+                    if (typeof CartManager !== 'undefined') {
+                        cartManager = new CartManager();
+                        console.log('Cart initialized after navbar load');
+                    } else {
+                        console.error('CartManager not found');
+                    }
+                }, 100);
+            };
+            document.head.appendChild(navScript);
         });
 
         // Load footer component

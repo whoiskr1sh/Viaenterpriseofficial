@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Viaenterpriseofficial</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
+    <link rel="stylesheet" href="assets/css/pages/checkout.css">
+</head>
+<body>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <div class="checkout-container">
+        <div class="checkout-form">
+            <h2>Checkout</h2>
+            
+            <div class="form-section">
+                <h3><i class="fas fa-shipping-fast"></i> Shipping Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" placeholder="Enter your last name" required>
+                    </div>
+                </div>
+                <div class="form-group with-icon">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group with-icon">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+                </div>
+                <div class="form-group with-icon">
+                    <label for="address">Street Address <span class="required">*</span></label>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" id="address" placeholder="House no., Street, Area" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <input type="text" id="city" placeholder="Enter your city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">PIN Code <span class="required">*</span></label>
+                        <input type="text" id="pincode" placeholder="400001" maxlength="6" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="state">State <span class="required">*</span></label>
+                    <select id="state" required>
+                        <option value="">Select your state</option>
+                        <option value="andhra-pradesh">Andhra Pradesh</option>
+                        <option value="arunachal-pradesh">Arunachal Pradesh</option>
+                        <option value="assam">Assam</option>
+                        <option value="bihar">Bihar</option>
+                        <option value="chhattisgarh">Chhattisgarh</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="goa">Goa</option>
+                        <option value="gujarat">Gujarat</option>
+                        <option value="haryana">Haryana</option>
+                        <option value="himachal-pradesh">Himachal Pradesh</option>
+                        <option value="jharkhand">Jharkhand</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="madhya-pradesh">Madhya Pradesh</option>
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="manipur">Manipur</option>
+                        <option value="meghalaya">Meghalaya</option>
+                        <option value="mizoram">Mizoram</option>
+                        <option value="nagaland">Nagaland</option>
+                        <option value="odisha">Odisha</option>
+                        <option value="punjab">Punjab</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="sikkim">Sikkim</option>
+                        <option value="tamil-nadu">Tamil Nadu</option>
+                        <option value="telangana">Telangana</option>
+                        <option value="tripura">Tripura</option>
+                        <option value="uttar-pradesh">Uttar Pradesh</option>
+                        <option value="uttarakhand">Uttarakhand</option>
+                        <option value="west-bengal">West Bengal</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-option" data-method="cod">
+                        <input type="radio" name="payment" id="cod" value="cod">
+                        <div class="radio-custom"></div>
+                        <div class="payment-content">
+                            <div class="payment-title">
+                                <i class="fas fa-money-bill-wave"></i>
+                                Cash on Delivery
+                            </div>
+                            <p class="payment-desc">Pay when you receive your order at your doorstep</p>
+                        </div>
+                    </div>
+                    <div class="payment-option" data-method="upi">
+                        <input type="radio" name="payment" id="upi" value="upi">
+                        <div class="radio-custom"></div>
+                        <div class="payment-content">
+                            <div class="payment-title">
+                                <i class="fab fa-google-pay"></i>
+                                UPI Payment
+                            </div>
+                            <p class="payment-desc">Pay instantly using UPI apps like GPay, PhonePe, Paytm</p>
+                        </div>
+                    </div>
+                    <div class="payment-option" data-method="card">
+                        <input type="radio" name="payment" id="card" value="card">
+                        <div class="radio-custom"></div>
+                        <div class="payment-content">
+                            <div class="payment-title">
+                                <i class="fas fa-credit-card"></i>
+                                Credit/Debit Card
+                            </div>
+                            <p class="payment-desc">Secure payment with your Visa, MasterCard, or RuPay card</p>
+                        </div>
+                    </div>
+                    <div class="payment-option" data-method="netbanking">
+                        <input type="radio" name="payment" id="netbanking" value="netbanking">
+                        <div class="radio-custom"></div>
+                        <div class="payment-content">
+                            <div class="payment-title">
+                                <i class="fas fa-university"></i>
+                                Net Banking
+                            </div>
+                            <p class="payment-desc">Pay directly from your bank account</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="place-order-btn" onclick="placeOrder()">
+                <i class="fas fa-lock"></i>
+                Place Order Securely
+            </button>
+        </div>
+
+        <div class="checkout-summary">
+            <h3>Order Summary</h3>
+            <div id="checkout-items"></div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span class="subtotal">₹0</span>
+                </div>
+                <div class="summary-row discount-row" style="display: none;">
+                    <span>Discount:</span>
+                    <span class="discount">-₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span class="shipping">Free</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span class="total">₹0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Component -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/cart.js"></script>
+    <script>
+        // Load navbar component
+        fetch('components/navbar.html')
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        });
+
+        // Load footer component
+        fetch('components/footer.html')
+          .then(r => r.text())
+          .then(html => { document.getElementById('site-footer').innerHTML = html; });
+
+        // Load checkout data
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCheckoutData();
+            bindPaymentMethods();
+        });
+
+        function loadCheckoutData() {
+            const checkoutData = localStorage.getItem('checkoutCart');
+            if (!checkoutData) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const data = JSON.parse(checkoutData);
+            displayCheckoutItems(data.items);
+            updateCheckoutSummary(data);
+        }
+
+        function displayCheckoutItems(items) {
+            const container = document.getElementById('checkout-items');
+            container.innerHTML = items.map(item => `
+                <div class="checkout-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="checkout-item-details">
+                        <div class="checkout-item-name">${item.name}</div>
+                        <div class="checkout-item-qty">Qty: ${item.quantity}</div>
+                    </div>
+                    <div class="checkout-item-price">₹${(item.currentPrice * item.quantity).toLocaleString()}</div>
+                </div>
+            `).join('');
+        }
+
+        function updateCheckoutSummary(data) {
+            document.querySelector('.subtotal').textContent = `₹${data.subtotal.toLocaleString()}`;
+            document.querySelector('.discount').textContent = `-₹${data.discount.toLocaleString()}`;
+            document.querySelector('.discount-row').style.display = data.discount > 0 ? 'flex' : 'none';
+            document.querySelector('.shipping').textContent = data.shipping > 0 ? `₹${data.shipping.toLocaleString()}` : 'Free';
+            document.querySelector('.total').textContent = `₹${data.total.toLocaleString()}`;
+        }
+
+        function bindPaymentMethods() {
+            // Handle radio button changes
+            document.querySelectorAll('input[name="payment"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to the parent of the checked radio
+                    if (this.checked) {
+                        this.closest('.payment-option').classList.add('selected');
+                    }
+                });
+            });
+
+            // Handle clicking on payment option div
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    const radio = option.querySelector('input[type="radio"]');
+                    if (radio) {
+                        radio.checked = true;
+                        radio.dispatchEvent(new Event('change'));
+                    }
+                });
+            });
+        }
+
+        function placeOrder() {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            if (!selectedPayment) {
+                showAlert('Please select a payment method', 'warning');
+                return;
+            }
+
+            // Validate form fields
+            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'address', 'city', 'pincode', 'state'];
+            for (let field of requiredFields) {
+                const fieldElement = document.getElementById(field);
+                if (!fieldElement.value.trim()) {
+                    fieldElement.focus();
+                    showAlert('Please fill all required fields', 'warning');
+                    return;
+                }
+            }
+
+            // Validate email format
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('email').focus();
+                showAlert('Please enter a valid email address', 'warning');
+                return;
+            }
+
+            // Validate phone number
+            const phone = document.getElementById('phone').value;
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+            if (!phoneRegex.test(phone)) {
+                document.getElementById('phone').focus();
+                showAlert('Please enter a valid phone number', 'warning');
+                return;
+            }
+
+            // Validate PIN code
+            const pincode = document.getElementById('pincode').value;
+            const pincodeRegex = /^[0-9]{6}$/;
+            if (!pincodeRegex.test(pincode)) {
+                document.getElementById('pincode').focus();
+                showAlert('Please enter a valid 6-digit PIN code', 'warning');
+                return;
+            }
+
+            // Show loading state
+            const orderBtn = document.querySelector('.place-order-btn');
+            orderBtn.classList.add('loading');
+            orderBtn.disabled = true;
+
+            // Simulate order placement
+            setTimeout(() => {
+                showAlert('Order placed successfully! You will receive a confirmation email shortly.', 'success');
+                
+                // Clear cart and redirect after a delay
+                setTimeout(() => {
+                    localStorage.removeItem('viaenterprise_cart');
+                    localStorage.removeItem('checkoutCart');
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 2000);
+        }
+
+        function showAlert(message, type) {
+            // Create a better alert system
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 10000;
+                background: ${type === 'success' ? '#28a745' : type === 'warning' ? '#ffc107' : '#dc3545'};
+                color: ${type === 'warning' ? '#333' : 'white'};
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: slideInRight 0.3s ease-out;
+                max-width: 300px;
+                font-weight: 500;
+            `;
+            alertDiv.textContent = message;
+            
+            document.body.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.style.animation = 'slideOutRight 0.3s ease-out';
+                setTimeout(() => alertDiv.remove(), 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
