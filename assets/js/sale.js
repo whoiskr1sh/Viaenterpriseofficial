@@ -18,7 +18,8 @@ const saleProducts = {
     hotDeals: [
         { id: 101, name: 'Designer Kurta Set', price: 899, originalPrice: 2999, rating: 4.8, reviews: 248, image: 'assets/images/kurta.webp', discount: 70, stock: 3, flashTime: '2h 15m' },
         { id: 102, name: 'Silk Banarasi Saree', price: 1299, originalPrice: 3699, rating: 4.9, reviews: 156, image: 'assets/images/saree.webp', discount: 65, stock: 5, flashTime: '1h 45m' },
-        { id: 103, name: 'Wedding Lehenga', price: 2499, originalPrice: 6249, rating: 4.7, reviews: 89, image: 'assets/images/lehenga.jpg', discount: 60, stock: 2, flashTime: '3h 20m' }
+        { id: 103, name: 'Wedding Lehenga', price: 2499, originalPrice: 6249, rating: 4.7, reviews: 89, image: 'assets/images/lehenga.jpg', discount: 60, stock: 2, flashTime: '3h 20m' },
+        { id: 116, name: 'Premium Cotton Kurti', price: 699, originalPrice: 1999, rating: 4.6, reviews: 192, image: 'assets/images/kurti.webp', discount: 65, stock: 4, flashTime: '4h 30m' }
     ],
     ethnic: [
         { id: 104, name: 'Ethnic Printed Kurta', price: 1499, originalPrice: 2999, rating: 4.8, reviews: 248, image: 'assets/images/kurta.webp', discount: 50, stock: 8, viewers: 12 },
@@ -42,7 +43,7 @@ const saleProducts = {
 
 // Initialize Countdown Timer
 function initCountdownTimer() {
-    const countdownDate = new Date().getTime() + (5 * 24 * 60 * 60 * 1000); // 5 days from now
+    const countdownDate = new Date().getTime() + (48 * 60 * 60 * 1000); // 48 hours from now
     
     function updateTimer() {
         const now = new Date().getTime();
@@ -53,13 +54,13 @@ function initCountdownTimer() {
             return;
         }
         
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        // Calculate total hours remaining (including days converted to hours)
+        const totalHours = Math.floor(distance / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        document.getElementById('days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        // Update the display with total hours
+        document.getElementById('hours').textContent = totalHours.toString().padStart(2, '0');
         document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
     }

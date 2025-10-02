@@ -245,7 +245,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 714px) {
     .search-container {
         order: 1;
         width: 100%;
@@ -262,6 +262,38 @@ body {
     .search-btn {
         padding: 12px 15px;
         min-width: 50px;
+    }
+}
+
+/* Apply search icon positioning for all mobile screens */
+@media (max-width: 768px) {
+    .nav-icons .search-container {
+        position: relative !important;
+    }
+    
+    .nav-icons .search-input {
+        padding-right: 40px !important;
+    }
+    
+    .nav-icons .search-btn {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 40px !important;
+        border: none !important;
+        background: transparent !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        color: #666 !important;
+        padding: 0 !important;
+        min-width: 40px !important;
+    }
+    
+    .nav-icons .search-btn:hover {
+        color: #8b5a2b !important;
     }
     
     .nav-links.active ~ .nav-icons .search-container {
@@ -385,15 +417,14 @@ body {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 714px) {
     .nav-container {
         padding: 0 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: nowrap;
-        width: 100%;
-        box-sizing: border-box;
+        gap: 8px;
     }
     
     .nav-links {
@@ -405,7 +436,7 @@ body {
         letter-spacing: 1px;
         flex-shrink: 0;
         margin-right: auto;
-        max-width: 50%;
+        max-width: 35%;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -416,6 +447,13 @@ body {
         gap: 8px;
         flex-shrink: 0;
         margin-right: 8px;
+    }
+    
+    .nav-icons .search-container {
+        display: flex;
+        width: 200px;
+        height: 30px;
+        margin: 5px;
     }
     
     .nav-icons .icon-link {
@@ -432,7 +470,155 @@ body {
         min-width: 36px;
         min-height: 36px;
     }
+    
+    /* Hide mobile icon items in hamburger menu for larger screens */
+    .mobile-icon-item {
+        display: none !important;
     }
+}
+
+/* Small screens (713px and below) - Hide nav icons, show in hamburger menu */
+@media (max-width: 713px) {
+    .nav-container {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding: 8px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .logo {
+        font-size: 18px;
+        letter-spacing: 1px;
+        flex-shrink: 0;
+        margin-right: auto;
+        max-width: 40%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Keep search visible, hide other nav icons on small screens */
+    .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        margin-right: 8px;
+    }
+    
+    .nav-icons .search-container {
+        display: flex;
+        width: 220px;
+        position: relative;
+    }
+    
+    .nav-icons .search-input {
+        width: 100%;
+        padding-right: 40px;
+    }
+    
+    .nav-icons .search-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #666;
+    }
+    
+    .nav-icons .search-btn:hover {
+        color: #8b5a2b;
+    }
+    
+    .nav-icons .icon-link {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+        flex-shrink: 0;
+        padding: 8px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+    
+    /* Show mobile icon items in hamburger menu */
+    .nav-links.active .mobile-icon-item {
+        display: block !important;
+    }
+    
+    .nav-links.active .mobile-icon-item {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-links.active .mobile-icons-group {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 30px;
+        gap: 20px;
+    }
+    
+    .nav-links.active .mobile-icon-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+        padding: 10px;
+        border-radius: 8px;
+        flex: 1;
+        position: relative;
+    }
+    
+    .nav-links.active .mobile-icon-link:hover {
+        background: rgba(139, 90, 43, 0.1);
+        color: #8b5a2b;
+        transform: translateY(-2px);
+    }
+    
+    .nav-links.active .mobile-icon-link i {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .nav-links.active .mobile-icon-link span {
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    .mobile-cart-count {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        background: #8b5a2b;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 10px;
+        font-weight: 600;
+        min-width: 16px;
+        height: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
     
     .nav-links.active {
         display: flex;
@@ -521,7 +707,7 @@ body {
     
     .nav-links.active .mobile-search .search-container {
         display: flex;
-        width: 100%;
+        width: 86%;
         max-width: none;
         margin: 0;
         background: white;
@@ -595,6 +781,102 @@ body {
     }
     
     .logo {
+        max-width: 30%;
+    }
+    
+    .nav-icons .search-container {
+        width: 180px;
+        position: relative;
+    }
+    
+    .nav-icons .search-input {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 40px 8px 12px;
+    }
+    
+    .nav-icons .search-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 35px;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #666;
+        font-size: 14px;
+    }
+}
+
+/* Very small screens - Remove gap between search and hamburger */
+@media (max-width: 440px) {
+    .nav-container {
+        padding: 0 5px;
+        gap: 0;
+    }
+    
+    .logo {
+        max-width: 25%;
+    }
+    
+    .nav-icons {
+        gap: 0;
+        margin-right: 0;
+    }
+    
+    .nav-icons .search-container {
+        width: 160px;
+        margin-right: 5px;
+    }
+    
+    .mobile-menu-btn {
+        padding: 6px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+
+    .nav-links.active .mobile-search .search-container{
+        width: 80%;
+    }
+}
+
+/* Extra small screens - Hide search from navbar */
+@media (max-width: 413px) {
+    .nav-container {
+        padding: 0 8px;
+        gap: 8px;
+    }
+
+    .navbar{
+        padding: 12px 0;
+    }
+    
+    .logo {
+        max-width: 70%;
+        margin-right: auto;
+    }
+    
+    /* Hide search from navbar */
+    .nav-icons .search-container {
+        display: none !important;
+    }
+    
+    .nav-icons {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        padding: 8px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+}
+    
+    .logo {
         font-size: 16px;
         letter-spacing: 0.5px;
         max-width: 45%;
@@ -622,5 +904,4 @@ body {
     .search-dropdown {
         right: -150px;
         width: 250px;
-}
 }

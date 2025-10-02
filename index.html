@@ -23,33 +23,53 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Slider Section -->
-        <section class="slider">
-            <div class="slider-container">
-                <div class="slide active" style="background-image: url('assets/images/banner\ 1.jpeg');">
-                    <div class="slide-content">
-                        <h2>Summer Collection 2025</h2>
-                        <p>Get up to 50% off on selected items</p>
-                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+        <!-- Hero Banner Slider -->
+        <section class="hero-banner">
+            <div class="banner-slider">
+                <!-- Slide 1 - Festive Sale -->
+                <div class="banner-slide active" style="background-image: url('assets/images/banner\ 1.jpeg');">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <h1 class="banner-headline">Biggest Sale of the Year</h1>
+                        <p class="banner-subheadline">Flat 50% off on top brands - Limited time offer</p>
+                        <a href="sale.html" class="banner-cta btn btn-primary">Shop Now</a>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('assets/images/banner\ 2.webp');">
-                    <div class="slide-content">
-                        <h2>New Arrivals</h2>
-                        <p>Discover our latest collection</p>
-                        <a href="new-arrivals.html" class="btn btn-primary">Explore</a>
+
+                <!-- Slide 2 - New Arrivals -->
+                <div class="banner-slide" style="background-image: url('assets/images/banner\ 2.webp');">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <h1 class="banner-headline">New Arrivals Collection</h1>
+                        <p class="banner-subheadline">Discover the latest trends in fashion & lifestyle</p>
+                        <a href="new-arrivals.html" class="banner-cta btn btn-primary">Explore</a>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('assets/images/20250825_0949_image.png');">
-                    <div class="slide-content">
-                        <h2>Festival Special</h2>
-                        <p>Traditional wear for your celebrations</p>
-                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+
+                <!-- Slide 3 - Premium Collection -->
+                <div class="banner-slide" style="background-image: url('assets/images/20250825_0949_image.png');">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <h1 class="banner-headline">Premium Fashion Only for You</h1>
+                        <p class="banner-subheadline">Exclusive designer collection - Elevate your style</p>
+                        <a href="shop.html" class="banner-cta btn btn-primary">Shop Premium</a>
                     </div>
                 </div>
-                <button class="slider-btn prev">&#10094;</button>
-                <button class="slider-btn next">&#10095;</button>
-                <div class="slider-dots"></div>
+
+                <!-- Navigation Arrows -->
+                <button class="banner-nav banner-prev" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="banner-nav banner-next" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slide Indicators -->
+                <div class="banner-indicators">
+                    <button class="indicator active" data-slide="0"></button>
+                    <button class="indicator" data-slide="1"></button>
+                    <button class="indicator" data-slide="2"></button>
+                </div>
             </div>
         </section>
 
@@ -102,10 +122,6 @@
             </div>
 
         </div>
-
-        <!-- Navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
     </div>
 </section>
 
@@ -116,214 +132,191 @@
                 <h2 class="section-title">Best Sellers</h2>
                 <a href="#" class="view-all">View All</a>
             </div>
-            <table class="product-table" cellspacing="20" cellpadding="0" border="0" width="100%" style="max-width: 1400px; margin: 0 auto;">
-                <tr>
-                    <!-- Row 1 -->
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/kurta.webp" alt="Printed Kurta" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Ethnic Printed Kurta</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/kurta.webp" alt="Printed Kurta" class="product-img">
+                    <div class="product-info">
+                        <h3>Ethnic Printed Kurta</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/saree.webp" alt="Silk Saree" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Silk Banarasi Saree</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/saree.webp" alt="Silk Saree" class="product-img">
+                    <div class="product-info">
+                        <h3>Silk Banarasi Saree</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/lehenga.jpg" alt="Designer Lehenga" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Designer Lehenga</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/lehenga.jpg" alt="Designer Lehenga" class="product-img">
+                    <div class="product-info">
+                        <h3>Designer Lehenga</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/kurti.webp" alt="Cotton Kurti" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Cotton Printed Kurti</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/kurti.webp" alt="Cotton Kurti" class="product-img">
+                    <div class="product-info">
+                        <h3>Cotton Printed Kurti</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <!-- Row 2 -->
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/suit.jpg" alt="Chikankari Suit" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Chikankari Suit Set</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/suit.jpg" alt="Chikankari Suit" class="product-img">
+                    <div class="product-info">
+                        <h3>Chikankari Suit Set</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/silk.jpg" alt="Silk Blouse" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Silk Embroidered Blouse</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/silk.jpg" alt="Silk Blouse" class="product-img">
+                    <div class="product-info">
+                        <h3>Silk Embroidered Blouse</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/anarkali.webp" alt="Anarkali Dress" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Anarkali Gown</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/anarkali.webp" alt="Anarkali Dress" class="product-img">
+                    <div class="product-info">
+                        <h3>Anarkali Gown</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                    <td valign="top" width="25%">
-                        <div class="product-card">
-                            <div class="product-badge discount-badge">50% OFF</div>
-                            <button class="wishlist-btn" aria-label="Add to wishlist">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <img src="assets/images/kanjivaram.webp" alt="Kanjivaram Silk" style="width: 100%; height: 400px; object-fit: cover;">
-                            <div class="product-info">
-                                <h3>Kanjivaram Silk Saree</h3>
-                                <div class="rating-price-container">
-                                    <div class="price">
-                                        <span class="current-price">₹1,499</span>
-                                        <span class="original-price">₹2,999</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span class="rating-number">4.8</span>
-                                        <span class="stars">★</span>
-                                        <span class="review-count">(248)</span>
-                                    </div>
-                                    
-                                </div>
-                                <a href="#" class="btn btn-outline">Add to Cart</a>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge discount-badge">50% OFF</div>
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <img src="assets/images/kanjivaram.webp" alt="Kanjivaram Silk" class="product-img">
+                    <div class="product-info">
+                        <h3>Kanjivaram Silk Saree</h3>
+                        <div class="rating-price-container">
+                            <div class="price">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,999</span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-number">4.8</span>
+                                <span class="stars">★</span>
+                                <span class="review-count">(248)</span>
                             </div>
                         </div>
-                    </td>
-                </tr>
-            </table>
+                        <a href="#" class="btn btn-outline">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Discount Banners -->
@@ -333,14 +326,14 @@
                     <div class="banner-content">
                         <h3>Women's Ethnic Wear</h3>
                         <p>Starting at ₹999</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn btn-card1">Shop Now</a>
                     </div>
                 </div>
                 <div class="banner-card" style="background-image: url('assets/images/traditional.webp');">
                     <div class="banner-content">
                         <h3>Traditional Jewelry</h3>
                         <p>Upto 40% off</p>
-                        <a href="#" class="btn btn-primary">Explore</a>
+                        <a href="#" class="btn btn-card1">Explore</a>
                     </div>
                 </div>
             </div>
@@ -360,9 +353,126 @@
 <footer class="site-footer" id="site-footer"></footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/components/slider.js"></script>
     <script src="assets/js/components/wishlist.js"></script>
     <script src="assets/js/components/cart.js"></script>
+    
+    <!-- Banner Slider Script -->
+    <script>
+        /**
+         * Hero Banner Slider - Inline Implementation
+         */
+        class BannerSlider {
+            constructor() {
+                this.slider = document.querySelector('.banner-slider');
+                this.slides = document.querySelectorAll('.banner-slide');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.querySelector('.banner-prev');
+                this.nextBtn = document.querySelector('.banner-next');
+                
+                this.currentSlide = 0;
+                this.totalSlides = this.slides.length;
+                this.autoSlideInterval = null;
+                this.autoSlideDelay = 4000;
+                this.isTransitioning = false;
+                
+                this.init();
+            }
+            
+            init() {
+                if (!this.slider || this.totalSlides === 0) return;
+                this.setupEventListeners();
+                this.startAutoSlide();
+                this.setupTouchSupport();
+            }
+            
+            setupEventListeners() {
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => this.prevSlide());
+                }
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => this.nextSlide());
+                }
+                
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                this.slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
+                this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
+            }
+            
+            setupTouchSupport() {
+                let startX = 0;
+                let endX = 0;
+                
+                this.slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    this.pauseAutoSlide();
+                }, { passive: true });
+                
+                this.slider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                    this.startAutoSlide();
+                }, { passive: true });
+            }
+            
+            goToSlide(slideIndex) {
+                if (this.isTransitioning || slideIndex === this.currentSlide) return;
+                
+                this.isTransitioning = true;
+                
+                this.slides[this.currentSlide].classList.remove('active');
+                this.indicators[this.currentSlide].classList.remove('active');
+                
+                this.currentSlide = slideIndex;
+                
+                this.slides[this.currentSlide].classList.add('active');
+                this.indicators[this.currentSlide].classList.add('active');
+                
+                setTimeout(() => {
+                    this.isTransitioning = false;
+                }, 800);
+            }
+            
+            nextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
+            
+            prevSlide() {
+                const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(prevIndex);
+            }
+            
+            startAutoSlide() {
+                this.pauseAutoSlide();
+                this.autoSlideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, this.autoSlideDelay);
+            }
+            
+            pauseAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
+                }
+            }
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            window.bannerSlider = new BannerSlider();
+        });
+    </script>
     <script>
         // Load navbar component
         fetch('components/navbar.html')
@@ -398,17 +508,35 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,   // hamesha 4 cards ek saath dikhe
+        slidesPerView: 1,   // default mobile view
         spaceBetween: 20,   // cards ke beech gap
         loop: true,         // infinite loop
-        navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-        },
         autoplay: {
         delay: 2500,      // auto slide 2.5s
         disableOnInteraction: false,
         },
+        breakpoints: {
+            // Mobile (480px and up)
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 15
+            },
+            // Tablet (768px and up)
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            // Desktop (992px and up)
+            992: {
+                slidesPerView: 3,
+                spaceBetween: 25
+            },
+            // Large Desktop (1200px and up)
+            1200: {
+                slidesPerView: 4,
+                spaceBetween: 30
+            }
+        }
     });
     </script>   
 </body>

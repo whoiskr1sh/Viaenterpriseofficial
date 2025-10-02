@@ -1,3 +1,7 @@
+body{
+    margin: 0;padding: 0;
+}
+
 /* Checkout Page Styles */
 .checkout-container {
     max-width: 1200px;
@@ -124,10 +128,11 @@
 .form-group.with-icon i {
     position: absolute;
     left: 15px;
-    top: 50%;
+    top: calc(100% - 30px);
     transform: translateY(-50%);
     color: #8b5a2b;
     z-index: 1;
+    pointer-events: none;
 }
 
 .form-group.with-icon input {

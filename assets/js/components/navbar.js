@@ -88,19 +88,53 @@ function initializeNavbar() {
             });
         });
 
-        // Update cart count (example function)
+        // Handle mobile cart toggle
+        const mobileCartToggle = document.getElementById('mobile-cart-toggle');
+        if (mobileCartToggle) {
+            mobileCartToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Trigger the same cart functionality as the main cart icon
+                const cartToggle = document.getElementById('cart-toggle');
+                if (cartToggle) {
+                    cartToggle.click();
+                }
+                // Close mobile menu after clicking cart
+                if (navLinks) {
+                    navLinks.classList.remove('active');
+                }
+                const menuIcon = document.querySelector('.mobile-menu-btn i');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+        // Update cart count (sync both desktop and mobile cart counts)
         function updateCartCount() {
             // In a real app, this would come from your cart data
             const cartCount = 0; // Example count
+            
+            // Update desktop cart count
             const cartCountElement = document.querySelector('.cart-count');
             if (cartCountElement) {
                 cartCountElement.textContent = cartCount;
                 cartCountElement.style.display = cartCount > 0 ? 'flex' : 'none';
             }
+            
+            // Update mobile cart count
+            const mobileCartCountElement = document.querySelector('.mobile-cart-count');
+            if (mobileCartCountElement) {
+                mobileCartCountElement.textContent = cartCount;
+                mobileCartCountElement.style.display = cartCount > 0 ? 'inline-flex' : 'none';
+            }
         }
 
         // Initialize cart count
         updateCartCount();
+        
+        // Make updateCartCount globally available for cart.js to use
+        window.updateNavbarCartCount = updateCartCount;
 
         // Search functionality
         const searchInput = document.querySelector('.search-input');

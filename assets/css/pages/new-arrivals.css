@@ -1003,6 +1003,7 @@ body {
     .products-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        padding: 0 30px;
     }
 }
 
@@ -1065,6 +1066,11 @@ body {
     
     .section-header h2 {
         font-size: 1.5rem;
+        padding-left: 10px;
+    }
+
+    .view-all{
+        padding-left: 10px;
     }
     
     /* Arrivals Newsletter Mobile Styles */
@@ -1169,6 +1175,11 @@ body {
     
     .section-header h2 {
         font-size: 1.3rem;
+        padding-left: 10px;
+    }
+
+    .view-all{
+        padding-left: 10px;
     }
     
     /* Arrivals Newsletter Small Mobile */

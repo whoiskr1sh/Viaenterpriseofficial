@@ -14,6 +14,7 @@ body {
   color: #fff;
   padding: 80px 20px;
   text-align: center;
+  margin-top: 70px;
 }
 
 .hero-content h1 {
@@ -351,6 +352,8 @@ body {
 @media (max-width: 768px) {
   .hero-section {
     padding: 60px 15px;
+    margin-top: 100px;
+
   }
   
   .hero-content h1 {
@@ -371,7 +374,7 @@ body {
   }
   
   .cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   
@@ -390,12 +393,13 @@ body {
   }
   
   .btn {
-    padding: 14px 24px;
-    font-size: 16px;
-    min-height: 48px;
-    width: 100%;
-    max-width: 280px;
+    padding: 12px 20px;
+    font-size: 14px;
+    min-height: auto;
+    width: auto;
+    max-width: none;
     text-align: center;
+    display: inline-block;
   }
   
   .form-row {
@@ -447,6 +451,8 @@ body {
 @media (max-width: 480px) {
   .hero-section {
     padding: 50px 10px;
+    margin-top: 95px;
+
   }
   
   .hero-content h1 {
@@ -464,6 +470,11 @@ body {
   
   .quick-contact-info {
     padding: 30px 0;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
   
   .info-card {
@@ -534,5 +545,4 @@ body {
   .hero-content p {
     font-size: 1rem;
   }
-}
 }

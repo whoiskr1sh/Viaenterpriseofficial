@@ -48,8 +48,8 @@
           ${ratingHtml}
         </div>
         <div class="actions">
-          <button class="btn btn-primary add-to-cart-btn" data-product-id="${item.id}">Add to Cart</button>
-          <a href="${item.link || 'product.html'}" class="btn btn-outline">View Product</a>
+          <button class="btn btn-cart add-to-cart-btn" data-product-id="${item.id}">Add to Cart</button>
+          <a href="${item.link || 'product.html'}" class="btn btn-view">View Product</a>
         </div>
       </div>`;
 

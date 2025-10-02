@@ -5,7 +5,7 @@ body{
 
 .wishlist-page {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 65px auto;
     padding: 40px 20px
 }
 
@@ -159,7 +159,7 @@ body{
     border-radius: 4px
 }
 
-.btn.btn-primary {
+.btn.btn-cart {
     background: #111;
     color: #fff;
     border-color: #111
@@ -181,7 +181,7 @@ body{
     text-decoration: none;
 }
 
-.btn.btn-outline:hover, .btn-outline:hover {
+.btn.btn-view:hover, .btn-view:hover {
     background: #000000;
     color: white;
 }
@@ -228,30 +228,30 @@ body{
     display: inline-block;
 }
 
-.actions .btn-primary {
-    background: #8b5a2b;
-    color: white;
+.actions .btn-cart {
+    background: #000;
+    color: #fff;
 }
 
-.actions .btn-primary:hover {
-    background: #6d4422;
+.actions .btn-cart:hover {
+    background: #000;
     transform: translateY(-1px);
 }
 
-.actions .btn-primary:disabled {
-    background: #ccc;
+.actions .btn-cart:disabled {
+    background: #fff;
     cursor: not-allowed;
     transform: none;
 }
 
-.actions .btn-outline {
+.actions .btn-view {
     background: transparent;
-    color: #8b5a2b;
-    border: 1px solid #8b5a2b;
+    color: #000;
+    border: 1px solid #000;
 }
 
-.actions .btn-outline:hover {
-    background: #8b5a2b;
+.actions .btn-view:hover {
+    background: #000;
     color: white;
 }
 
