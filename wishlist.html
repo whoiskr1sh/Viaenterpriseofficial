@@ -39,7 +39,6 @@
   <footer class="site-footer" id="site-footer"></footer>
 
   <!-- Scripts -->
-  <script src="assets/js/components/navbar.js"></script>
   <script src="assets/js/components/wishlist.js"></script>
   <script src="assets/js/components/cart.js"></script>
   <script>
@@ -48,9 +47,19 @@
       .then(r => r.text())
       .then(html => {
         document.getElementById('navbar-container').innerHTML = html;
-        const s = document.createElement('script');
-        s.src = 'assets/js/components/navbar.js';
-        document.body.appendChild(s);
+        
+        // Load and initialize navbar JS only once
+        if (!window.navbarInitialized) {
+          const s = document.createElement('script');
+          s.src = 'assets/js/components/navbar.js';
+          s.onload = function() {
+            if (typeof initializeNavbar === 'function') {
+              initializeNavbar();
+              window.navbarInitialized = true;
+            }
+          };
+          document.body.appendChild(s);
+        }
         
         // Initialize cart after navbar is loaded
         setTimeout(() => {

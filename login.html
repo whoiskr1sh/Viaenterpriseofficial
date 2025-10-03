@@ -57,9 +57,19 @@
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar-container').innerHTML = html;
-                const script = document.createElement('script');
-                script.src = 'assets/js/components/navbar.js';
-                document.body.appendChild(script);
+                
+                // Load and initialize navbar JS only once
+                if (!window.navbarInitialized) {
+                    const script = document.createElement('script');
+                    script.src = 'assets/js/components/navbar.js';
+                    script.onload = function() {
+                        if (typeof initializeNavbar === 'function') {
+                            initializeNavbar();
+                            window.navbarInitialized = true;
+                        }
+                    };
+                    document.body.appendChild(script);
+                }
                 
                 // Initialize cart after navbar is loaded
                 setTimeout(() => {

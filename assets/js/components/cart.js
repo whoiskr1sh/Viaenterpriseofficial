@@ -26,13 +26,22 @@ class CartManager {
     }
     
     bindEvents() {
-        // Cart toggle
+        // Cart toggle (desktop)
         const cartToggle = document.getElementById('cart-toggle');
         const cartClose = document.getElementById('cart-close');
         const cartOverlay = document.getElementById('cart-overlay');
         
         if (cartToggle) {
             cartToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.openCart();
+            });
+        }
+        
+        // Mobile cart toggle
+        const mobileCartToggle = document.getElementById('mobile-cart-toggle');
+        if (mobileCartToggle) {
+            mobileCartToggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.openCart();
             });
@@ -227,6 +236,7 @@ class CartManager {
         const cartDrawer = document.getElementById('cart-drawer');
         if (cartDrawer) {
             cartDrawer.classList.add('active');
+            document.body.classList.add('cart-open');
             document.body.style.overflow = 'hidden';
             this.isOpen = true;
         }
@@ -236,6 +246,7 @@ class CartManager {
         const cartDrawer = document.getElementById('cart-drawer');
         if (cartDrawer) {
             cartDrawer.classList.remove('active');
+            document.body.classList.remove('cart-open');
             document.body.style.overflow = '';
             this.isOpen = false;
         }
@@ -442,19 +453,36 @@ class CartManager {
     }
     
     updateCartCount() {
+        const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+        
+        // Update desktop cart count
         const cartCount = document.querySelector('.cart-count');
         if (cartCount) {
-            const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
             cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+        
+        // Update mobile cart count
+        const mobileCartCount = document.querySelector('.mobile-cart-count');
+        if (mobileCartCount) {
+            mobileCartCount.textContent = totalItems;
+            mobileCartCount.style.display = totalItems > 0 ? 'flex' : 'none';
         }
     }
     
     animateCartIcon() {
+        // Animate desktop cart count
         const cartCount = document.querySelector('.cart-count');
         if (cartCount) {
             cartCount.classList.add('animate');
             setTimeout(() => cartCount.classList.remove('animate'), 600);
+        }
+        
+        // Animate mobile cart count
+        const mobileCartCount = document.querySelector('.mobile-cart-count');
+        if (mobileCartCount) {
+            mobileCartCount.classList.add('animate');
+            setTimeout(() => mobileCartCount.classList.remove('animate'), 600);
         }
     }
     

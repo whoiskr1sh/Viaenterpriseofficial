@@ -87,7 +87,8 @@ a {
 
 .btn-primary:hover {
     background-color: transparent;
-    color: var(--dark);
+    color: var(--white);
+    border-color: var(--white);
 }
 
 .btn-card1{
@@ -98,7 +99,8 @@ a {
 
 .btn-card1:hover{
     background-color: transparent;
-    color: var(--dark);
+    color: var(--white);
+    border-color: var(--white);
 }
 
 .btn-outline {
@@ -121,6 +123,7 @@ a {
 .btn-light:hover {
     background-color: transparent;
     color: var(--white);
+    border-color: var(--white);
 }
 
 /* Container */

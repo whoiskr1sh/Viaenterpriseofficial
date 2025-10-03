@@ -223,7 +223,7 @@
                         <div class="checkout-item-name">${item.name}</div>
                         <div class="checkout-item-qty">Qty: ${item.quantity}</div>
                     </div>
-                    <div class="checkout-item-price">₹${(item.currentPrice * item.quantity).toLocaleString()}</div>
+                    <div class="checkout-item-price">₹${(item.price * item.quantity).toLocaleString()}</div>
                 </div>
             `).join('');
         }
@@ -312,17 +312,117 @@
             orderBtn.classList.add('loading');
             orderBtn.disabled = true;
 
-            // Simulate order placement
+            // Create and save order
             setTimeout(() => {
+                // Get checkout data
+                const checkoutData = JSON.parse(localStorage.getItem('checkoutCart') || '{}');
+                
+                // Get form data
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+                const city = document.getElementById('city').value;
+                const pincode = document.getElementById('pincode').value;
+                
+                // Get state display text instead of value
+                const stateSelect = document.getElementById('state');
+                const stateText = stateSelect.options[stateSelect.selectedIndex].text;
+                
+                console.log('Creating order with form data:', {
+                    firstName, lastName, email, phone, address, city, stateText, pincode
+                });
+                
+                // Create order object
+                const orderData = {
+                    id: '#ORD' + Date.now().toString().slice(-6),
+                    date: new Date(),
+                    status: 'placed',
+                    paymentStatus: 'paid',
+                    paymentMethod: getSelectedPaymentMethod(),
+                    shippingMethod: 'Standard Delivery',
+                    items: checkoutData.items || [],
+                    total: checkoutData.total || 0,
+                    subtotal: checkoutData.subtotal || 0,
+                    discount: checkoutData.discount || 0,
+                    shipping: checkoutData.shipping || 0,
+                    promoCode: checkoutData.promoCode || null,
+                    shippingAddress: {
+                        name: `${firstName} ${lastName}`,
+                        address: `${address}, ${city}, ${stateText} - ${pincode}`,
+                        phone: phone,
+                        email: email
+                    },
+                    billingAddress: {
+                        name: `${firstName} ${lastName}`,
+                        address: `${address}, ${city}, ${stateText} - ${pincode}`,
+                        phone: phone,
+                        email: email
+                    },
+                    estimatedDelivery: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+                    returnDeadline: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+                    trackingNumber: 'TRK' + Date.now().toString().slice(-8),
+                    canCancel: true,
+                    canReturn: false,
+                    timeline: [
+                        {
+                            status: 'placed',
+                            title: 'Order Placed',
+                            description: 'Your order has been placed successfully',
+                            date: new Date()
+                        },
+                        {
+                            status: 'processing',
+                            title: 'Processing',
+                            description: 'Your order is being processed',
+                            date: new Date(Date.now() + 2 * 60 * 60 * 1000)
+                        },
+                        {
+                            status: 'shipped',
+                            title: 'Shipped',
+                            description: 'Your order has been shipped',
+                            date: new Date(Date.now() + 24 * 60 * 60 * 1000)
+                        },
+                        {
+                            status: 'delivered',
+                            title: 'Delivered',
+                            description: 'Your order has been delivered',
+                            date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000)
+                        }
+                    ]
+                };
+
+                // Save order to localStorage
+                const existingOrders = JSON.parse(localStorage.getItem('userOrders') || '[]');
+                existingOrders.push(orderData);
+                localStorage.setItem('userOrders', JSON.stringify(existingOrders));
+                
+                console.log('Order saved successfully:', orderData);
+                console.log('Total orders in storage:', existingOrders.length);
+
                 showAlert('Order placed successfully! You will receive a confirmation email shortly.', 'success');
                 
-                // Clear cart and redirect after a delay
+                // Clear cart and redirect to orders page
                 setTimeout(() => {
                     localStorage.removeItem('viaenterprise_cart');
                     localStorage.removeItem('checkoutCart');
-                    window.location.href = 'index.html';
+                    window.location.href = 'orders.html';
                 }, 2000);
             }, 2000);
+        }
+
+        function getSelectedPaymentMethod() {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            if (!selectedPayment) return 'Cash on Delivery';
+            
+            switch(selectedPayment.value) {
+                case 'card': return 'Credit/Debit Card';
+                case 'upi': return 'UPI Payment';
+                case 'cod': return 'Cash on Delivery';
+                case 'netbanking': return 'Net Banking';
+                default: return 'Cash on Delivery';
+            }
         }
 
         function showAlert(message, type) {

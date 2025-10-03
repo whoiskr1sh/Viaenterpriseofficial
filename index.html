@@ -326,14 +326,14 @@
                     <div class="banner-content">
                         <h3>Women's Ethnic Wear</h3>
                         <p>Starting at ₹999</p>
-                        <a href="#" class="btn btn-card1">Shop Now</a>
+                        <a href="shop.html?category=saree" class="btn btn-card1">Shop Now</a>
                     </div>
                 </div>
                 <div class="banner-card" style="background-image: url('assets/images/traditional.webp');">
                     <div class="banner-content">
                         <h3>Traditional Jewelry</h3>
                         <p>Upto 40% off</p>
-                        <a href="#" class="btn btn-card1">Explore</a>
+                        <a href="shop.html?category=jewelry" class="btn btn-card1">Explore</a>
                     </div>
                 </div>
             </div>
@@ -344,7 +344,7 @@
             <div class="festive-content">
                 <h2>Festive Collection</h2>
                 <p>Celebrate the season with our exclusive festive wear collection</p>
-                <a href="#" class="btn btn-primary">Shop the Collection</a>
+                <a href="" class="btn btn-primary">Shop the Collection</a>
             </div>
         </section>
     </main>
@@ -481,22 +481,28 @@
             document.getElementById('navbar-container').innerHTML = html;
             
             // Load navbar JavaScript after HTML is inserted
-            const navScript = document.createElement('script');
-            navScript.src = 'assets/js/components/navbar.js';
-            navScript.onload = function() {
-                console.log('Navbar JavaScript loaded successfully');
-                
-                // Initialize cart after navbar is loaded
-                setTimeout(() => {
-                    if (typeof CartManager !== 'undefined') {
-                        cartManager = new CartManager();
-                        console.log('Cart initialized after navbar load');
-                    } else {
-                        console.error('CartManager not found');
+            if (!window.navbarInitialized) {
+                const navScript = document.createElement('script');
+                navScript.src = 'assets/js/components/navbar.js';
+                navScript.onload = function() {
+                    console.log('Navbar JavaScript loaded successfully');
+                    if (typeof initializeNavbar === 'function') {
+                        initializeNavbar();
+                        window.navbarInitialized = true;
                     }
-                }, 100);
-            };
-            document.head.appendChild(navScript);
+                
+                    // Initialize cart after navbar is loaded
+                    setTimeout(() => {
+                        if (typeof CartManager !== 'undefined') {
+                            cartManager = new CartManager();
+                            console.log('Cart initialized after navbar load');
+                        } else {
+                            console.error('CartManager not found');
+                        }
+                    }, 100);
+                };
+                document.head.appendChild(navScript);
+            }
         });
 
         // Load footer component

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Viaenterprise</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/order-details.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="order-details-page">
+        <div class="container">
+            <!-- Back Button -->
+            <div class="back-navigation">
+                <a href="orders.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Orders
+                </a>
+            </div>
+
+            <!-- Order Header -->
+            <div class="order-header">
+                <div class="order-header-content">
+                    <h1 class="order-title" id="order-title">Order #ORD123456</h1>
+                    <div class="order-meta">
+                        <span class="order-date" id="order-date">Dec 15, 2024</span>
+                        <span class="status-badge" id="order-status">Shipped</span>
+                    </div>
+                </div>
+                <div class="order-actions">
+                    <button class="btn btn-secondary" id="download-invoice">
+                        <i class="fas fa-download"></i>
+                        Download Invoice
+                    </button>
+                    <button class="btn btn-primary" id="track-order">
+                        <i class="fas fa-truck"></i>
+                        Track Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Order Content -->
+            <div class="order-content">
+                <!-- Order Timeline -->
+                <div class="order-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-clock"></i>
+                        Order Timeline
+                    </h2>
+                    <div class="timeline-container">
+                        <div class="timeline" id="order-timeline">
+                            <!-- Timeline will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ordered Items -->
+                <div class="order-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-shopping-bag"></i>
+                        Ordered Items
+                    </h2>
+                    <div class="products-container">
+                        <div class="products-list" id="products-list">
+                            <!-- Products will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-receipt"></i>
+                        Order Summary
+                    </h2>
+                    <div class="order-summary-container">
+                        <div class="summary-details" id="order-summary">
+                            <!-- Summary will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping & Billing Info -->
+                <div class="order-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Addresses
+                    </h2>
+                    <div class="addresses-container">
+                        <div class="address-card">
+                            <h3>Shipping Address</h3>
+                            <div class="address-content" id="shipping-address">
+                                <!-- Address will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="address-card">
+                            <h3>Billing Address</h3>
+                            <div class="address-content" id="billing-address">
+                                <!-- Address will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment & Shipping Info -->
+                <div class="order-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-credit-card"></i>
+                        Payment & Shipping
+                    </h2>
+                    <div class="payment-shipping-container">
+                        <div class="info-card">
+                            <div class="info-item">
+                                <span class="info-label">Payment Method:</span>
+                                <span class="info-value" id="payment-method">Credit Card</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Payment Status:</span>
+                                <span class="payment-badge" id="payment-status">Paid</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Shipping Method:</span>
+                                <span class="info-value" id="shipping-method">Standard Delivery</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Tracking Number:</span>
+                                <span class="info-value tracking-number" id="tracking-number">TRK12345678</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Actions -->
+                <div class="order-section">
+                    <div class="order-actions-container">
+                        <button class="btn btn-outline" id="cancel-order" style="display: none;">
+                            <i class="fas fa-times"></i>
+                            Cancel Order
+                        </button>
+                        <button class="btn btn-outline" id="return-order" style="display: none;">
+                            <i class="fas fa-undo"></i>
+                            Return Order
+                        </button>
+                        <button class="btn btn-secondary" id="reorder-btn">
+                            <i class="fas fa-redo"></i>
+                            Reorder Items
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/cart.js"></script>
+    <script src="assets/js/pages/order-details.js"></script>
+    
+    <script>
+        // Page identification
+        console.log('Loading Order Details Page - order-details.html');
+        
+        // Load navbar and footer components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('components/navbar.html')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('navbar-container').innerHTML = html;
+                    
+                    // Load and initialize navbar JS only once
+                    if (!window.navbarInitialized) {
+                        const s = document.createElement('script');
+                        s.src = 'assets/js/components/navbar.js';
+                        s.onload = function() {
+                            if (typeof initializeNavbar === 'function') {
+                                initializeNavbar();
+                                window.navbarInitialized = true;
+                            }
+                        };
+                        document.body.appendChild(s);
+                    }
+                    
+                    // Initialize cart after navbar is loaded
+                    setTimeout(() => {
+                        if (typeof CartManager !== 'undefined') {
+                            window.cartManager = new CartManager();
+                            console.log('Cart initialized on order details page');
+                        } else {
+                            console.error('CartManager not found');
+                        }
+                    }, 200);
+                });
+
+            // Load footer
+            fetch('components/footer.html')
+                .then(r => r.text())
+                .then(html => { 
+                    document.getElementById('site-footer').innerHTML = html; 
+                });
+        });
+    </script>
+</body>
+</html>

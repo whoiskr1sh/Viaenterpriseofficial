@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Viaenterprise</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/pages/orders.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content -->
+    <main class="orders-page">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="orders-header">
+                <div class="header-content">
+                    <h1 class="page-title">
+                        <i class="fas fa-shopping-bag"></i>
+                        My Orders
+                    </h1>
+                    <p class="page-subtitle">Track and manage your orders</p>
+                </div>
+            </div>
+
+            <!-- Orders Content -->
+            <div class="orders-content">
+                <!-- Order Cards Grid -->
+                <div class="orders-cards-container" id="orders-cards">
+                    <!-- Order cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div class="modal-overlay" id="order-details-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-order-title">Order Details</h3>
+                <button class="modal-close" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Order Info -->
+                <div class="order-info-section">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Order ID:</span>
+                            <span class="info-value" id="modal-order-id">#ORD001</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Order Date:</span>
+                            <span class="info-value" id="modal-order-date">Dec 15, 2024</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Status:</span>
+                            <span class="info-value" id="modal-order-status">
+                                <span class="status-badge shipped">Shipped</span>
+                            </span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Payment:</span>
+                            <span class="info-value" id="modal-payment-status">
+                                <span class="payment-badge paid">Paid</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Timeline -->
+                <div class="timeline-section">
+                    <h4>Order Timeline</h4>
+                    <div class="timeline" id="order-timeline">
+                        <!-- Timeline will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Products List -->
+                <div class="products-section">
+                    <h4>Ordered Items</h4>
+                    <div class="products-list" id="modal-products-list">
+                        <!-- Products will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Addresses -->
+                <div class="addresses-section">
+                    <div class="address-grid">
+                        <div class="address-block">
+                            <h4>Shipping Address</h4>
+                            <div class="address-content" id="shipping-address">
+                                <!-- Address will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="address-block">
+                            <h4>Billing Address</h4>
+                            <div class="address-content" id="billing-address">
+                                <!-- Address will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment & Shipping Info -->
+                <div class="payment-shipping-section">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Payment Method:</span>
+                            <span class="info-value" id="payment-method">Credit Card</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Shipping Method:</span>
+                            <span class="info-value" id="shipping-method">Standard Delivery</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Total Amount:</span>
+                            <span class="info-value total-amount" id="total-amount">₹1,299</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="download-invoice">
+                    <i class="fas fa-download"></i>
+                    Download Invoice
+                </button>
+                <button class="btn btn-primary" id="track-order">
+                    <i class="fas fa-truck"></i>
+                    Track Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/cart.js"></script>
+    <script src="assets/js/pages/orders.js"></script>
+    
+    <script>
+        // Page identification
+        console.log('Loading Orders Page - orders.html');
+        
+        // Load navbar and footer components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar
+            fetch('components/navbar.html')
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById('navbar-container').innerHTML = html;
+                    
+                    // Load and initialize navbar JS only once
+                    if (!window.navbarInitialized) {
+                        const s = document.createElement('script');
+                        s.src = 'assets/js/components/navbar.js';
+                        s.onload = function() {
+                            if (typeof initializeNavbar === 'function') {
+                                initializeNavbar();
+                                window.navbarInitialized = true;
+                            }
+                        };
+                        document.body.appendChild(s);
+                    }
+                    
+                    // Initialize cart after navbar is loaded
+                    setTimeout(() => {
+                        if (typeof CartManager !== 'undefined') {
+                            window.cartManager = new CartManager();
+                            console.log('Cart initialized on orders page');
+                        } else {
+                            console.error('CartManager not found');
+                        }
+                    }, 200);
+                });
+
+            // Load footer
+            fetch('components/footer.html')
+                .then(r => r.text())
+                .then(html => { 
+                    document.getElementById('site-footer').innerHTML = html; 
+                });
+        });
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <nav class="navbar">
     <div class="nav-container">
         <!-- Logo -->
-        <a href="index.html" class="logo">Viaenterprise</a>
+        <a href="index.html" class="logo"><h3>Viaenterprise</h3></a>
 
         <!-- Main Navigation -->
         <ul class="nav-links">
@@ -26,6 +26,10 @@
                     <a href="wishlist.html" class="mobile-icon-link">
                         <i class="far fa-heart"></i>
                         <span>Wishlist</span>
+                    </a>
+                    <a href="orders.html" class="mobile-icon-link">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Orders</span>
                     </a>
                     <a href="#" class="mobile-icon-link mobile-cart-link" id="mobile-cart-toggle">
                         <i class="fas fa-shopping-cart"></i>
@@ -89,6 +93,7 @@
             </div>
             <a href="login.html" class="icon-link"><i class="far fa-user"></i></a>
             <a href="wishlist.html" class="icon-link"><i class="far fa-heart"></i></a>
+            <a href="orders.html" class="icon-link" title="My Orders"><i class="fas fa-clipboard-list"></i></a>
             <a href="#" class="icon-link cart-icon" id="cart-toggle">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
@@ -127,7 +132,7 @@
             </div>
             <h4>Your cart is empty 🛒</h4>
             <p>Looks like you haven't added anything to your cart yet</p>
-            <button class="btn btn-shop" onclick="closeCart()">Shop Now</button>
+            <button class="btn-shop" onclick="closeCart()">Shop Now</button>
         </div>
 
         <!-- Cart Footer -->
