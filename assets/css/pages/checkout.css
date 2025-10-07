@@ -526,3 +526,40 @@ body{
     0% { transform: translate(-50%, -50%) rotate(0deg); }
     100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+/* Checkout Help Section */
+.checkout-help {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2c5aa0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.help-link:hover {
+    color: #1e3d72;
+    text-decoration: none;
+}
+
+.help-link i {
+    font-size: 18px;
+}
+
+.checkout-help p {
+    margin: 8px 0 0 0;
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.4;
+}

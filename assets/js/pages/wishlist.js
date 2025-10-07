@@ -23,6 +23,10 @@
     card.className = 'product-card';
     card.setAttribute('data-product-id', item.id);
 
+    // Generate proper product page URL with ID and slug
+    const productSlug = item.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+    const productUrl = `product.html?id=${item.id}&name=${productSlug}`;
+
     const ratingHtml = (typeof item.rating === 'number' && !isNaN(item.rating))
       ? `<div class="rating">
            <span class="rating-number">${item.rating}</span>
@@ -49,7 +53,7 @@
         </div>
         <div class="actions">
           <button class="btn btn-cart add-to-cart-btn" data-product-id="${item.id}">Add to Cart</button>
-          <a href="${item.link || 'product.html'}" class="btn btn-view">View Product</a>
+          <a href="${productUrl}" class="btn btn-view">View Product</a>
         </div>
       </div>`;
 

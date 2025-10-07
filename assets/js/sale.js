@@ -87,28 +87,41 @@ function renderHotDeals() {
         const dealCard = createHotDealCard(product);
         dealsCarousel.appendChild(dealCard);
     });
+    
+    // Initialize wishlist buttons for newly created cards
+    initializeWishlistButtons();
 }
 
 // Create Hot Deal Card
 function createHotDealCard(product) {
+    const productSlug = product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+    const productUrl = `product.html?id=${product.id}&name=${productSlug}`;
+    
     const card = document.createElement('div');
-    card.className = 'deal-card flash-sale';
+    card.className = 'deal-card flash-sale clickable-card';
     card.dataset.category = 'hotdeal';
     card.dataset.discount = product.discount;
     card.dataset.price = product.price;
+    card.dataset.originalPrice = product.originalPrice; // Added for discount calculation
+    card.dataset.productId = product.id; // For wishlist.js to find product ID
+    card.style.cursor = 'pointer';
     
     card.innerHTML = `
         <div class="product-badge discount-badge">${product.discount}% OFF</div>
-        <button class="wishlist-btn" aria-label="Add to wishlist">
+        <button class="wishlist-btn" aria-label="Add to wishlist" onclick="event.stopPropagation();">
             <i class="far fa-heart"></i>
         </button>
         <img src="${product.image}" alt="${product.name}">
         <div class="product-info">
-            <h3>${product.name}</h3>
+            <h3 class="product-title">${product.name}</h3>
             <div class="price-stock-container">
                 <div class="price">
                     <span class="current-price">₹${product.price.toLocaleString('en-IN')}</span>
                     <span class="original-price">₹${product.originalPrice.toLocaleString('en-IN')}</span>
+                </div>
+                <div class="rating" style="display: none;">
+                    <span class="rating-number">${product.rating}</span>
+                    <span class="review-count">(${product.reviews})</span>
                 </div>
                 <div class="stock-timer-section">
                     <div class="stock-info">Only ${product.stock} left!</div>
@@ -118,9 +131,20 @@ function createHotDealCard(product) {
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn btn-outline">Grab Now</a>
+            <a href="${productUrl}" class="btn btn-outline grab-now-btn" onclick="event.stopPropagation();">Grab Now</a>
         </div>
     `;
+    
+    // Add click event listener to the entire card
+    card.addEventListener('click', function(e) {
+        // Don't navigate if clicking on wishlist button or grab now button
+        if (e.target.closest('.wishlist-btn') || e.target.closest('.grab-now-btn')) {
+            return;
+        }
+        
+        // Navigate to product page
+        window.location.href = productUrl;
+    });
     
     return card;
 }
@@ -135,7 +159,10 @@ function createSaleProductCard(product, category) {
     card.href = `product.html?id=${product.id}&name=${productSlug}`;
     card.className = 'product-card';
     card.dataset.id = product.id;
+    card.dataset.productId = product.id; // For wishlist.js to find product ID
     card.dataset.price = product.price;
+    card.dataset.originalPrice = product.originalPrice; // Added for discount calculation
+    card.dataset.discount = discount; // Added for sorting
     card.dataset.rating = product.rating;
     card.dataset.category = category;
     
@@ -146,7 +173,7 @@ function createSaleProductCard(product, category) {
             </button>
             <img src="${product.image}" alt="${product.name}" class="product-img">
             <div class="product-info">
-                <h3>${product.name}</h3>
+                <h3 class="product-title">${product.name}</h3>
                 <div class="rating-price-container">
                     <div class="price">
                         <span class="current-price">₹${product.price.toLocaleString('en-IN')}</span>
@@ -195,6 +222,9 @@ function renderCategoryProducts() {
             accessoriesGrid.appendChild(card);
         });
     }
+    
+    // Initialize wishlist buttons for newly created category cards
+    initializeWishlistButtons();
 }
 
 // Filter and Sorting Functionality
@@ -250,7 +280,7 @@ function initFilters() {
     }
     
     function applyFilters() {
-        const productCards = document.querySelectorAll('.product-card');
+        const productCards = document.querySelectorAll('.product-card, .deal-card');
         let visibleProducts = [];
         
         productCards.forEach(card => {
@@ -276,10 +306,20 @@ function initFilters() {
             }
             
             if (isVisible) {
+                // Get original price from dataset first, then fallback to DOM extraction
+                let originalPrice = parseInt(card.dataset.originalPrice) || 0;
+                
+                // If not in dataset, extract from DOM (for existing cards)
+                if (!originalPrice) {
+                    const originalPriceText = card.querySelector('.original-price')?.textContent || '';
+                    originalPrice = parseInt(originalPriceText.replace(/[₹,]/g, '')) || price;
+                }
+                
                 visibleProducts.push({
                     element: card,
                     discount: discount,
                     price: price,
+                    originalPrice: originalPrice,
                     rating: parseFloat(card.querySelector('.rating-number')?.textContent || '0')
                 });
                 card.style.display = 'block';
@@ -301,13 +341,14 @@ function initFilters() {
         products.sort((a, b) => {
             switch (sortType) {
                 case 'discount':
-                    return b.discount - a.discount;
+                    // Calculate discount percentage for each product
+                    const discountA = Math.round(((a.originalPrice - a.price) / a.originalPrice) * 100);
+                    const discountB = Math.round(((b.originalPrice - b.price) / b.originalPrice) * 100);
+                    return discountB - discountA; // Sort by highest discount first
                 case 'price-low':
                     return a.price - b.price;
                 case 'price-high':
                     return b.price - a.price;
-                case 'bestselling':
-                    return b.rating - a.rating;
                 default:
                     return 0;
             }
@@ -361,57 +402,46 @@ function initFilters() {
 
 // Product Interactions
 function initProductInteractions() {
-    // Wishlist functionality
-    const wishlistBtns = document.querySelectorAll('.wishlist-btn');
-    wishlistBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            this.classList.toggle('active');
-            
-            const icon = this.querySelector('i');
-            if (this.classList.contains('active')) {
-                icon.classList.remove('far');
-                icon.classList.add('fas');
-                showToast('Added to wishlist!', 'success');
-            } else {
-                icon.classList.remove('fas');
-                icon.classList.add('far');
-                showToast('Removed from wishlist', 'info');
-            }
-        });
-    });
-
     // Add to cart functionality
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-to-cart-btn') || e.target.classList.contains('grab-btn')) {
+        if (e.target.classList.contains('add-to-cart-btn') || 
+            e.target.classList.contains('grab-btn') ||
+            e.target.closest('.grab-now-btn')) {
             e.preventDefault();
+            e.stopPropagation(); // Prevent card click
             
             // Add loading state
-            const btn = e.target;
+            const btn = e.target.closest('a') || e.target;
             const originalText = btn.textContent;
             btn.textContent = 'Adding...';
-            btn.disabled = true;
+            btn.style.pointerEvents = 'none';
             
             // Simulate API call
             setTimeout(() => {
                 btn.textContent = originalText;
-                btn.disabled = false;
+                btn.style.pointerEvents = 'auto';
                 showToast('Added to cart!', 'success');
             }, 1000);
         }
     });
 
-    // Product card hover effects
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
+    // Product card hover effects - Use event delegation for dynamic content
+    document.addEventListener('mouseenter', function(e) {
+        if (e.target.closest('.product-card') || e.target.closest('.clickable-card')) {
+            const card = e.target.closest('.product-card') || e.target.closest('.clickable-card');
+            card.style.transform = 'translateY(-5px)';
+            card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+        }
+    }, true);
+    
+    document.addEventListener('mouseleave', function(e) {
+        if (e.target.closest('.product-card') || e.target.closest('.clickable-card')) {
+            const card = e.target.closest('.product-card') || e.target.closest('.clickable-card');
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+        }
+    }, true);
 }
 
 // Newsletter Form
@@ -676,6 +706,125 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Initialize wishlist buttons for dynamically created content
+function initializeWishlistButtons() {
+    // Helper functions (copied from wishlist.js)
+    function getWishlist() {
+        try {
+            return JSON.parse(localStorage.getItem('wishlist_items')) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveWishlist(list) {
+        localStorage.setItem('wishlist_items', JSON.stringify(list));
+    }
+
+    function productIdFromDom(btn) {
+        const container = btn.closest('[data-product-id]') || btn.closest('.product-card') || btn.closest('.deal-card');
+        const explicitId = container?.getAttribute('data-product-id');
+        if (explicitId) return explicitId;
+        
+        // Derive from title + image src as fallback
+        const titleEl = container?.querySelector('.product-title, h3, .title');
+        const imgEl = container?.querySelector('img');
+        const title = (titleEl?.textContent || '').trim();
+        const img = (imgEl?.getAttribute('src') || '').split('/').pop();
+        const derived = `${title || 'item'}_${img || ''}`.toLowerCase().replace(/\s+/g, '-');
+        return derived || Math.random().toString(36).slice(2, 11);
+    }
+
+    function parsePrice(text) {
+        if (!text) return null;
+        const n = Number(text.replace(/[^0-9.]/g, '').replace(/\.(?=.*\.)/g, ''));
+        return Number.isFinite(n) ? n : null;
+    }
+
+    function extractProductData(btn) {
+        const container = btn.closest('[data-product-id]') || btn.closest('.product-card') || btn.closest('.deal-card') || document;
+        const id = productIdFromDom(btn);
+        const title = (container.querySelector('.product-title, h3, .title')?.textContent || '').trim() || 'Product';
+        const priceText = (container.querySelector('.current-price')?.textContent || '').trim();
+        const originalPriceText = (container.querySelector('.original-price')?.textContent || '').trim();
+        const ratingText = (container.querySelector('.rating-number')?.textContent || '').trim();
+        const reviewText = (container.querySelector('.review-count')?.textContent || '').trim();
+        const rating = ratingText ? parseFloat(ratingText) : null;
+        const reviews = reviewText ? parseInt(reviewText.replace(/[^0-9]/g, '') || '0', 10) : null;
+        const image = container.querySelector('img')?.getAttribute('src') || '';
+        const link = container.querySelector('a')?.getAttribute('href') || 'product.html';
+
+        const price = parsePrice(priceText);
+        const originalPrice = parsePrice(originalPriceText);
+
+        return { id, title, priceText, originalPriceText, rating, reviews, image, link, price, originalPrice };
+    }
+
+    function isInWishlist(id) {
+        return getWishlist().some(item => item.id === id);
+    }
+
+    function addToWishlist(item) {
+        const list = getWishlist();
+        if (!list.some(i => i.id === item.id)) {
+            list.push(item);
+            saveWishlist(list);
+        }
+        localStorage.setItem(`wishlist_${item.id}`, 'true');
+    }
+
+    function removeFromWishlist(id) {
+        const list = getWishlist().filter(i => i.id !== id);
+        saveWishlist(list);
+        localStorage.setItem(`wishlist_${id}`, 'false');
+    }
+
+    // Initialize only new wishlist buttons that don't have event listeners
+    const wishlistButtons = document.querySelectorAll('.wishlist-btn:not([data-wishlist-initialized])');
+
+    wishlistButtons.forEach(button => {
+        const id = productIdFromDom(button);
+        const active = isInWishlist(id) || localStorage.getItem(`wishlist_${id}`) === 'true';
+
+        // Initial state
+        if (active) {
+            button.classList.add('active');
+            button.innerHTML = '<i class="fas fa-heart"></i>';
+        } else {
+            button.innerHTML = '<i class="far fa-heart"></i>';
+        }
+
+        // Click handler
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const icon = this.querySelector('i');
+            const id = productIdFromDom(this);
+            const currentlyActive = this.classList.contains('active');
+
+            this.classList.toggle('active');
+
+            if (currentlyActive) {
+                icon.className = 'far fa-heart';
+                removeFromWishlist(id);
+                showToast('Removed from wishlist', 'info');
+            } else {
+                icon.className = 'fas fa-heart';
+                const data = extractProductData(this);
+                addToWishlist(data);
+                showToast('Added to wishlist!', 'success');
+                // Small animation
+                this.style.transform = 'scale(1.2)';
+                setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
+            }
+        });
+
+        // Mark as initialized
+        button.setAttribute('data-wishlist-initialized', 'true');
+    });
+}
 
 // Smooth scroll for hero CTA
 function scrollToProducts() {

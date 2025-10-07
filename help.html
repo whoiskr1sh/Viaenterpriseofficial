@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Viaenterpriseofficial</title>
+    <meta name="description" content="Get help with your orders, returns, payments and more. Contact our customer support team for assistance.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components/navbar.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+    <link rel="stylesheet" href="assets/css/components/cart.css">
+    <link rel="stylesheet" href="assets/css/pages/help.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <button class="close-cart" id="close-cart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Your cart is empty</p>
+                    <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+                </div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display: none;">
+                <div class="cart-total">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₹0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping:</span>
+                        <span id="cart-shipping">Free</span>
+                    </div>
+                    <div class="total-row total">
+                        <span>Total:</span>
+                        <span id="cart-total">₹0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <a href="cart.html" class="btn btn-outline">View Cart</a>
+                    <a href="checkout.html" class="btn btn-primary">Secure Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="help-page">
+        <!-- Header Section -->
+        <section class="help-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1>Help & Support</h1>
+                    <p>We're here to assist you with your shopping experience</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Action Links -->
+        <section class="quick-actions">
+            <div class="container">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="orders.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Track My Order</h3>
+                        <p>Check your order status and delivery updates</p>
+                    </a>
+                    
+                    <a href="orders.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3>Cancel My Order</h3>
+                        <p>Cancel your recent order if not yet shipped</p>
+                    </a>
+                    
+                    <a href="orders.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3>Return an Item</h3>
+                        <p>Start a return or exchange process</p>
+                    </a>
+                    
+                    <a href="account.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Update My Address</h3>
+                        <p>Manage your shipping and billing addresses</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support Options -->
+        <section class="contact-support">
+            <div class="container">
+                <h2>Contact Support</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Support</h3>
+                        <p class="contact-info">+91 98765 43210</p>
+                        <p class="contact-hours">Mon–Sat, 9 AM – 6 PM IST</p>
+                        <a href="tel:+919876543210" class="btn btn-outline">Call Now</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Live Chat</h3>
+                        <p class="contact-info">Chat with our support team</p>
+                        <p class="contact-hours">Response time: 2-5 minutes</p>
+                        <button class="btn btn-primary" id="start-chat">Chat Now</button>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p class="contact-info">support@viaenterpriseofficial.com</p>
+                        <p class="contact-hours">Response time: 24-48 hours</p>
+                        <a href="mailto:support@viaenterpriseofficial.com" class="btn btn-outline">Send Email</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <h3>Raise a Ticket</h3>
+                        <p class="contact-info">Submit a detailed support request</p>
+                        <p class="contact-hours">Response time: 12-24 hours</p>
+                        <a href="#contact-form" class="btn btn-primary">Create Ticket</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                
+                <!-- FAQ Categories -->
+                <div class="faq-categories">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="orders">🛒 Orders & Payments</button>
+                    <button class="category-btn" data-category="shipping">🚚 Shipping & Delivery</button>
+                    <button class="category-btn" data-category="returns">↩️ Returns & Refunds</button>
+                    <button class="category-btn" data-category="account">👤 Account & Profile</button>
+                    <button class="category-btn" data-category="technical">⚙️ Technical Support</button>
+                </div>
+
+                <!-- FAQ Items -->
+                <div class="faq-container">
+                    <!-- Orders & Payments -->
+                    <div class="faq-item" data-category="orders">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>How can I track my order?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can track your order by:</p>
+                            <ul>
+                                <li>Going to <strong>My Orders</strong> page and clicking on your order</li>
+                                <li>Using the tracking number sent to your email</li>
+                                <li>Calling our support team with your order ID</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="orders">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>What payment methods do you accept?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept the following payment methods:</p>
+                            <ul>
+                                <li>Credit/Debit Cards (Visa, MasterCard, RuPay)</li>
+                                <li>UPI (Google Pay, PhonePe, Paytm)</li>
+                                <li>Net Banking</li>
+                                <li>Cash on Delivery (COD)</li>
+                                <li>Digital Wallets (Paytm, Amazon Pay)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="orders">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>Can I cancel my order?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can cancel your order if it hasn't been shipped yet. Go to <strong>My Orders</strong> and click the "Cancel Order" button. If the order has already been shipped, you can return it after delivery.</p>
+                        </div>
+                    </div>
+
+                    <!-- Shipping & Delivery -->
+                    <div class="faq-item" data-category="shipping">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>What are your shipping charges?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our shipping charges are:</p>
+                            <ul>
+                                <li><strong>Free shipping</strong> on orders above ₹999</li>
+                                <li>₹99 for orders below ₹999</li>
+                                <li>Express delivery: ₹199 (1-2 days)</li>
+                                <li>Same-day delivery: ₹299 (available in select cities)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="shipping">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>How long does delivery take?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Delivery times vary by location:</p>
+                            <ul>
+                                <li><strong>Metro cities:</strong> 2-3 business days</li>
+                                <li><strong>Other cities:</strong> 3-5 business days</li>
+                                <li><strong>Remote areas:</strong> 5-7 business days</li>
+                                <li><strong>Express delivery:</strong> 1-2 business days</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Returns & Refunds -->
+                    <div class="faq-item" data-category="returns">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>What is your return policy?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a <strong>30-day return policy</strong> for most items:</p>
+                            <ul>
+                                <li>Items must be unused and in original packaging</li>
+                                <li>Free returns for defective or wrong items</li>
+                                <li>Return shipping charges apply for size/color exchanges</li>
+                                <li>Refunds processed within 5-7 business days</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="returns">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>How do I return an item?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To return an item:</p>
+                            <ol>
+                                <li>Go to <strong>My Orders</strong> and select the item</li>
+                                <li>Click "Return Item" and select reason</li>
+                                <li>Schedule a pickup or drop at our center</li>
+                                <li>Pack the item securely with original tags</li>
+                                <li>Hand over to our delivery partner</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Account & Profile -->
+                    <div class="faq-item" data-category="account">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>How do I create an account?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Creating an account is easy:</p>
+                            <ol>
+                                <li>Click on the "Login" icon in the top right</li>
+                                <li>Select "Create New Account"</li>
+                                <li>Enter your email, phone, and password</li>
+                                <li>Verify your email/phone number</li>
+                                <li>Start shopping with exclusive member benefits!</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="account">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>How do I reset my password?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To reset your password:</p>
+                            <ol>
+                                <li>Go to the login page</li>
+                                <li>Click "Forgot Password?"</li>
+                                <li>Enter your registered email</li>
+                                <li>Check your email for reset link</li>
+                                <li>Create a new password</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Technical Support -->
+                    <div class="faq-item" data-category="technical">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>The website is not loading properly. What should I do?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Try these troubleshooting steps:</p>
+                            <ul>
+                                <li>Clear your browser cache and cookies</li>
+                                <li>Try a different browser (Chrome, Firefox, Safari)</li>
+                                <li>Check your internet connection</li>
+                                <li>Disable browser extensions temporarily</li>
+                                <li>Contact our technical support if issues persist</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="technical">
+                        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+                            <h3>I'm having trouble placing an order. What should I do?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If you're having trouble with checkout:</p>
+                            <ul>
+                                <li>Ensure all required fields are filled correctly</li>
+                                <li>Check if your payment method is valid</li>
+                                <li>Try using a different payment method</li>
+                                <li>Clear your cart and try again</li>
+                                <li>Contact support for immediate assistance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form-section" id="contact-form">
+            <div class="container">
+                <div class="form-header">
+                    <h2>Still Need Help?</h2>
+                    <p>Send us a message and we'll get back to you as soon as possible</p>
+                </div>
+                
+                <form class="contact-form" id="support-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="order-id">Order ID (optional)</label>
+                            <input type="text" id="order-id" name="order-id" placeholder="#ORD123456">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Issue Type</option>
+                                <option value="order-issue">Order Issue</option>
+                                <option value="payment-problem">Payment Problem</option>
+                                <option value="shipping-delay">Shipping Delay</option>
+                                <option value="return-refund">Return/Refund</option>
+                                <option value="product-quality">Product Quality</option>
+                                <option value="technical-issue">Technical Issue</option>
+                                <option value="account-help">Account Help</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Please describe your issue in detail..." required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Support Hours & Social -->
+        <section class="support-footer">
+            <div class="container">
+                <div class="support-content">
+                    <div class="support-hours">
+                        <h3>Support Hours</h3>
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span class="day">Monday - Saturday</span>
+                                <span class="time">9:00 AM - 8:00 PM IST</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="day">Sunday</span>
+                                <span class="time">10:00 AM - 4:00 PM IST</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-support">
+                        <h3>Follow Us for Updates</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="help-links">
+                        <h3>More Help</h3>
+                        <div class="help-link-list">
+                            <a href="shipping-policy.html">Shipping Policy</a>
+                            <a href="returns-policy.html">Returns Policy</a>
+                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/components/cart.js"></script>
+    <script src="assets/js/pages/help.js"></script>
+    
+    <script>
+        // Load navbar and footer
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                // Load navbar JavaScript
+                const script = document.createElement('script');
+                script.src = 'assets/js/components/navbar.js';
+                script.onload = function() {
+                    if (typeof initializeNavbar === 'function') {
+                        initializeNavbar();
+                    }
+                };
+                document.head.appendChild(script);
+            });
+
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Initialize cart and help page
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                if (typeof CartManager !== 'undefined') {
+                    window.cartManager = new CartManager();
+                }
+                
+                if (typeof HelpManager !== 'undefined') {
+                    window.helpManager = new HelpManager();
+                    console.log('HelpManager initialized successfully');
+                }
+                
+                // Also try manual initialization
+                if (typeof initializeHelpPage === 'function') {
+                    initializeHelpPage();
+                }
+            }, 500);
+        });
+        
+        // Additional initialization after page fully loads
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                if (typeof initializeHelpPage === 'function') {
+                    initializeHelpPage();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

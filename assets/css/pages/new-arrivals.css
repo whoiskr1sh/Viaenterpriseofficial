@@ -1028,7 +1028,7 @@ body {
 
 @media (max-width: 768px) {
     .new-arrivals-page {
-        margin-top: 62px; /* Adjust for smaller navbar */
+        margin-top: 36px; /* Adjust for smaller navbar */
     }
     
     .hero-banner {
@@ -1152,7 +1152,7 @@ body {
 
 @media (max-width: 480px) {
     .new-arrivals-page {
-        margin-top: 62px; /* Adjust for smallest navbar */
+        margin-top: 18px;
     }
     
     .hero-banner {
