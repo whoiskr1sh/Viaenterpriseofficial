@@ -6,11 +6,13 @@
   <title>Contact Us - Viaenterpriseofficial</title>
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/responsive-master.css">
   <!-- Components CSS -->
   <link rel="stylesheet" href="assets/css/components/navbar.css">
   <link rel="stylesheet" href="assets/css/components/footer.css">
   <link rel="stylesheet" href="assets/css/components/cart.css">
+  <link rel="stylesheet" href="assets/css/utils/animations.css">
   <!-- Page CSS -->
   <link rel="stylesheet" href="assets/css/pages/contact.css">
 </head>
@@ -18,7 +20,7 @@
   <!-- Navbar -->
   <div id="navbar-container"></div>
 
-  <main class="contact-page">
+  <main class="page-shell contact-page">
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="hero-content">
@@ -51,7 +53,7 @@
         <div class="info-card">
           <i class="fas fa-map-marker-alt"></i>
           <h3>Store Address</h3>
-          <p>201, Heritage Plaza, Main Street,<br>Ahmedabad, Gujarat 380001</p>
+          <p>Vadodara, Gujarat 390001</p>
           <!-- <a href="#map" class="link">View on Map</a> -->
         </div>
       </div>
@@ -113,14 +115,15 @@
           <div class="branch-select">
             <label for="branch">Branch</label>
             <select id="branch" name="branch">
-              <option value="ahmedabad" selected>Ahmedabad</option>
+              <option value="vadodara" selected>Vadodara</option>
+              <option value="ahmedabad">Ahmedabad</option>
               <option value="mumbai">Mumbai</option>
               <option value="delhi">New Delhi</option>
             </select>
           </div>
         </div>
         <div class="map-embed">
-          <iframe id="gmap" title="Store Location" src="https://www.google.com/maps?q=Ahmedabad%20Gujarat&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe id="gmap" title="Store Location" src="https://www.google.com/maps?q=Vadodara%2C%20Gujarat&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="map-actions">
           <a id="directions" class="btn btn-outline" target="_blank" rel="noopener">Get Directions</a>
@@ -192,32 +195,8 @@
 
   <!-- Scripts -->
   <script src="assets/js/components/cart.js"></script>
-  <script>
-    // Load navbar
-    fetch('components/navbar.html')
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById('navbar-container').innerHTML = html;
-        const s = document.createElement('script');
-        s.src = 'assets/js/components/navbar.js';
-        document.body.appendChild(s);
-        
-        // Initialize cart after navbar is loaded
-        setTimeout(() => {
-          if (typeof CartManager !== 'undefined') {
-            cartManager = new CartManager();
-            console.log('Cart initialized after navbar load');
-          } else {
-            console.error('CartManager not found');
-          }
-        }, 200);
-      });
-
-    // Load footer
-    fetch('components/footer.html')
-      .then(r => r.text())
-      .then(html => { document.getElementById('site-footer').innerHTML = html; });
-  </script>
+  <script src="assets/js/components/layout.js"></script>
+  <script src="assets/js/components/animations.js"></script>
   <script src="assets/js/pages/contact.js"></script>
 </body>
 </html>

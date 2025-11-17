@@ -2,22 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sample product data for new arrivals (with categories)
     // Categories: ethnic, jewelry, accessories, hampers, lifestyle
     const newArrivals = [
-        { id: 61, name: 'Cotton Handloom Saree', price: 1599, originalPrice: 2899, rating: 4.5, reviews: 142, image: 'assets/images/Cotton Handloom Saree.webp', category: 'ethnic' },
-        { id: 63, name: 'Velvet Embroidered Lehenga', price: 7599, originalPrice: 11499, rating: 4.7, reviews: 178, image: 'assets/images/velvet-lehenga.jpg', category: 'ethnic' },
-        { id: 65, name: 'Rayon A-Line Kurti', price: 1399, originalPrice: 2599, rating: 4.5, reviews: 132, image: 'assets/images/rayon-kurti.jpg', category: 'ethnic' },
-        { id: 67, name: 'Diamond Pendant Set', price: 4599, originalPrice: 7999, rating: 4.9, reviews: 142, image: 'assets/images/diamond-pendant.jpg', category: 'jewelry' },
-        { id: 69, name: 'Hoop Earrings', price: 499, originalPrice: 899, rating: 4.4, reviews: 198, image: 'assets/images/hoop-earrings.webp', category: 'jewelry' },
-        { id: 71, name: 'Glass Bangles Set', price: 599, originalPrice: 999, rating: 4.3, reviews: 178, image: 'assets/images/glass-bangles.webp', category: 'jewelry' },
-        { id: 73, name: 'Casual Backpack', price: 1399, originalPrice: 2499, rating: 4.6, reviews: 156, image: 'assets/images/backpack.webp', category: 'accessories' },
-        { id: 75, name: 'Casual Slip-ons', price: 899, originalPrice: 1599, rating: 4.4, reviews: 176, image: 'assets/images/slip-ons.webp', category: 'accessories' },
-        { id: 77, name: 'Digital Sports Watch', price: 1299, originalPrice: 2299, rating: 4.6, reviews: 143, image: 'assets/images/sports-watch.jpg', category: 'accessories' },
-        { id: 79, name: 'Festive Sweet Hamper', price: 1599, originalPrice: 2799, rating: 4.5, reviews: 132, image: 'assets/images/sweet-hamper.webp', category: 'hampers' },
-        { id: 81, name: 'Festival Puja Hamper', price: 1399, originalPrice: 2499, rating: 4.6, reviews: 176, image: 'assets/images/puja-hamper.jpg', category: 'hampers' },
-        { id: 83, name: 'Desk Organizer Set', price: 1499, originalPrice: 2499, rating: 4.6, reviews: 154, image: 'assets/images/desk-organizer.webp', category: 'lifestyle' },
-        { id: 85, name: 'Premium Lipstick Set', price: 1299, originalPrice: 2299, rating: 4.7, reviews: 165, image: 'assets/images/lipstick-set.webp', category: 'lifestyle' },
-        { id: 2, name: 'Silk Banarasi Saree', price: 3499, originalPrice: 5999, rating: 4.9, reviews: 312, image: 'assets/images/saree.webp', category: 'ethnic' },
-        { id: 3, name: 'Designer Lehenga', price: 5499, originalPrice: 8999, rating: 4.7, reviews: 198, image: 'assets/images/lehenga.jpg', category: 'ethnic' },
-        { id: 1, name: 'Floral Print Kurti', price: 1499, originalPrice: 2999, rating: 4.8, reviews: 248, image: 'assets/images/kurta2.webp', category: 'ethnic' }
+       { id: 61, name: 'Slim Fit Cargo Pants', price: 1599, originalPrice: 2899, rating: 4.5, reviews: 142, image: 'assets/images/cargo.webp', category: 'ethnic' },
+        { id: 63, name: 'Slim Fit Denim Jeans', price: 7599, originalPrice: 11499, rating: 4.7, reviews: 178, image: 'assets/images/denim1.webp', category: 'ethnic' },
+        { id: 65, name: 'Loose Fit Corduroy Trousers', price: 1399, originalPrice: 2599, rating: 4.5, reviews: 132, image: 'assets/images/trouser.webp', category: 'ethnic' },
+        { id: 67, name: 'Denim Joggers', price: 4599, originalPrice: 7999, rating: 4.9, reviews: 142, image: 'assets/images/joggers.webp', category: 'jewelry' },
+        { id: 69, name: 'Slim Fit Formal Trousers', price: 499, originalPrice: 899, rating: 4.4, reviews: 198, image: 'assets/images/formal_trousers.webp', category: 'jewelry' },
+        { id: 71, name: 'Baggy Cargo Pants', price: 599, originalPrice: 999, rating: 4.3, reviews: 178, image: 'assets/images/cargo.webp', category: 'jewelry' },
+        { id: 73, name: 'Oversized Denims', price: 1399, originalPrice: 2499, rating: 4.6, reviews: 156, image: 'assets/images/denim1.webp', category: 'accessories' },
+        { id: 75, name: 'Slim Fit Denims', price: 899, originalPrice: 1599, rating: 4.4, reviews: 176, image: 'assets/images/denim1.webp', category: 'accessories' },
+        { id: 77, name: 'Textured Slim Fit Formal Trousers', price: 1299, originalPrice: 2299, rating: 4.6, reviews: 143, image: 'assets/images/formal_trousers.webp', category: 'accessories' },
+        { id: 79, name: 'Oversized Denims', price: 1599, originalPrice: 2799, rating: 4.5, reviews: 132, image: 'assets/images/denim1.webp', category: 'hampers' },
+        { id: 81, name: 'Baggy Cargo Pants', price: 1399, originalPrice: 2499, rating: 4.6, reviews: 176, image: 'assets/images/cargo.webp', category: 'hampers' },
+        { id: 83, name: 'Slim Fit Formal Trousers', price: 1499, originalPrice: 2499, rating: 4.6, reviews: 154, image: 'assets/images/formal_trousers.webp', category: 'lifestyle' },
+        { id: 85, name: 'Denim Joggers', price: 1299, originalPrice: 2299, rating: 4.7, reviews: 165, image: 'assets/images/joggers.webp', category: 'lifestyle' },
+        { id: 2, name: 'Loose Fit Corduroy Trousers', price: 3499, originalPrice: 5999, rating: 4.9, reviews: 312, image: 'assets/images/trouser.webp', category: 'ethnic' },
+        { id: 3, name: 'Slim Fit Denim Jeans', price: 5499, originalPrice: 8999, rating: 4.7, reviews: 198, image: 'assets/images/denim1.webp', category: 'ethnic' },
+        { id: 1, name: 'Slim Fit Cargo Pants', price: 1499, originalPrice: 2999, rating: 4.8, reviews: 248, image: 'assets/images/cargo.webp', category: 'ethnic' }
     ];
 
     const productsGrid = document.getElementById('new-arrivals-grid');
