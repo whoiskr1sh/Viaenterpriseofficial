@@ -5,7 +5,7 @@
     const chatBtn = document.getElementById('open-chat');
     if (chatBtn) {
       chatBtn.addEventListener('click', () => {
-        alert('Live chat coming soon. In the meantime, reach us at support@viaenterpriseofficial.com');
+        alert('Live chat coming soon. In the meantime, reach us at support@Clothing.com');
       });
     }
 

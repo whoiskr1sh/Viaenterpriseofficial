@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Viaenterpriseofficial</title>
+  <title>Contact Us - Clothing</title>
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
           <i class="fas fa-envelope"></i>
           <h3>Email</h3>
           <p>We reply within 24 hours</p>
-          <a href="mailto:support@viaenterpriseofficial.com" class="link">support@viaenterpriseofficial.com</a>
+          <a href="mailto:support@Clothing.com" class="link">support@Clothing.com</a>
         </div>
         <div class="info-card">
           <i class="fas fa-comments"></i>
@@ -198,5 +198,36 @@
   <script src="assets/js/components/layout.js"></script>
   <script src="assets/js/components/animations.js"></script>
   <script src="assets/js/pages/contact.js"></script>
+
+  <!-- Load shared navbar & footer -->
+  <script>
+    // Load navbar component
+    fetch('components/navbar.html')
+      .then(r => r.text())
+      .then(html => {
+        const target = document.getElementById('navbar-container');
+        if (target) target.innerHTML = html;
+
+        if (!window.navbarInitialized) {
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/components/navbar.js';
+          navScript.onload = function () {
+            if (typeof initializeNavbar === 'function') {
+              initializeNavbar();
+              window.navbarInitialized = true;
+            }
+          };
+          document.head.appendChild(navScript);
+        }
+      });
+
+    // Load footer component
+    fetch('components/footer.html')
+      .then(r => r.text())
+      .then(html => {
+        const target = document.getElementById('site-footer');
+        if (target) target.innerHTML = html;
+      });
+  </script>
 </body>
 </html>
