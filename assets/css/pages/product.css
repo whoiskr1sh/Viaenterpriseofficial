@@ -122,6 +122,166 @@ body{
     margin-bottom: 25px;
 }
 
+.product-options {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.size-guide-link {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    color: #333;
+    padding: 0;
+}
+
+.size-guide-link:hover {
+    color: #000;
+}
+
+.size-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.size-options button {
+    min-width: 44px;
+    height: 40px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.size-options button.active {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+.color-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.color-button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+    background-color: #ccc;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-button.active {
+    border-color: #111;
+    transform: scale(1.05);
+}
+
+.color-button .color-name {
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.color-button:hover .color-name {
+    opacity: 1;
+}
+
+.size-guide-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.size-guide-modal.active {
+    display: flex;
+}
+
+.size-guide-dialog {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: min(90%, 480px);
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.size-guide-dialog h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.size-guide-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.size-guide-table th,
+.size-guide-table td {
+    border: 1px solid #eee;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.size-guide-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
 .current-price {
     font-size: 1.8rem;
     font-weight: 600;

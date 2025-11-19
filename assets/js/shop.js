@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         jewelry: {
             necklaces: [
-                { id: 7, name: 'Slim Fit Denims', price: 2499, originalPrice: 4499, rating: 4.8, reviews: 156, image: 'assets/images/cargo.webp' },
+                { id: 7, name: 'Slim Fit Cargo Pants', price: 2499, originalPrice: 4499, rating: 4.8, reviews: 156, image: 'assets/images/cargo.webp' },
             ],
             earrings: [
-                { id: 37, name: 'Oversized Denims', price: 3299, originalPrice: 5499, rating: 4.7, reviews: 143, image: 'assets/images/cargo.webp' },
+                { id: 37, name: 'Streetwear Cargo Pants', price: 3299, originalPrice: 5499, rating: 4.7, reviews: 143, image: 'assets/images/cargo.webp' },
             ],  
             bangles: [
-                { id: 38, name: 'Relaxed Fit Denims', price: 2899, originalPrice: 4799, rating: 4.8, reviews: 167, image: 'assets/images/cargo.webp' },
+                { id: 38, name: 'Baggy Cargo Pants', price: 2899, originalPrice: 4799, rating: 4.8, reviews: 167, image: 'assets/images/cargo.webp' },
             ]
         },
         accessories: {

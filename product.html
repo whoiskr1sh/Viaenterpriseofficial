@@ -72,6 +72,28 @@
                     <span class="discount">42% OFF</span>
                 </div>
 
+                <!-- Product Options -->
+                <div class="product-options">
+                    <div class="option-group">
+                        <div class="option-header">
+                            <span class="option-label">Size</span>
+                            <button class="size-guide-link" id="openSizeGuide">Size Guide</button>
+                        </div>
+                        <div class="size-options" id="sizeOptions">
+                            <!-- Size buttons injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <div class="option-header">
+                            <span class="option-label">Color</span>
+                        </div>
+                        <div class="color-options" id="colorOptions">
+                            <!-- Color buttons injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
                 <div class="product-description">
                     <h3>Description</h3>
                     <p class="product-description-text">5-pocket jeans in rigid cotton denim with a straight leg and a loose fit from the seat to the hem with a dropped crotch and extra room around the whole leg. 
@@ -240,6 +262,52 @@
         </section>
     </main>
 
+    <!-- Size Guide Modal -->
+    <div class="size-guide-modal" id="sizeGuideModal" aria-hidden="true">
+        <div class="size-guide-dialog" role="dialog" aria-modal="true">
+            <button class="size-guide-close" id="closeSizeGuide" aria-label="Close size guide">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Size Guide</h3>
+            <table class="size-guide-table">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Chest (in)</th>
+                        <th>Waist (in)</th>
+                        <th>Hip (in)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>32</td>
+                        <td>24</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>34</td>
+                        <td>26</td>
+                        <td>36</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>36</td>
+                        <td>28</td>
+                        <td>38</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>38</td>
+                        <td>30</td>
+                        <td>40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <!-- Footer Component -->
     <footer class="site-footer" id="site-footer">
     </footer>
@@ -295,6 +363,22 @@
             // Product gallery elements
             const thumbnailContainer = document.querySelector('.thumbnail-container');
             const mainImage = document.getElementById('mainImage');
+            const sizeOptionsContainer = document.getElementById('sizeOptions');
+            const colorOptionsContainer = document.getElementById('colorOptions');
+            const productActions = document.querySelector('.product-actions');
+            const sizeGuideModal = document.getElementById('sizeGuideModal');
+            const openSizeGuideBtn = document.getElementById('openSizeGuide');
+            const closeSizeGuideBtn = document.getElementById('closeSizeGuide');
+
+            const DEFAULT_SIZES = ['2', '4', '6', '8', '10'];
+            const DEFAULT_COLORS = [
+                { name: 'Black', value: '#111111' },
+                { name: 'Navy', value: '#0a1f44' },
+                { name: 'Chocolate', value: '#5a3520' }
+            ];
+
+            let selectedSize = DEFAULT_SIZES[0];
+            let selectedColor = DEFAULT_COLORS[0].name;
 
             // Quantity selector
             const decreaseBtn = document.getElementById('decreaseQty');
@@ -314,6 +398,78 @@
                     quantityInput.value = value + 1;
                 }
             });
+
+            function renderSizeOptions(sizes) {
+                if (!sizeOptionsContainer) return;
+                sizeOptionsContainer.innerHTML = '';
+                sizes.forEach((size, index) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.textContent = size;
+                    btn.classList.toggle('active', index === 0);
+                    btn.addEventListener('click', () => {
+                        selectedSize = size;
+                        document.querySelectorAll('#sizeOptions button').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        if (productActions) productActions.dataset.selectedSize = size;
+                    });
+                    sizeOptionsContainer.appendChild(btn);
+                    if (index === 0) {
+                        selectedSize = size;
+                        if (productActions) productActions.dataset.selectedSize = size;
+                    }
+                });
+            }
+
+            function renderColorOptions(colors) {
+                if (!colorOptionsContainer) return;
+                colorOptionsContainer.innerHTML = '';
+                colors.forEach((color, index) => {
+                    const colorObj = typeof color === 'string' ? { name: color, value: color } : color;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'color-button';
+                    btn.style.backgroundColor = colorObj.value || '#999';
+                    btn.setAttribute('aria-label', colorObj.name);
+                    if (index === 0) btn.classList.add('active');
+                    const label = document.createElement('span');
+                    label.className = 'color-name';
+                    label.textContent = colorObj.name;
+                    btn.appendChild(label);
+                    btn.addEventListener('click', () => {
+                        selectedColor = colorObj.name;
+                        document.querySelectorAll('.color-button').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        if (productActions) productActions.dataset.selectedColor = colorObj.name;
+                    });
+                    colorOptionsContainer.appendChild(btn);
+                    if (index === 0) {
+                        selectedColor = colorObj.name;
+                        if (productActions) productActions.dataset.selectedColor = colorObj.name;
+                    }
+                });
+            }
+
+            function toggleSizeGuide(show) {
+                if (!sizeGuideModal) return;
+                if (show) {
+                    sizeGuideModal.classList.add('active');
+                } else {
+                    sizeGuideModal.classList.remove('active');
+                }
+            }
+
+            if (openSizeGuideBtn) {
+                openSizeGuideBtn.addEventListener('click', () => toggleSizeGuide(true));
+            }
+            if (closeSizeGuideBtn) {
+                closeSizeGuideBtn.addEventListener('click', () => toggleSizeGuide(false));
+            }
+            if (sizeGuideModal) {
+                sizeGuideModal.addEventListener('click', (e) => {
+                    if (e.target === sizeGuideModal) toggleSizeGuide(false);
+                });
+            }
 
             // Tab functionality
             const tabBtns = document.querySelectorAll('.tab-btn');
@@ -350,6 +506,11 @@
                     breadcrumbCategory.href = 'shop.html';
                 }
                 if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
+
+                const productSizes = Array.isArray(product.sizes) && product.sizes.length ? product.sizes : DEFAULT_SIZES;
+                const productColors = Array.isArray(product.colors) && product.colors.length ? product.colors : DEFAULT_COLORS;
+                renderSizeOptions(productSizes);
+                renderColorOptions(productColors);
 
                 // Update main image (fallback to product.image)
                 if (mainImage) {
@@ -486,6 +647,9 @@
                         reviewsContainer.appendChild(reviewEl);
                     });
                 }
+            } else {
+                renderSizeOptions(DEFAULT_SIZES);
+                renderColorOptions(DEFAULT_COLORS);
             }
         });
     </script>
