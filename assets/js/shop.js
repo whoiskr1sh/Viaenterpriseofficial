@@ -5,35 +5,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const products = {
         ethnic: {
             sarees: [
-                { id: 2, name: 'Slim Fit Cargo Pants', price: 3499, originalPrice: 5999, rating: 4.9, reviews: 312, image: 'assets/images/cargo.webp' },
-                { id: 31, name: 'Streetwear Cargo Pants', price: 4499, originalPrice: 6999, rating: 4.8, reviews: 245, image: 'assets/images/cargo.webp' },
-                { id: 32, name: 'Baggy Cargo Pants', price: 1999, originalPrice: 3499, rating: 4.6, reviews: 198, image: 'assets/images/cargo.webp' },
+                { id: 2, name: 'Slim Fit Denims', price: 3499, originalPrice: 5999, rating: 4.9, reviews: 312, image: 'assets/images/denim1.webp' },
+            ],
+            lehengas: [
+                { id: 31, name: 'Oversized Denims', price: 4499, originalPrice: 6999, rating: 4.8, reviews: 245, image: 'assets/images/denim1.webp' },
+            ],
+            kurtis: [
+                { id: 32, name: 'Relaxed Fit Denims', price: 1999, originalPrice: 3499, rating: 4.6, reviews: 198, image: 'assets/images/denim1.webp' },
             ]
         },
         jewelry: {
             necklaces: [
-                { id: 7, name: 'Slim Fit Denims', price: 2499, originalPrice: 4499, rating: 4.8, reviews: 156, image: 'assets/images/denim1.webp' },
-                { id: 37, name: 'Oversized Denims', price: 3299, originalPrice: 5499, rating: 4.7, reviews: 143, image: 'assets/images/denim1.webp' },
-                { id: 38, name: 'Relaxed Fit Denims', price: 2899, originalPrice: 4799, rating: 4.8, reviews: 167, image: 'assets/images/denim1.webp' },
+                { id: 7, name: 'Slim Fit Denims', price: 2499, originalPrice: 4499, rating: 4.8, reviews: 156, image: 'assets/images/cargo.webp' },
+            ],
+            earrings: [
+                { id: 37, name: 'Oversized Denims', price: 3299, originalPrice: 5499, rating: 4.7, reviews: 143, image: 'assets/images/cargo.webp' },
+            ],  
+            bangles: [
+                { id: 38, name: 'Relaxed Fit Denims', price: 2899, originalPrice: 4799, rating: 4.8, reviews: 167, image: 'assets/images/cargo.webp' },
             ]
         },
         accessories: {
             bags: [
                 { id: 13, name: 'Loose Fit Corduroy Trousers', price: 1299, originalPrice: 2299, rating: 4.5, reviews: 187, image: 'assets/images/trouser.webp' },
+            ],
+            footwear: [
                 { id: 17, name: 'Relaxed Fit Trousers', price: 1599, originalPrice: 2799, rating: 4.6, reviews: 176, image: 'assets/images/trouser.webp' },
+            ],
+            watches: [
                 { id: 43, name: 'Versatile Relaxed Fit Trousers', price: 999, originalPrice: 1899, rating: 4.5, reviews: 154, image: 'assets/images/trouser.webp' },
         ]
         },
         hampers: {
             optimized_hampers: [
-                { id: 19, name: 'Denim Joggers', price: 2499, originalPrice: 4499, rating: 4.8, reviews: 132, image: 'assets/images/joggers.webp' },
-                { id: 51, name: 'Essential Joggers', price: 1799, originalPrice: 2999, rating: 4.7, reviews: 187, image: 'assets/images/joggers.webp' },
+                { id: 19, name: 'Slim Fit Formal Trousers', price: 2499, originalPrice: 4499, rating: 4.8, reviews: 132, image: 'assets/images/formal_trousers.webp' },
+            ],
+            gift_hampers: [
+                { id: 51, name: 'Textured Slim Fit Formal Trousers', price: 1799, originalPrice: 2999, rating: 4.7, reviews: 187, image: 'assets/images/formal_trousers.webp' },
           ]
         },
         lifestyle: {
             stationery: [
-                { id: 54, name: 'Slim Fit Formal Trousers', price: 799, originalPrice: 1499, rating: 4.6, reviews: 187, image: 'assets/images/formal_trousers.webp' },
-                { id: 55, name: 'Textured Slim Fit Formal Trousers', price: 599, originalPrice: 999, rating: 4.5, reviews: 143, image: 'assets/images/formal_trousers.webp' },
+                { id: 54, name: 'Denim Joggers', price: 799, originalPrice: 1499, rating: 4.6, reviews: 187, image: 'assets/images/joggers.webp' },
+            ],
+            cosmetics: [
+                { id: 55, name: 'Essential Joggers', price: 599, originalPrice: 999, rating: 4.5, reviews: 143, image: 'assets/images/joggers.webp' },
             ]
         }
     };

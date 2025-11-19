@@ -27,7 +27,7 @@
         <section class="hero-banner">
             <div class="banner-slider">
                 <!-- Slide 1 - Festive Sale -->
-                <div class="banner-slide active" style="background-image: url('assets/images/banner\ 1.jpeg');">
+                <div class="banner-slide active" style="background-image: url('assets/images/banner2.webp');">
                     <div class="banner-overlay"></div>
                     <div class="banner-content">
                         <h1 class="banner-headline">Biggest Sale of the Year</h1>
@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Slide 2 - New Arrivals -->
-                <div class="banner-slide" style="background-image: url('assets/images/banner\ 2.webp');">
+                <div class="banner-slide" style="background-image: url('assets/images/banner1.webp');">
                     <div class="banner-overlay"></div>
                     <div class="banner-content">
                         <h1 class="banner-headline">New Arrivals Collection</h1>
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Slide 3 - Premium Collection -->
-                <div class="banner-slide" style="background-image: url('assets/images/20250825_0949_image.png');">
+                <div class="banner-slide" style="background-image: url('assets/images/banner.webp');">
                     <div class="banner-overlay"></div>
                     <div class="banner-content">
                         <h1 class="banner-headline">Premium Fashion Only for You</h1>
@@ -64,12 +64,6 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
 
-                <!-- Slide Indicators -->
-                <div class="banner-indicators">
-                    <button class="indicator active" data-slide="0"></button>
-                    <button class="indicator" data-slide="1"></button>
-                    <button class="indicator" data-slide="2"></button>
-                </div>
             </div>
         </section>
 
@@ -365,7 +359,6 @@
             constructor() {
                 this.slider = document.querySelector('.banner-slider');
                 this.slides = document.querySelectorAll('.banner-slide');
-                this.indicators = document.querySelectorAll('.indicator');
                 this.prevBtn = document.querySelector('.banner-prev');
                 this.nextBtn = document.querySelector('.banner-next');
                 
@@ -392,10 +385,6 @@
                 if (this.nextBtn) {
                     this.nextBtn.addEventListener('click', () => this.nextSlide());
                 }
-                
-                this.indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => this.goToSlide(index));
-                });
                 
                 this.slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
                 this.slider.addEventListener('mouseleave', () => this.startAutoSlide());
@@ -431,12 +420,10 @@
                 this.isTransitioning = true;
                 
                 this.slides[this.currentSlide].classList.remove('active');
-                this.indicators[this.currentSlide].classList.remove('active');
                 
                 this.currentSlide = slideIndex;
-                
+
                 this.slides[this.currentSlide].classList.add('active');
-                this.indicators[this.currentSlide].classList.add('active');
                 
                 setTimeout(() => {
                     this.isTransitioning = false;

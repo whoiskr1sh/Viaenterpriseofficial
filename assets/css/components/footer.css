@@ -5,7 +5,16 @@
     padding: 60px 0 0;
     font-family: 'Poppins', sans-serif;
 }
+.footer-links {
+    display: flex;
+    justify-content: space-between; /* or center / flex-start as you prefer */
+    gap: 2rem;                      /* space between the three columns */
+}
 
+.footer-column {
+    flex: 1;                        /* make each column take equal width */
+    min-width: 100px;               /* prevent them from shrinking too small */
+}
 .footer-container {
     max-width: 1400px;
     margin: 0 auto;

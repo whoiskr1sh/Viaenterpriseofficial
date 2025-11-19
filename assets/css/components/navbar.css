@@ -44,6 +44,7 @@ body.mobile-menu-open {
 
 .nav-container {
     max-width: 1400px;
+    max-height: var(--navbar-height);
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
