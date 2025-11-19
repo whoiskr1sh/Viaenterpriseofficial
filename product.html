@@ -268,40 +268,81 @@
             <button class="size-guide-close" id="closeSizeGuide" aria-label="Close size guide">
                 <i class="fas fa-times"></i>
             </button>
-            <h3>Size Guide</h3>
+            <h2 class="size-guide-title">MENS JEANS</h2>
+            <p class="size-guide-subtitle">Body measurements in centimeters.</p>
             <table class="size-guide-table">
                 <thead>
                     <tr>
-                        <th>Size</th>
-                        <th>Chest (in)</th>
-                        <th>Waist (in)</th>
-                        <th>Hip (in)</th>
+                        <th>SIZE</th>
+                        <th>CHEST</th>
+                        <th>WAIST</th>
+                        <th>HIP</th>
+                        <th>THIGH</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>2</td>
-                        <td>32</td>
-                        <td>24</td>
-                        <td>34</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>34</td>
-                        <td>26</td>
-                        <td>36</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>36</td>
                         <td>28</td>
-                        <td>38</td>
+                        <td>87.75 - 90.25</td>
+                        <td>74.75 - 77.25</td>
+                        <td>86.75 - 89.25</td>
+                        <td>49.80 - 51.40</td>
                     </tr>
                     <tr>
-                        <td>8</td>
-                        <td>38</td>
+                        <td>29</td>
+                        <td>90.25 - 92.75</td>
+                        <td>77.25 - 79.75</td>
+                        <td>89.25 - 91.75</td>
+                        <td>51.40 - 53.00</td>
+                    </tr>
+                    <tr>
                         <td>30</td>
-                        <td>40</td>
+                        <td>92.75 - 95.25</td>
+                        <td>79.75 - 82.25</td>
+                        <td>91.75 - 94.25</td>
+                        <td>53.00 - 54.60</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>95.25 - 97.75</td>
+                        <td>82.25 - 84.75</td>
+                        <td>94.25 - 96.75</td>
+                        <td>54.60 - 56.20</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>97.75 - 100.25</td>
+                        <td>84.75 - 87.25</td>
+                        <td>96.75 - 99.25</td>
+                        <td>56.20 - 57.80</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>100.25 - 102.75</td>
+                        <td>87.25 - 89.75</td>
+                        <td>99.25 - 101.75</td>
+                        <td>57.80 - 59.40</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>102.75 - 105.25</td>
+                        <td>89.75 - 92.25</td>
+                        <td>101.75 - 104.25</td>
+                        <td>59.40 - 61.00</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>105.25 - 110.25</td>
+                        <td>92.25 - 97.25</td>
+                        <td>104.25 - 109.25</td>
+                        <td>61.00 - 64.20</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>110.25 - 115.25</td>
+                        <td>97.25 - 102.25</td>
+                        <td>109.25 - 114.25</td>
+                        <td>64.20 - 67.40</td>
                     </tr>
                 </tbody>
             </table>
@@ -370,7 +411,7 @@
             const openSizeGuideBtn = document.getElementById('openSizeGuide');
             const closeSizeGuideBtn = document.getElementById('closeSizeGuide');
 
-            const DEFAULT_SIZES = ['2', '4', '6', '8', '10'];
+            const DEFAULT_SIZES = ['28', '29', '30', '31', '32', '33', '34', '36', '38'];
             const DEFAULT_COLORS = [
                 { name: 'Black', value: '#111111' },
                 { name: 'Navy', value: '#0a1f44' },
