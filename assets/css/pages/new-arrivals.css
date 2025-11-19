@@ -231,7 +231,7 @@ body {
 /* 1. Hero Banner */
 .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('../../../assets/images/20250825_0949_image.png') center/cover no-repeat;
+                url('../../../assets/images/banner1.webp') center/cover no-repeat;
     color: white;
     text-align: center;
     padding: 150px 20px;
