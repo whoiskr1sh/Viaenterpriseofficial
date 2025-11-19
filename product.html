@@ -49,8 +49,8 @@
                 <nav class="breadcrumb">
                     <a href="index.html">Home</a> /
                     <a href="shop.html">Shop</a> /
-                    <a href="shop.html?category=denims">Denims</a> /
-                    <span>Slim Fit Denims</span>
+                    <a href="#" class="breadcrumb-category">Category</a> /
+                    <span class="breadcrumb-product">Slim Fit Denims</span>
                 </nav>
 
                 <h1 class="product-title">Slim Fit Denims</h1>
@@ -74,12 +74,12 @@
 
                 <div class="product-description">
                     <h3>Description</h3>
-                    <p>5-pocket jeans in rigid cotton denim with a straight leg and a loose fit from the seat to the hem with a dropped crotch and extra room around the whole leg. 
+                    <p class="product-description-text">5-pocket jeans in rigid cotton denim with a straight leg and a loose fit from the seat to the hem with a dropped crotch and extra room around the whole leg. 
                         Regular waist and a button fly. All you need to conquer the full denim look.</p>
 
                     <div class="product-features">
                         <h4>Features:</h4>
-                        <ul>
+                        <ul class="product-features-list">
                             <li>Fabric: 100% Cotton</li>
                             <li>Care: Machine Wash</li>
                             <li>Closure: Button and Zip</li>
@@ -135,20 +135,20 @@
             <div class="tabs-content">
                 <div class="tab-pane active" id="description">
                     <h3>Product Description</h3>
-                    <p>Experience the royal elegance of our Silk Banarasi Saree, a perfect blend of traditional
+                    <p class="tab-description-text">Experience the royal elegance of our Silk Banarasi Saree, a perfect blend of traditional
                         craftsmanship and contemporary design. Each saree is a masterpiece, taking skilled artisans
                         several days to complete. The intricate zari work and detailed motifs make this saree a
                         treasured addition to any ethnic wardrobe.</p>
 
                     <h4>Design & Pattern</h4>
-                    <p>Features traditional Banarasi motifs including floral butis, intricate jaal work, and elegant
+                    <p class="tab-design-text">Features traditional Banarasi motifs including floral butis, intricate jaal work, and elegant
                         borders. The pallu showcases an elaborate design that's characteristic of authentic Banarasi
                         weaves.</p>
                 </div>
 
                 <div class="tab-pane" id="details">
                     <h3>Product Details</h3>
-                    <table class="details-table">
+                    <table class="details-table product-details-table">
                         <tr>
                             <th>Fabric</th>
                             <td>Pure Banarasi Silk</td>
@@ -179,47 +179,49 @@
                 <div class="tab-pane" id="shipping">
                     <h3>Shipping & Returns</h3>
                     <h4>Shipping</h4>
-                    <p>We offer free standard shipping on all orders. Orders are typically processed within 1-2 business
+                    <p class="tab-shipping-text">We offer free standard shipping on all orders. Orders are typically processed within 1-2 business
                         days and delivered within 5-7 business days.</p>
 
                     <h4>Returns</h4>
-                    <p>We offer a 7-day return policy. Items must be in their original condition with all tags attached.
+                    <p class="tab-returns-text">We offer a 7-day return policy. Items must be in their original condition with all tags attached.
                         Customized or personalized items cannot be returned.</p>
                 </div>
 
                 <div class="tab-pane" id="reviews">
                     <h3>Customer Reviews</h3>
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="reviewer">Priya Sharma</div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                    <div class="reviews-list">
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer">Priya Sharma</div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                             </div>
+                            <div class="review-date">August 15, 2023</div>
+                            <p class="review-text">Absolutely stunning saree! The zari work is beautiful and the fabric is
+                                pure silk. Got so many compliments at the wedding I attended.</p>
                         </div>
-                        <div class="review-date">August 15, 2023</div>
-                        <p class="review-text">Absolutely stunning saree! The zari work is beautiful and the fabric is
-                            pure silk. Got so many compliments at the wedding I attended.</p>
-                    </div>
 
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="reviewer">Ananya Patel</div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer">Ananya Patel</div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
                             </div>
+                            <div class="review-date">July 28, 2023</div>
+                            <p class="review-text">Beautiful saree, perfect for special occasions. The color is exactly as
+                                shown in the pictures. The only reason I'm giving 4 stars is because the blouse piece was
+                                slightly smaller than expected.</p>
                         </div>
-                        <div class="review-date">July 28, 2023</div>
-                        <p class="review-text">Beautiful saree, perfect for special occasions. The color is exactly as
-                            shown in the pictures. The only reason I'm giving 4 stars is because the blouse piece was
-                            slightly smaller than expected.</p>
                     </div>
 
                     <button class="btn btn-outline write-review-btn">
@@ -245,10 +247,11 @@
     <!-- JavaScript -->
     <script src="assets/js/components/wishlist.js"></script>
     <script src="assets/js/components/cart.js"></script>
+    <script src="assets/js/products-data.js"></script>
 
     <script>
-        // Load navbar and footer components
-        document.addEventListener('DOMContentLoaded', function () {
+            // Load navbar and footer components
+            document.addEventListener('DOMContentLoaded', function () {
             // Load navbar
             fetch('components/navbar.html')
                 .then(r => r.text())
@@ -289,20 +292,9 @@
                     }
                 });
 
-            // Product gallery functionality
-            const thumbnails = document.querySelectorAll('.thumbnail');
+            // Product gallery elements
+            const thumbnailContainer = document.querySelector('.thumbnail-container');
             const mainImage = document.getElementById('mainImage');
-
-            thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function () {
-                    // Remove active class from all thumbnails
-                    thumbnails.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked thumbnail
-                    this.classList.add('active');
-                    // Update main image
-                    mainImage.src = this.dataset.image;
-                });
-            });
 
             // Quantity selector
             const decreaseBtn = document.getElementById('decreaseQty');
@@ -340,6 +332,161 @@
                     document.getElementById(tabId).classList.add('active');
                 });
             });
+
+            // Dynamic product loading based on URL id
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+            const product = typeof getProductById === 'function' ? getProductById(productId) : null;
+
+            if (product) {
+                // Update title and breadcrumb
+                const titleEl = document.querySelector('.product-title');
+                const breadcrumbCategory = document.querySelector('.breadcrumb-category');
+                const breadcrumbProduct = document.querySelector('.breadcrumb-product');
+
+                if (titleEl) titleEl.textContent = product.name;
+                if (breadcrumbCategory) {
+                    breadcrumbCategory.textContent = product.category || 'Category';
+                    breadcrumbCategory.href = 'shop.html';
+                }
+                if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
+
+                // Update main image (fallback to product.image)
+                if (mainImage) {
+                    mainImage.src = product.image;
+                    mainImage.alt = product.name;
+                }
+
+                // Build thumbnails dynamically if product.images is provided
+                if (thumbnailContainer && Array.isArray(product.images) && product.images.length > 0) {
+                    thumbnailContainer.innerHTML = '';
+
+                    product.images.forEach((imgSrc, index) => {
+                        const thumb = document.createElement('div');
+                        thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                        thumb.dataset.image = imgSrc;
+                        thumb.innerHTML = `<img src="${imgSrc}" alt="${product.name} image ${index + 1}">`;
+                        thumbnailContainer.appendChild(thumb);
+                    });
+
+                    // Attach click handlers for new thumbnails
+                    const thumbs = thumbnailContainer.querySelectorAll('.thumbnail');
+                    thumbs.forEach(thumb => {
+                        thumb.addEventListener('click', function () {
+                            thumbs.forEach(t => t.classList.remove('active'));
+                            this.classList.add('active');
+                            if (mainImage) {
+                                mainImage.src = this.dataset.image;
+                            }
+                        });
+                    });
+                } else {
+                    // If no product.images, keep existing static thumbnails' behavior
+                    const thumbs = document.querySelectorAll('.thumbnail');
+                    thumbs.forEach(thumb => {
+                        thumb.addEventListener('click', function () {
+                            thumbs.forEach(t => t.classList.remove('active'));
+                            this.classList.add('active');
+                            if (mainImage) {
+                                mainImage.src = this.dataset.image;
+                            }
+                        });
+                    });
+                }
+
+                // Update price
+                const currentPriceEl = document.querySelector('.product-price .current-price');
+                const originalPriceEl = document.querySelector('.product-price .original-price');
+                const discountEl = document.querySelector('.product-price .discount');
+
+                if (currentPriceEl) currentPriceEl.textContent = `₹${product.price.toLocaleString('en-IN')}`;
+                if (originalPriceEl) originalPriceEl.textContent = `₹${product.originalPrice.toLocaleString('en-IN')}`;
+                if (discountEl && product.originalPrice > product.price) {
+                    const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+                    discountEl.textContent = `${discount}% OFF`;
+                }
+
+                // Update rating text if present
+                const ratingText = document.querySelector('.rating-text');
+                if (ratingText && product.rating && product.reviews != null) {
+                    ratingText.textContent = `${product.rating} (${product.reviews} reviews)`;
+                }
+
+                // Update description and features (fallback to existing content)
+                const descEl = document.querySelector('.product-description-text');
+                if (descEl && product.description) {
+                    descEl.textContent = product.description;
+                }
+
+                const featuresListEl = document.querySelector('.product-features-list');
+                if (featuresListEl && Array.isArray(product.features) && product.features.length > 0) {
+                    featuresListEl.innerHTML = '';
+                    product.features.forEach((feature) => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresListEl.appendChild(li);
+                    });
+                }
+
+                // Update Description tab content
+                const tabDescEl = document.querySelector('.tab-description-text');
+                if (tabDescEl && product.description) {
+                    tabDescEl.textContent = product.description;
+                }
+
+                const tabDesignEl = document.querySelector('.tab-design-text');
+                if (tabDesignEl && product.features && product.features.length > 0) {
+                    tabDesignEl.textContent = product.features.join(', ');
+                }
+
+                // Update Product Details tab
+                const detailsTable = document.querySelector('.product-details-table');
+                if (detailsTable && Array.isArray(product.details) && product.details.length > 0) {
+                    detailsTable.innerHTML = '';
+                    product.details.forEach((row) => {
+                        const tr = document.createElement('tr');
+                        const th = document.createElement('th');
+                        const td = document.createElement('td');
+                        th.textContent = row.label;
+                        td.textContent = row.value;
+                        tr.appendChild(th);
+                        tr.appendChild(td);
+                        detailsTable.appendChild(tr);
+                    });
+                }
+
+                // Update Shipping & Returns tab
+                const shippingEl = document.querySelector('.tab-shipping-text');
+                if (shippingEl && product.shippingText) {
+                    shippingEl.textContent = product.shippingText;
+                }
+
+                const returnsEl = document.querySelector('.tab-returns-text');
+                if (returnsEl && product.returnsText) {
+                    returnsEl.textContent = product.returnsText;
+                }
+
+                // Update Reviews tab
+                const reviewsContainer = document.querySelector('.reviews-list');
+                if (reviewsContainer && Array.isArray(product.reviews) && product.reviews.length > 0) {
+                    reviewsContainer.innerHTML = '';
+                    product.reviews.forEach((rev) => {
+                        const reviewEl = document.createElement('div');
+                        reviewEl.className = 'review';
+                        reviewEl.innerHTML = `
+                            <div class="review-header">
+                                <div class="reviewer">${rev.name}</div>
+                                <div class="review-rating">
+                                    ${'<i class="fas fa-star"></i>'.repeat(Math.floor(rev.rating))}
+                                </div>
+                            </div>
+                            <div class="review-date">${rev.date}</div>
+                            <p class="review-text">${rev.text}</p>
+                        `;
+                        reviewsContainer.appendChild(reviewEl);
+                    });
+                }
+            }
         });
     </script>
 </body>

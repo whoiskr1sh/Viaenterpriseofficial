@@ -31,7 +31,7 @@
 
 /* Add padding to body to prevent content from hiding behind fixed navbar */
 body {
-    /* padding-top: 80px; Adjust based on navbar height */
+     padding-top: 80px; /* Adjust based on navbar height */
 }
 
 /* Prevent body scroll when mobile menu is open */
