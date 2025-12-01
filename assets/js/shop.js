@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
         ethnic: {
             sarees: [
                 { id: 2, name: 'Slim Fit Denims', price: 3499, originalPrice: 5999, rating: 4.9, reviews: 312, image: 'assets/images/denim1.webp' },
+                { id: 2, name: 'Slim Fit Denims', price: 3499, originalPrice: 5999, rating: 4.9, reviews: 312, image: 'assets/images/denim1.webp' }
             ],
             lehengas: [
                 { id: 31, name: 'Oversized Denims', price: 4499, originalPrice: 6999, rating: 4.8, reviews: 245, image: 'assets/images/denim2.webp' },
+                { id: 31, name: 'Oversized Denims', price: 4499, originalPrice: 6999, rating: 4.8, reviews: 245, image: 'assets/images/denim2.webp' }
             ],
             kurtis: [
                 { id: 32, name: 'Relaxed Fit Denims', price: 1999, originalPrice: 3499, rating: 4.6, reviews: 198, image: 'assets/images/denim1.webp' },
+                { id: 32, name: 'Relaxed Fit Denims', price: 1999, originalPrice: 3499, rating: 4.6, reviews: 198, image: 'assets/images/denim1.webp' }
             ]
         },
         jewelry: {
